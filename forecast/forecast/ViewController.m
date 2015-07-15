@@ -29,7 +29,7 @@
 // Forecast API Docs: https://developer.forecast.io/docs/v2
 // ******************
 - (void)updateForecastData {
-  NSString *callString = @"https://api.forecast.io/forecast/47b4c46a2eba602b069144b4b6310e09/33.4625,88.8200";
+  NSString *callString = @"https://api.forecast.io/forecast/47b4c46a2eba602b069144b4b6310e09/33.4625,-88.8200";
   NSURL *requestURL = [NSURL URLWithString:callString];
   NSURLRequest *request = [NSURLRequest requestWithURL:requestURL];
   if(currentConnection)
@@ -74,7 +74,7 @@
                                        options:NSJSONReadingMutableContainers
                                        error:&error];
   _currently = forecastData[@"currently"];
-  NSLog(@"\nSummary: %@\n", _currently[@"summary"]);
+  NSLog(@"\nSummary: %@\nTemperature: %@\n", _currently[@"summary"], _currently[@"temperature"]);
 }
 
 // ***************************************
