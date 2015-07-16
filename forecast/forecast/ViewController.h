@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserLocation.h"
 
 @interface ViewController : UIViewController <NSURLConnectionDelegate> {
   NSURLConnection *currentConnection;
+  UserLocation *locationTest;
 }
 
 @property (retain, nonatomic) NSMutableData *xmlData;
 @property (strong, nonatomic) NSDictionary *currently;
+@property (strong, nonatomic) NSDictionary *daily;
 
 - (void)updateForecastData;
 

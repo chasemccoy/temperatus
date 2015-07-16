@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E352F4C1B5835DD0049F549 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E352F4B1B5835DD0049F549 /* CoreLocation.framework */; };
+		2E352F4F1B5836200049F549 /* UserLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E352F4E1B5836200049F549 /* UserLocation.m */; };
 		2EA303C21B55A57900115621 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA303C11B55A57900115621 /* main.m */; };
 		2EA303C51B55A57900115621 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA303C41B55A57900115621 /* AppDelegate.m */; };
 		2EA303C81B55A57900115621 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA303C71B55A57900115621 /* ViewController.m */; };
@@ -27,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E352F4B1B5835DD0049F549 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2E352F4D1B5836200049F549 /* UserLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLocation.h; sourceTree = "<group>"; };
+		2E352F4E1B5836200049F549 /* UserLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLocation.m; sourceTree = "<group>"; };
 		2EA303BC1B55A57900115621 /* forecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = forecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EA303C01B55A57900115621 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EA303C11B55A57900115621 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E352F4C1B5835DD0049F549 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +69,7 @@
 		2EA303B31B55A57900115621 = {
 			isa = PBXGroup;
 			children = (
+				2E352F4B1B5835DD0049F549 /* CoreLocation.framework */,
 				2EA303BE1B55A57900115621 /* forecast */,
 				2EA303D81B55A57900115621 /* forecastTests */,
 				2EA303BD1B55A57900115621 /* Products */,
@@ -85,6 +92,8 @@
 				2EA303C41B55A57900115621 /* AppDelegate.m */,
 				2EA303C61B55A57900115621 /* ViewController.h */,
 				2EA303C71B55A57900115621 /* ViewController.m */,
+				2E352F4D1B5836200049F549 /* UserLocation.h */,
+				2E352F4E1B5836200049F549 /* UserLocation.m */,
 				2EA303C91B55A57900115621 /* Main.storyboard */,
 				2EA303CC1B55A57900115621 /* Images.xcassets */,
 				2EA303CE1B55A57900115621 /* LaunchScreen.xib */,
@@ -220,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EA303C81B55A57900115621 /* ViewController.m in Sources */,
+				2E352F4F1B5836200049F549 /* UserLocation.m in Sources */,
 				2EA303C51B55A57900115621 /* AppDelegate.m in Sources */,
 				2EA303C21B55A57900115621 /* main.m in Sources */,
 			);
@@ -416,6 +426,7 @@
 				2EA303E11B55A57900115621 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2EA303E21B55A57900115621 /* Build configuration list for PBXNativeTarget "forecastTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +435,7 @@
 				2EA303E41B55A57900115621 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

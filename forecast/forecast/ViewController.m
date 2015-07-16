@@ -20,7 +20,9 @@
   [super viewDidLoad];
   // Do any additional setup after loading the view, typically from a nib.
   
-  [self updateForecastData];
+  //[self updateForecastData];
+  locationTest = [[UserLocation alloc] init];
+  [locationTest updateLocation];
 }
 
 
@@ -74,7 +76,9 @@
                                        options:NSJSONReadingMutableContainers
                                        error:&error];
   _currently = forecastData[@"currently"];
+  _daily = forecastData[@"daily"];
   NSLog(@"\nSummary: %@\nTemperature: %@\n", _currently[@"summary"], _currently[@"temperature"]);
+  NSLog(@"\nWeekly Summary: %@\n", _daily[@"summary"]);
 }
 
 // ***************************************
