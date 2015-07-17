@@ -26,6 +26,10 @@
   }
 }
 
+- (void)stopUpdatingLocation {
+  [locationManager stopUpdatingLocation];
+}
+
 - (void)locationManager:(CLLocationManager *) manager
      didUpdateLocations:(NSArray *)locations{
   currentLocation = [locations lastObject];
@@ -68,7 +72,8 @@
       NSLog(@"Error %@", error.description);
     } else {
       CLPlacemark *placemark = [placemarks lastObject];
-      NSLog([NSString stringWithFormat:@"\n%@\n", ABCreateStringWithAddressDictionary(placemark.addressDictionary, NO)]);
+      _currentCity = [NSString stringWithFormat:@"%@", [placemark.addressDictionary objectForKey:(NSString*)kABPersonAddressCityKey]];
+      NSLog([NSString stringWithFormat:@"\n%@\n", _currentCity]);
     }
   }];
 }

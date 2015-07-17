@@ -12,6 +12,7 @@
 @interface ViewController : UIViewController <NSURLConnectionDelegate> {
   NSURLConnection *currentConnection;
   UserLocation *locationTest;
+  __weak IBOutlet UILabel *cityLabel;
 }
 
 @property (retain, nonatomic) NSMutableData *xmlData;
@@ -19,6 +20,7 @@
 @property (strong, nonatomic) NSDictionary *daily;
 
 - (void)updateForecastData;
+- (void)updateView;
 
 @end
 

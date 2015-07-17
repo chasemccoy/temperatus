@@ -23,8 +23,12 @@
   //[self updateForecastData];
   locationTest = [[UserLocation alloc] init];
   [locationTest updateLocation];
+  [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateView) userInfo:nil repeats:YES];
 }
 
+- (void)updateView {
+  cityLabel.text = [locationTest currentCity];
+}
 
 
 // ******************

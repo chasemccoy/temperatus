@@ -15,8 +15,11 @@
   CLLocationManager *locationManager;
 }
 
+@property (retain, nonatomic) NSString *currentCity;
+
 - (UserLocation *)init;
 - (void)updateLocation;
+- (void)stopUpdatingLocation;
 
 - (void)locationManager:(CLLocationManager *) manager
      didUpdateLocations:(NSArray *)locations;
