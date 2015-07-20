@@ -8,16 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "UserLocation.h"
+#import "Forecastr.h"
 
-@interface ViewController : UIViewController <NSURLConnectionDelegate> {
-  NSURLConnection *currentConnection;
+@interface ViewController : UIViewController {
   UserLocation *locationTest;
   __weak IBOutlet UILabel *cityLabel;
+  Forecastr *forecastr;
 }
-
-@property (retain, nonatomic) NSMutableData *xmlData;
-@property (strong, nonatomic) NSDictionary *currently;
-@property (strong, nonatomic) NSDictionary *daily;
 
 - (void)updateForecastData;
 - (void)updateView;
