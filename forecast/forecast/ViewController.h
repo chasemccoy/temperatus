@@ -12,12 +12,15 @@
 
 @interface ViewController : UIViewController {
   UserLocation *locationTest;
-  __weak IBOutlet UILabel *cityLabel;
   Forecastr *forecastr;
 }
 
+@property(nonatomic, strong) IBOutlet UITextView* textView;
+@property (weak, nonatomic) IBOutlet UILabel *tempLabel;
+
 - (void)updateForecastData;
 - (void)updateView;
+- (void)adjustFontSizeOfTextViewToFitData;
 
 @end
 
