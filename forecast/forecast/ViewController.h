@@ -17,10 +17,12 @@
 
 @property(nonatomic, strong) IBOutlet UITextView* textView;
 @property (weak, nonatomic) IBOutlet UILabel *tempLabel;
+@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 
 - (void)updateForecastData;
 - (void)updateView:(NSDictionary*)JSON;
 - (void)adjustFontSizeOfTextViewToFitData;
+- (IBAction)refreshButton:(id)sender;
 
 @end
 

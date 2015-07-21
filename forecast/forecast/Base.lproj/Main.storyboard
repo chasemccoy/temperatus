@@ -42,18 +42,35 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njt-Um-zCH">
+                                <rect key="frame" x="448" y="489" width="132" height="91"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="M93-ki-iHo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Refresh">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="refreshButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oRX-98-I5S"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4mF-yZ-VyR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="3" id="1Uj-wo-utC"/>
+                            <constraint firstItem="njt-Um-zCH" firstAttribute="trailing" secondItem="Mi8-Fb-6KO" secondAttribute="trailing" id="1ZD-di-uah"/>
                             <constraint firstAttribute="bottom" secondItem="4mF-yZ-VyR" secondAttribute="bottom" constant="20" symbolic="YES" id="5aO-HW-5GK"/>
+                            <constraint firstItem="njt-Um-zCH" firstAttribute="top" secondItem="4mF-yZ-VyR" secondAttribute="top" id="Bhh-kz-4tx"/>
                             <constraint firstItem="Mi8-Fb-6KO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="IBQ-5j-eZP"/>
                             <constraint firstItem="4mF-yZ-VyR" firstAttribute="top" secondItem="Mi8-Fb-6KO" secondAttribute="bottom" constant="8" symbolic="YES" id="bVr-k6-xB0"/>
+                            <constraint firstItem="njt-Um-zCH" firstAttribute="bottom" secondItem="4mF-yZ-VyR" secondAttribute="bottom" id="iyk-NN-2xg"/>
                             <constraint firstItem="Mi8-Fb-6KO" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="p9H-sJ-pra"/>
                             <constraint firstItem="Mi8-Fb-6KO" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="r7k-Wz-oRa"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="refreshButton" destination="njt-Um-zCH" id="tDi-vF-7cT"/>
                         <outlet property="tempLabel" destination="4mF-yZ-VyR" id="mDw-iK-oi0"/>
                         <outlet property="textView" destination="Mi8-Fb-6KO" id="52g-7B-41n"/>
                     </connections>

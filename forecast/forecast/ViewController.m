@@ -41,8 +41,15 @@
   NSLog(@"\n*****%@*****\n", JSON[kFCCurrentlyForecast][kFCTemperature]);
   if (JSON[kFCCurrentlyForecast][kFCSummary]) {
     _textView.selectable = YES;
-    _textView.text = JSON[kFCCurrentlyForecast][kFCSummary];
-    _textView.text = [_textView.text stringByAppendingString:[NSString stringWithFormat:@"\n\n%@\n\n%@", JSON[kFCHourlyForecast][kFCSummary], JSON[kFCDailyForecast][kFCSummary]]];
+    
+    NSString *currentlySummary = JSON[kFCCurrentlyForecast][kFCSummary];
+    NSString *hourlySummary = JSON[kFCHourlyForecast][kFCSummary];
+    NSString *dailySummary = JSON[kFCDailyForecast][kFCSummary];
+    
+    _textView.text = currentlySummary ? [NSString stringWithFormat:@"%@\n\n", currentlySummary] : @"";
+    _textView.text = hourlySummary ? [_textView.text stringByAppendingString:[NSString stringWithFormat:@"%@\n\n", hourlySummary]] : [_textView.text stringByAppendingString:@""];
+    _textView.text = dailySummary ? [_textView.text stringByAppendingString:[NSString stringWithFormat:@"%@", dailySummary]] : [_textView.text stringByAppendingString:@""];
+    
     [self adjustFontSizeOfTextViewToFitData];
     
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
@@ -80,13 +87,18 @@
     }
   }
   else {
-    while (myTextViewSize.height < _textView.frame.size.height - 100)
+    while (myTextViewSize.height < (_textView.frame.size.height - 100) && _textView.font.pointSize < 45)
     {
       _textView.font = [_textView.font fontWithSize:_textView.font.pointSize + 1];
       myTextViewSize = [_textView sizeThatFits:CGSizeMake(_textView.frame.size.width, FLT_MAX)];
     }
 
   }
+}
+
+- (IBAction)refreshButton:(id)sender {
+  [forecastr flushCache];
+  [self updateForecastData];
 }
 
 - (void)didReceiveMemoryWarning {
