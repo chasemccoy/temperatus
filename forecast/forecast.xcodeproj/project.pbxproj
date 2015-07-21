@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2E352F4C1B5835DD0049F549 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E352F4B1B5835DD0049F549 /* CoreLocation.framework */; };
 		2E352F4F1B5836200049F549 /* UserLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E352F4E1B5836200049F549 /* UserLocation.m */; };
+		2E73017B1B5DEFCA00C1BEDC /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E73017A1B5DEFCA00C1BEDC /* AFNetworkActivityIndicatorManager.m */; };
 		2E74D9751B5C97E3000ECEA6 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E74D9631B5C97E3000ECEA6 /* AFHTTPRequestOperation.m */; };
 		2E74D9761B5C97E3000ECEA6 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E74D9651B5C97E3000ECEA6 /* AFHTTPRequestOperationManager.m */; };
 		2E74D9771B5C97E3000ECEA6 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E74D9671B5C97E3000ECEA6 /* AFHTTPSessionManager.m */; };
@@ -45,6 +46,8 @@
 		2E352F4B1B5835DD0049F549 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2E352F4D1B5836200049F549 /* UserLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLocation.h; sourceTree = "<group>"; };
 		2E352F4E1B5836200049F549 /* UserLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLocation.m; sourceTree = "<group>"; };
+		2E7301791B5DEFCA00C1BEDC /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		2E73017A1B5DEFCA00C1BEDC /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
 		2E74D9621B5C97E3000ECEA6 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		2E74D9631B5C97E3000ECEA6 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		2E74D9641B5C97E3000ECEA6 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 				2E74D9721B5C97E3000ECEA6 /* AFURLResponseSerialization.m */,
 				2E74D9731B5C97E3000ECEA6 /* AFURLSessionManager.h */,
 				2E74D9741B5C97E3000ECEA6 /* AFURLSessionManager.m */,
+				2E7301791B5DEFCA00C1BEDC /* AFNetworkActivityIndicatorManager.h */,
+				2E73017A1B5DEFCA00C1BEDC /* AFNetworkActivityIndicatorManager.m */,
 			);
 			path = AFNetworking;
 			sourceTree = "<group>";
@@ -318,6 +323,7 @@
 				2E352F4F1B5836200049F549 /* UserLocation.m in Sources */,
 				2E74D9761B5C97E3000ECEA6 /* AFHTTPRequestOperationManager.m in Sources */,
 				2E74D97A1B5C97E3000ECEA6 /* AFURLConnectionOperation.m in Sources */,
+				2E73017B1B5DEFCA00C1BEDC /* AFNetworkActivityIndicatorManager.m in Sources */,
 				2E74D9751B5C97E3000ECEA6 /* AFHTTPRequestOperation.m in Sources */,
 				2EA303C51B55A57900115621 /* AppDelegate.m in Sources */,
 				2E74D97B1B5C97E3000ECEA6 /* AFURLRequestSerialization.m in Sources */,

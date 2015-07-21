@@ -22,8 +22,17 @@
   
   [self setNeedsStatusBarAppearanceUpdate];
   
+  forecastr = [Forecastr sharedManager];
+  forecastr.apiKey = @"47b4c46a2eba602b069144b4b6310e09";
+  [forecastr flushCache];
+  forecastr.cacheExpirationInMinutes = 10;
+  
+  NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+  [notificationCenter addObserver:self selector:@selector(updateForecastData) name:UIApplicationWillEnterForegroundNotification object:nil];
+  
+  
   [self updateForecastData];
-  locationTest = [[UserLocation alloc] init];
+  // locationTest = [[UserLocation alloc] init];
   // [locationTest updateLocation];
   // [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateView) userInfo:nil repeats:YES];
 }
@@ -53,9 +62,6 @@
 // Forecast API Docs: https://developer.forecast.io/docs/v2
 // ******************
 - (void)updateForecastData {
-  forecastr = [Forecastr sharedManager];
-  forecastr.apiKey = @"47b4c46a2eba602b069144b4b6310e09";
-  
   [forecastr getForecastForLatitude:33.4625 longitude:-88.82 time:nil exclusions:nil extend:nil success:^(id JSON) {
     //NSLog(@"JSON Response was: %@", JSON);
     [self updateView:JSON];
