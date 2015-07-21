@@ -28,8 +28,24 @@
   // [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateView) userInfo:nil repeats:YES];
 }
 
-- (void)updateView {
-  //cityLabel.text = [locationTest currentCity];
+- (void)updateView:(NSDictionary*)JSON {
+  NSLog(@"\n*****%@*****\n", JSON[kFCCurrentlyForecast][kFCTemperature]);
+  if (JSON[kFCCurrentlyForecast][kFCSummary]) {
+    _textView.selectable = YES;
+    _textView.text = JSON[kFCCurrentlyForecast][kFCSummary];
+    _textView.text = [_textView.text stringByAppendingString:[NSString stringWithFormat:@"\n\n%@\n\n%@", JSON[kFCHourlyForecast][kFCSummary], JSON[kFCDailyForecast][kFCSummary]]];
+    [self adjustFontSizeOfTextViewToFitData];
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.numberStyle = NSNumberFormatterDecimalStyle;
+    NSNumber *temperature = [formatter numberFromString:[NSString stringWithFormat:@"%@", JSON[kFCCurrentlyForecast][kFCTemperature]]];
+    _tempLabel.text = [NSString stringWithFormat:@"%.0f°", [temperature floatValue]];
+    _textView.selectable = NO;
+  }
+  else {
+    _textView.text = @"No Summary";
+  }
+
 }
 
 
@@ -42,20 +58,7 @@
   
   [forecastr getForecastForLatitude:33.4625 longitude:-88.82 time:nil exclusions:nil extend:nil success:^(id JSON) {
     //NSLog(@"JSON Response was: %@", JSON);
-    NSLog(@"\n*****%@*****\n", JSON[kFCCurrentlyForecast][kFCTemperature]);
-    if (JSON[kFCCurrentlyForecast][kFCSummary]) {
-      _textView.text = JSON[kFCCurrentlyForecast][kFCSummary];
-      _textView.text = [_textView.text stringByAppendingString:[NSString stringWithFormat:@"\n\n%@\n\n%@", JSON[kFCHourlyForecast][kFCSummary], JSON[kFCDailyForecast][kFCSummary]]];
-      [self adjustFontSizeOfTextViewToFitData];
-      
-      NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-      formatter.numberStyle = NSNumberFormatterDecimalStyle;
-      NSNumber *temperature = [formatter numberFromString:[NSString stringWithFormat:@"%@", JSON[kFCCurrentlyForecast][kFCTemperature]]];
-      _tempLabel.text = [NSString stringWithFormat:@"%.0f°", [temperature floatValue]];
-    }
-    else {
-      _textView.text = @"No Summary";
-    }
+    [self updateView:JSON];
   } failure:^(NSError *error, id response) {
     NSLog(@"Error while retrieving forecast: %@", [forecastr messageForError:error withResponse:response]);
   }];

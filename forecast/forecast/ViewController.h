@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *tempLabel;
 
 - (void)updateForecastData;
-- (void)updateView;
+- (void)updateView:(NSDictionary*)JSON;
 - (void)adjustFontSizeOfTextViewToFitData;
 
 @end
