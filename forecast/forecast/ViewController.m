@@ -42,11 +42,11 @@
   if (JSON[kFCCurrentlyForecast][kFCSummary]) {
     _textView.selectable = YES;
     
-    NSString *currentlySummary = JSON[kFCCurrentlyForecast][kFCSummary];
+    NSString *minutelySummary = JSON[kFCMinutelyForecast][kFCSummary];
     NSString *hourlySummary = JSON[kFCHourlyForecast][kFCSummary];
     NSString *dailySummary = JSON[kFCDailyForecast][kFCSummary];
     
-    _textView.text = currentlySummary ? [NSString stringWithFormat:@"%@\n\n", currentlySummary] : @"";
+    _textView.text = minutelySummary ? [NSString stringWithFormat:@"%@\n\n", minutelySummary] : @"";
     _textView.text = hourlySummary ? [_textView.text stringByAppendingString:[NSString stringWithFormat:@"%@\n\n", hourlySummary]] : [_textView.text stringByAppendingString:@""];
     _textView.text = dailySummary ? [_textView.text stringByAppendingString:[NSString stringWithFormat:@"%@", dailySummary]] : [_textView.text stringByAppendingString:@""];
     
