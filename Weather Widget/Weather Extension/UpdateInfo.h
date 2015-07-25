@@ -7,9 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "Forecastr+CLLocation.h"
+#import "Wrapper.h"
+@import CoreLocation;
 
-@interface UpdateInfo : NSObject
+@interface UpdateInfo : NSObject <CLLocationManagerDelegate> 
 
-+ (void)update:(id *)JSON;
+@property (strong, nonatomic) Forecastr *forecastr;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocation *currentLocation;
+@property (weak, nonatomic) NSDictionary *JSON;
+@property (strong, nonatomic) Wrapper *dataWrapper;
+
+- (id)init;
+- (void)update;
+- (void)getLocation;
+- (void)updateForecastData;
+- (void)createWrapper:(NSDictionary*)JSON;
 
 @end
