@@ -56,6 +56,7 @@
     formatter.numberStyle = NSNumberFormatterDecimalStyle;
     NSNumber *temperature = [formatter numberFromString:[NSString stringWithFormat:@"%@", JSON[kFCCurrentlyForecast][kFCTemperature]]];
     _tempLabel.text = [NSString stringWithFormat:@"%.0f°", [temperature floatValue]];
+    
     _textView.selectable = NO;
   }
   else {
