@@ -47,6 +47,20 @@ NSString *const notAvailableText = @"N/A";
 
 - (void)wrapTomorrowData {
   NSLog(@"\n******WRAPPING TOMORROW'S DATA******\n");
+  
+  NSArray *daily = _JSON[kFCDailyForecast][@"data"];
+  
+  NSDictionary *tomorrow = daily[1];
+  
+  NSString *summary           = tomorrow[kFCSummary];
+  NSString *highTemp          = tomorrow[kFCTemperatureMax];
+  NSString *lowTemp           = tomorrow[kFCTemperatureMin];
+  NSString *precipProbability = tomorrow[kFCPrecipProbability];
+  
+  _tomorrowSummary = summary ? summary : notAvailableText;
+  _tomorrowHighTemp = highTemp ? highTemp : notAvailableText;
+  _tomorrowLowTemp = lowTemp ? lowTemp : notAvailableText;
+  _tomorrowPrecipProbability = precipProbability ? precipProbability : notAvailableText;
 }
 
 #pragma mark - Wrap Weekly Data

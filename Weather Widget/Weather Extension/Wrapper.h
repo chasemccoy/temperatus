@@ -21,7 +21,6 @@
 @property (strong, nonatomic) NSString *todayLowTemp;
 @property (strong, nonatomic) NSString *todayPrecipProbability;
 
-
 // Tomorrow
 @property (strong, nonatomic) NSString *tomorrowSummary;
 @property (strong, nonatomic) NSString *tomorrowHighTemp;
