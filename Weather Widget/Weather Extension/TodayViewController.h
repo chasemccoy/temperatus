@@ -7,13 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UpdateInfo.h"
 
 @interface TodayViewController : UIViewController
-
-@property (strong, nonatomic) UpdateInfo *updateInfo;
-@property (weak, nonatomic) IBOutlet UILabel *textLabel;
-
-- (void)updateView;
 
 @end
