@@ -43,6 +43,12 @@ NSString *const notAvailableText = @"N/A";
   _todayPrecipProbability = precipProbability ? precipProbability : notAvailableText;
 }
 
+#pragma mark - Wrap Hourly Data
+
+- (void)wrapHourlyData {
+  
+}
+
 #pragma mark - Wrap Tomorrow's Data
 
 - (void)wrapTomorrowData {
@@ -67,6 +73,38 @@ NSString *const notAvailableText = @"N/A";
 
 - (void)wrapWeekData {
   NSLog(@"\n******WRAPPING WEEKLY DATA******\n");
+  
+  NSArray *daily = _JSON[kFCDailyForecast][@"data"];
+  
+//  NSDictionary *firstDay = daily[1];
+//  NSDictionary *secondDay = daily[2];
+//  NSDictionary *thirdDay = daily[3];
+//  NSDictionary *fourthDay = daily[4];
+//  NSDictionary *fifthDay = daily[5];
+//  NSDictionary *sixthDay = daily[6];
+//  NSDictionary *seventhDay = daily[7];
+  
+  for (int x = 1; x < 8; x++) {
+    NSDictionary *day = daily[x];
+    //DayClass *dayObject = [[DayClass alloc] init];
+    
+    NSString *summary = day[kFCSummary];
+    NSString *highTemp = day[kFCTemperatureMax];
+    NSString *lowTemp = day[kFCTemperatureMin];
+    NSString *precipProbability = day[kFCPrecipProbability];
+  }
 }
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+

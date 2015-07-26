@@ -33,6 +33,7 @@
 
 - (Wrapper*)wrapData:(NSDictionary*)JSON;
 - (void)wrapTodayData;
+- (void)wrapHourlyData;
 - (void)wrapTomorrowData;
 - (void)wrapWeekData;
 
