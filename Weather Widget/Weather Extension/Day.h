@@ -14,7 +14,7 @@
 - (id)initWithDate: (NSString *)dateInSecondsString
    HighTemperature: (NSString *)highTempString
     LowTemperature: (NSString *)lowTempString
-     Precipitation: (NSString *)precipitationString
+     Precepitation: (NSString *)precepitationString
   farenheitSetting: (BOOL)farenheitSetting;
 
 @property (strong, nonatomic) NSDate *date;

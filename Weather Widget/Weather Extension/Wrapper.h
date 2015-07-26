@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "Forecastr.h"
-#import "HelperClass.h"
-#import "Day.h"
 
 @interface Wrapper : NSObject
 
@@ -31,7 +29,7 @@
 
 // This Week
 @property (strong, nonatomic) NSString *weekSummary;
-@property (strong, nonatomic) NSMutableArray *weekForecast;
+@property (strong, nonatomic) NSArray *weekForecast;
 
 - (Wrapper*)wrapData:(NSDictionary*)JSON;
 - (void)wrapTodayData;
