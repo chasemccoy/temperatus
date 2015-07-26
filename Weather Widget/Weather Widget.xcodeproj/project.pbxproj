@@ -33,9 +33,6 @@
 		2EE176161B6420360075BB17 /* ForecastrAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE176081B6420360075BB17 /* ForecastrAPIClient.m */; };
 		2EE176171B6420360075BB17 /* ForecastrUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EE176091B6420360075BB17 /* ForecastrUnits.plist */; };
 		2EE1761A1B6420D20075BB17 /* UpdateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE176191B6420D20075BB17 /* UpdateInfo.m */; };
-		D8A8C2F11B6421EB006DE2BB /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F01B6421EB006DE2BB /* Day.m */; };
-		D8A8C2F41B6423CE006DE2BB /* HelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F31B6423CE006DE2BB /* HelperClass.m */; };
-		D8A8C2F71B642D76006DE2BB /* Hour.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F61B642D76006DE2BB /* Hour.m */; };
 		2EE1761C1B6421E00075BB17 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EE1761B1B6421E00075BB17 /* CoreLocation.framework */; };
 		2EE1761F1B6429C90075BB17 /* Wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE1761E1B6429C90075BB17 /* Wrapper.m */; };
 		2EE176201B642AE20075BB17 /* Forecastr+CLLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE176041B6420360075BB17 /* Forecastr+CLLocation.m */; };
@@ -51,6 +48,9 @@
 		2EE1762A1B642B1A0075BB17 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE175FD1B6420360075BB17 /* AFURLRequestSerialization.m */; };
 		2EE1762B1B642B1C0075BB17 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE175FF1B6420360075BB17 /* AFURLResponseSerialization.m */; };
 		2EE1762C1B642B1E0075BB17 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE176011B6420360075BB17 /* AFURLSessionManager.m */; };
+		D8A8C2F11B6421EB006DE2BB /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F01B6421EB006DE2BB /* Day.m */; };
+		D8A8C2F41B6423CE006DE2BB /* HelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F31B6423CE006DE2BB /* HelperClass.m */; };
+		D8A8C2F71B642D76006DE2BB /* Hour.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F61B642D76006DE2BB /* Hour.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,15 +134,15 @@
 		2EE176091B6420360075BB17 /* ForecastrUnits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ForecastrUnits.plist; sourceTree = "<group>"; };
 		2EE176181B6420D20075BB17 /* UpdateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateInfo.h; sourceTree = "<group>"; };
 		2EE176191B6420D20075BB17 /* UpdateInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateInfo.m; sourceTree = "<group>"; };
+		2EE1761B1B6421E00075BB17 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2EE1761D1B6429C90075BB17 /* Wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wrapper.h; sourceTree = "<group>"; };
+		2EE1761E1B6429C90075BB17 /* Wrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wrapper.m; sourceTree = "<group>"; };
 		D8A8C2EF1B6421EB006DE2BB /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
 		D8A8C2F01B6421EB006DE2BB /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
 		D8A8C2F21B6423CE006DE2BB /* HelperClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClass.h; sourceTree = "<group>"; };
 		D8A8C2F31B6423CE006DE2BB /* HelperClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperClass.m; sourceTree = "<group>"; };
 		D8A8C2F51B642D76006DE2BB /* Hour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hour.h; sourceTree = "<group>"; };
 		D8A8C2F61B642D76006DE2BB /* Hour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hour.m; sourceTree = "<group>"; };
-		2EE1761B1B6421E00075BB17 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		2EE1761D1B6429C90075BB17 /* Wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wrapper.h; sourceTree = "<group>"; };
-		2EE1761E1B6429C90075BB17 /* Wrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wrapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +172,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E6BB89D1B65885D00B97D04 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D8A8C2F21B6423CE006DE2BB /* HelperClass.h */,
+				D8A8C2F31B6423CE006DE2BB /* HelperClass.m */,
+				D8A8C2EF1B6421EB006DE2BB /* Day.h */,
+				D8A8C2F01B6421EB006DE2BB /* Day.m */,
+				D8A8C2F51B642D76006DE2BB /* Hour.h */,
+				D8A8C2F61B642D76006DE2BB /* Hour.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		2EE175A31B641FE20075BB17 = {
 			isa = PBXGroup;
 			children = (
@@ -252,14 +265,9 @@
 				2EE175E11B6420020075BB17 /* TodayViewController.m */,
 				2EE176181B6420D20075BB17 /* UpdateInfo.h */,
 				2EE176191B6420D20075BB17 /* UpdateInfo.m */,
-				D8A8C2EF1B6421EB006DE2BB /* Day.h */,
-				D8A8C2F01B6421EB006DE2BB /* Day.m */,
-				D8A8C2F51B642D76006DE2BB /* Hour.h */,
-				D8A8C2F61B642D76006DE2BB /* Hour.m */,
-				D8A8C2F21B6423CE006DE2BB /* HelperClass.h */,
-				D8A8C2F31B6423CE006DE2BB /* HelperClass.m */,
 				2EE1761D1B6429C90075BB17 /* Wrapper.h */,
 				2EE1761E1B6429C90075BB17 /* Wrapper.m */,
+				2E6BB89D1B65885D00B97D04 /* Helpers */,
 				2EE175E31B6420020075BB17 /* MainInterface.storyboard */,
 				2EE175DE1B6420020075BB17 /* Supporting Files */,
 			);

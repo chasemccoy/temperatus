@@ -13,7 +13,7 @@
 - (id)initWithDate: (NSString *)dateInSecondsString
    HighTemperature: (NSString *)highTempString
     LowTemperature: (NSString *)lowTempString
-     Precepitation: (NSString *)precepitationString
+     Precipitation: (NSString *)precipitationString
   farenheitSetting: (BOOL)farenheitSetting {
   
   if (self) {
@@ -22,7 +22,7 @@
                                                andFarenheitSetting:farenheitSetting];
     self.lowTemp = [HelperClass temperatureStringFromDoubleString:lowTempString
                                               andFarenheitSetting:farenheitSetting];
-    self.precipPercent = [HelperClass percentageStringFromDoubleString:precepitationString];
+    self.precipPercent = [HelperClass percentageStringFromDoubleString:precipitationString];
     self.dayOfWeek = [HelperClass dayOfWeekStringFromDate:self.date];
   }
   return self;

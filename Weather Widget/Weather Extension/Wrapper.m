@@ -12,6 +12,15 @@ NSString *const notAvailableText = @"N/A";
 
 @implementation Wrapper
 
+/*!
+ @brief Sets the JSON property and calls the methods to set the other properties.
+ 
+ @param  JSON The NSDictionary containing the Forecast data.
+ 
+ @return A Wrapper object.
+ 
+ @author Chase McCoy
+ */
 -(Wrapper*)wrapData:(NSDictionary*)JSON {
   _JSON = JSON;
   [self wrapTodayData];
@@ -28,12 +37,12 @@ NSString *const notAvailableText = @"N/A";
   
   NSDictionary *currently = _JSON[kFCCurrentlyForecast];
   
-  NSString *summary           = currently[kFCSummary];
-  NSString *temp              = currently[kFCTemperature];
-  NSString *feelsLike         = currently[kFCApparentTemperature];
-  NSString *highTemp          = currently[kFCTemperatureMax];
-  NSString *lowTemp           = currently[kFCTemperatureMin];
-  NSString *precipProbability = currently[kFCPrecipProbability];
+  NSString *summary = currently[kFCSummary];
+  NSString *temp = [HelperClass temperatureStringFromDoubleString:currently[kFCTemperature] andFarenheitSetting:YES];
+  NSString *feelsLike         = [HelperClass temperatureStringFromDoubleString:currently[kFCApparentTemperature] andFarenheitSetting:YES];
+  NSString *highTemp          = [HelperClass temperatureStringFromDoubleString:currently[kFCTemperatureMax] andFarenheitSetting:YES];
+  NSString *lowTemp           = [HelperClass temperatureStringFromDoubleString:currently[kFCTemperatureMin] andFarenheitSetting:YES];
+  NSString *precipProbability = [HelperClass percentageStringFromDoubleString:currently[kFCPrecipProbability]];
   
   _currentSummary = summary ? summary : notAvailableText;
   _currentTemp = temp ? temp : notAvailableText;
@@ -59,9 +68,9 @@ NSString *const notAvailableText = @"N/A";
   NSDictionary *tomorrow = daily[1];
   
   NSString *summary           = tomorrow[kFCSummary];
-  NSString *highTemp          = tomorrow[kFCTemperatureMax];
-  NSString *lowTemp           = tomorrow[kFCTemperatureMin];
-  NSString *precipProbability = tomorrow[kFCPrecipProbability];
+  NSString *highTemp = [HelperClass temperatureStringFromDoubleString:tomorrow[kFCTemperatureMax] andFarenheitSetting:YES];
+  NSString *lowTemp = [HelperClass temperatureStringFromDoubleString:tomorrow[kFCTemperatureMin] andFarenheitSetting:YES];
+  NSString *precipProbability = [HelperClass percentageStringFromDoubleString:tomorrow[kFCPrecipProbability]];
   
   _tomorrowSummary = summary ? summary : notAvailableText;
   _tomorrowHighTemp = highTemp ? highTemp : notAvailableText;
@@ -76,14 +85,6 @@ NSString *const notAvailableText = @"N/A";
   
   NSArray *daily = _JSON[kFCDailyForecast][@"data"];
   
-//  NSDictionary *firstDay = daily[1];
-//  NSDictionary *secondDay = daily[2];
-//  NSDictionary *thirdDay = daily[3];
-//  NSDictionary *fourthDay = daily[4];
-//  NSDictionary *fifthDay = daily[5];
-//  NSDictionary *sixthDay = daily[6];
-//  NSDictionary *seventhDay = daily[7];
-  
   for (int x = 1; x < 8; x++) {
     NSDictionary *day = daily[x];
     //DayClass *dayObject = [[DayClass alloc] init];
@@ -92,6 +93,14 @@ NSString *const notAvailableText = @"N/A";
     NSString *highTemp = day[kFCTemperatureMax];
     NSString *lowTemp = day[kFCTemperatureMin];
     NSString *precipProbability = day[kFCPrecipProbability];
+    NSString *date = day[kFCTime];
+    
+    _weekSummary = summary ? summary : notAvailableText;
+    
+    Day *dayObject;
+    dayObject = [dayObject initWithDate:date HighTemperature:highTemp LowTemperature:lowTemp Precipitation:precipProbability farenheitSetting:TRUE];
+    
+    [_weekForecast addObject:dayObject];
   }
 }
 
