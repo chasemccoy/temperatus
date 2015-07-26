@@ -18,6 +18,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateView) name:@"newData" object:nil];
+  
+  _updateInfo = [[UpdateInfo alloc] init];
+  [_updateInfo update];
+}
+
+- (void)updateView {
+  Wrapper *myWrapper = [[Wrapper alloc] init];
+  myWrapper = _updateInfo.dataWrapper;
 }
 
 - (void)didReceiveMemoryWarning {
