@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E3390921B65950900719AC5 /* UpdateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE176191B6420D20075BB17 /* UpdateInfo.m */; };
 		2EE175B21B641FE20075BB17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE175B11B641FE20075BB17 /* main.m */; };
 		2EE175B51B641FE20075BB17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE175B41B641FE20075BB17 /* AppDelegate.m */; };
 		2EE175B81B641FE20075BB17 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE175B71B641FE20075BB17 /* ViewController.m */; };
@@ -32,7 +33,6 @@
 		2EE176151B6420360075BB17 /* Forecastr.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE176061B6420360075BB17 /* Forecastr.m */; };
 		2EE176161B6420360075BB17 /* ForecastrAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE176081B6420360075BB17 /* ForecastrAPIClient.m */; };
 		2EE176171B6420360075BB17 /* ForecastrUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EE176091B6420360075BB17 /* ForecastrUnits.plist */; };
-		2EE1761A1B6420D20075BB17 /* UpdateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE176191B6420D20075BB17 /* UpdateInfo.m */; };
 		2EE1761C1B6421E00075BB17 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EE1761B1B6421E00075BB17 /* CoreLocation.framework */; };
 		2EE1761F1B6429C90075BB17 /* Wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE1761E1B6429C90075BB17 /* Wrapper.m */; };
 		2EE176201B642AE20075BB17 /* Forecastr+CLLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE176041B6420360075BB17 /* Forecastr+CLLocation.m */; };
@@ -489,12 +489,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E3390921B65950900719AC5 /* UpdateInfo.m in Sources */,
 				D8A8C2F71B642D76006DE2BB /* Hour.m in Sources */,
 				D8A8C2F11B6421EB006DE2BB /* Day.m in Sources */,
-				2EE1761A1B6420D20075BB17 /* UpdateInfo.m in Sources */,
 				D8A8C2F41B6423CE006DE2BB /* HelperClass.m in Sources */,
 				2EE176291B642B180075BB17 /* AFURLConnectionOperation.m in Sources */,
-				2EE1761A1B6420D20075BB17 /* UpdateInfo.m in Sources */,
 				2EE176211B642AE50075BB17 /* Forecastr.m in Sources */,
 				2EE176201B642AE20075BB17 /* Forecastr+CLLocation.m in Sources */,
 				2EE1762B1B642B1C0075BB17 /* AFURLResponseSerialization.m in Sources */,

@@ -48,7 +48,7 @@
  */
 + (NSString *)percentageStringFromDoubleString: (NSString *)doubleString {
   NSString *toReturn = [self integerStringFromDoubleString:doubleString];
-  return [toReturn stringByAppendingString:@"%%"];
+  return [toReturn stringByAppendingString:@"%"];
 }
 
 

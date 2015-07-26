@@ -36,12 +36,14 @@ NSString *const notAvailableText = @"N/A";
   NSLog(@"\n******WRAPPING TODAY'S DATA******\n");
   
   NSDictionary *currently = _JSON[kFCCurrentlyForecast];
+  NSArray *daily = _JSON[kFCDailyForecast][@"data"];
+  NSDictionary *today = daily[0];
   
   NSString *summary = currently[kFCSummary];
   NSString *temp = [HelperClass temperatureStringFromDoubleString:currently[kFCTemperature] andFarenheitSetting:YES];
-  NSString *feelsLike         = [HelperClass temperatureStringFromDoubleString:currently[kFCApparentTemperature] andFarenheitSetting:YES];
-  NSString *highTemp          = [HelperClass temperatureStringFromDoubleString:currently[kFCTemperatureMax] andFarenheitSetting:YES];
-  NSString *lowTemp           = [HelperClass temperatureStringFromDoubleString:currently[kFCTemperatureMin] andFarenheitSetting:YES];
+  NSString *feelsLike = [HelperClass temperatureStringFromDoubleString:currently[kFCApparentTemperature] andFarenheitSetting:YES];
+  NSString *highTemp = [HelperClass temperatureStringFromDoubleString:today[kFCTemperatureMax] andFarenheitSetting:YES];
+  NSString *lowTemp = [HelperClass temperatureStringFromDoubleString:today[kFCTemperatureMin] andFarenheitSetting:YES];
   NSString *precipProbability = [HelperClass percentageStringFromDoubleString:currently[kFCPrecipProbability]];
   
   _currentSummary = summary ? summary : notAvailableText;
@@ -67,7 +69,7 @@ NSString *const notAvailableText = @"N/A";
   
   NSDictionary *tomorrow = daily[1];
   
-  NSString *summary           = tomorrow[kFCSummary];
+  NSString *summary = tomorrow[kFCSummary];
   NSString *highTemp = [HelperClass temperatureStringFromDoubleString:tomorrow[kFCTemperatureMax] andFarenheitSetting:YES];
   NSString *lowTemp = [HelperClass temperatureStringFromDoubleString:tomorrow[kFCTemperatureMin] andFarenheitSetting:YES];
   NSString *precipProbability = [HelperClass percentageStringFromDoubleString:tomorrow[kFCPrecipProbability]];
@@ -97,10 +99,16 @@ NSString *const notAvailableText = @"N/A";
     
     _weekSummary = summary ? summary : notAvailableText;
     
-    Day *dayObject;
+    if (_weekForecast == nil) {
+      _weekForecast = [[NSMutableArray alloc] init];
+    }
+    
+    Day *dayObject = [[Day alloc] init];
     dayObject = [dayObject initWithDate:date HighTemperature:highTemp LowTemperature:lowTemp Precipitation:precipProbability farenheitSetting:TRUE];
     
-    [_weekForecast addObject:dayObject];
+    if (dayObject) {
+      [_weekForecast addObject:dayObject];
+    }
   }
 }
 
