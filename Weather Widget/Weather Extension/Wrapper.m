@@ -74,7 +74,7 @@ NSString *const notAvailableText = @"N/A";
 - (void)wrapHourlyData {
   NSLog(@"\n******WRAPPING HOURLY DATA******\n");
   
-  NSArray *hourly = _JSON[kFCHourlyForecast][@"hourly"];
+  NSArray *hourly = _JSON[kFCHourlyForecast][@"data"];
   
   NSString *summary = _JSON[kFCHourlyForecast][kFCSummary];
   _hourlySummary = summary ? summary : notAvailableText;

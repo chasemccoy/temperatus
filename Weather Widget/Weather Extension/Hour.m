@@ -16,11 +16,11 @@
      precipitation: (NSString *)precepitationPercentString
 intensityPrecepitation: (NSString *)precipitationIntensityString
  typePrecepitation: (NSString *)precipitationTypeString
-          dewPoint: (NSString *)dewPointString
+          dewPoint: (double)dewPoint
           humidity: (NSString *)humidityString
          windSpeed: (NSString *)windSpeedString
        windBearing: (NSString *)windBearingString
-        visibility: (NSString *)visibilityString
+        visibility: (double)visibility
           iconName: (NSString *)iconNameString
   farenheitSetting: (BOOL)farenheitSetting
       milesSetting: (BOOL)milesSetting {
@@ -34,11 +34,11 @@ intensityPrecepitation: (NSString *)precipitationIntensityString
     self.precipPercent = [HelperClass percentageStringFromDoubleString:precepitationPercentString];
     self.precipintensity = [HelperClass descriptionForPrecipIntensity:precipitationIntensityString];
     self.precipType = precipitationTypeString;
-    self.dewPoint = dewPointString;
+    self.dewPoint = [NSString stringWithFormat:@"%f", dewPoint];
     self.humidity = [HelperClass percentageStringFromDoubleString:humidityString];
-    self.windSpeed = [HelperClass speedStringFromDoubleString:windBearingString
-                                              andMilesSetting:milesSetting];
-    self.visibility = visibilityString;
+    self.windSpeed = [HelperClass speedStringFromDoubleString:windSpeedString andMilesSetting:milesSetting];
+    self.windBearing = [HelperClass cardinalDirectionFromBearingString:windBearingString];
+    self.visibility = [NSString stringWithFormat:@"%f", visibility];
     self.iconName = iconNameString;
   }
   return self;
