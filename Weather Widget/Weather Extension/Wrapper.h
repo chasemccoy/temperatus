@@ -10,6 +10,7 @@
 #import "Forecastr.h"
 #import "HelperClass.h"
 #import "Day.h"
+#import "Hour.h"
 
 @interface Wrapper : NSObject
 
@@ -23,6 +24,11 @@
 @property (strong, nonatomic) NSString *todayLowTemp;
 @property (strong, nonatomic) NSString *todayPrecipProbability;
 @property (strong, nonatomic) NSString *todayDescriptionForPrecipIntensity;
+@property (strong, nonatomic) NSString *todayPrecipType;
+
+// Hourly
+@property (strong, nonatomic) NSString *hourlySummary;
+@property (strong, nonatomic) NSMutableArray *hourlyForecast;
 
 // Tomorrow
 @property (strong, nonatomic) NSString *tomorrowSummary;
@@ -30,6 +36,7 @@
 @property (strong, nonatomic) NSString *tomorrowLowTemp;
 @property (strong, nonatomic) NSString *tomorrowPrecipProbability;
 @property (strong, nonatomic) NSString *tomorrowDescriptionForPrecipIntensity;
+@property (strong, nonatomic) NSString *tomorrowPrecipType;
 
 // This Week
 @property (strong, nonatomic) NSString *weekSummary;
