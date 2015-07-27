@@ -17,11 +17,11 @@
      precipitation: (NSString *)precepitationPercentString
 intensityPrecepitation: (NSString *)precipitationIntensityString
  typePrecepitation: (NSString *)precipitationTypeString
-          dewPoint: (double)dewPoint
+          dewPoint: (NSString *)dewPoint
           humidity: (NSString *)humidityString
          windSpeed: (NSString *)windSpeedString
        windBearing: (NSString *)windBearingString
-        visibility: (double)visibility
+        visibility: (NSString *)visibility
           iconName: (NSString *)iconNameString
   farenheitSetting: (BOOL)farenheitSetting
       milesSetting: (BOOL)milesSetting;
