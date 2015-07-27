@@ -22,12 +22,14 @@
 @property (strong, nonatomic) NSString *todayHighTemp;
 @property (strong, nonatomic) NSString *todayLowTemp;
 @property (strong, nonatomic) NSString *todayPrecipProbability;
+@property (strong, nonatomic) NSString *todayDescriptionForPrecipIntensity;
 
 // Tomorrow
 @property (strong, nonatomic) NSString *tomorrowSummary;
 @property (strong, nonatomic) NSString *tomorrowHighTemp;
 @property (strong, nonatomic) NSString *tomorrowLowTemp;
 @property (strong, nonatomic) NSString *tomorrowPrecipProbability;
+@property (strong, nonatomic) NSString *tomorrowDescriptionForPrecipIntensity;
 
 // This Week
 @property (strong, nonatomic) NSString *weekSummary;

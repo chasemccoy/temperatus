@@ -19,7 +19,7 @@ NSString *const notAvailableText = @"N/A";
  
  @return A Wrapper object.
  
- @author Chase McCoy
+ @author Chase
  */
 -(Wrapper*)wrapData:(NSDictionary*)JSON {
   _JSON = JSON;
@@ -32,6 +32,11 @@ NSString *const notAvailableText = @"N/A";
 
 #pragma mark - Wrap Today's Data
 
+/*!
+ @brief Sets the properties for the weather data representing the current day.
+ 
+ @author Chase
+ */
 - (void)wrapTodayData {
   NSLog(@"\n******WRAPPING TODAY'S DATA******\n");
   
@@ -45,6 +50,7 @@ NSString *const notAvailableText = @"N/A";
   NSString *highTemp = [HelperClass temperatureStringFromDoubleString:today[kFCTemperatureMax] andFarenheitSetting:YES];
   NSString *lowTemp = [HelperClass temperatureStringFromDoubleString:today[kFCTemperatureMin] andFarenheitSetting:YES];
   NSString *precipProbability = [HelperClass percentageStringFromDoubleString:currently[kFCPrecipProbability]];
+  NSString *precipIntensity = [HelperClass descriptionForPrecipIntensity:currently[kFCPrecipIntensity]];
   
   _currentSummary = summary ? summary : notAvailableText;
   _currentTemp = temp ? temp : notAvailableText;
@@ -52,16 +58,27 @@ NSString *const notAvailableText = @"N/A";
   _todayHighTemp = highTemp ? highTemp : notAvailableText;
   _todayLowTemp = lowTemp ? lowTemp : notAvailableText;
   _todayPrecipProbability = precipProbability ? precipProbability : notAvailableText;
+  _todayDescriptionForPrecipIntensity = precipIntensity ? precipIntensity : notAvailableText;
 }
 
 #pragma mark - Wrap Hourly Data
 
+/*!
+ @brief Sets the properties for the weather data representing the next ? hours.
+ 
+ @author Chase
+ */
 - (void)wrapHourlyData {
   
 }
 
 #pragma mark - Wrap Tomorrow's Data
 
+/*!
+ @brief Sets the properties for the weather data representing the next day.
+ 
+ @author Chase
+ */
 - (void)wrapTomorrowData {
   NSLog(@"\n******WRAPPING TOMORROW'S DATA******\n");
   
@@ -73,15 +90,22 @@ NSString *const notAvailableText = @"N/A";
   NSString *highTemp = [HelperClass temperatureStringFromDoubleString:tomorrow[kFCTemperatureMax] andFarenheitSetting:YES];
   NSString *lowTemp = [HelperClass temperatureStringFromDoubleString:tomorrow[kFCTemperatureMin] andFarenheitSetting:YES];
   NSString *precipProbability = [HelperClass percentageStringFromDoubleString:tomorrow[kFCPrecipProbability]];
+  NSString *precipIntensity = [HelperClass descriptionForPrecipIntensity:tomorrow[kFCPrecipIntensity]];
   
   _tomorrowSummary = summary ? summary : notAvailableText;
   _tomorrowHighTemp = highTemp ? highTemp : notAvailableText;
   _tomorrowLowTemp = lowTemp ? lowTemp : notAvailableText;
   _tomorrowPrecipProbability = precipProbability ? precipProbability : notAvailableText;
+  _tomorrowDescriptionForPrecipIntensity = precipIntensity ? precipIntensity : notAvailableText;
 }
 
 #pragma mark - Wrap Weekly Data
 
+/*!
+ @brief Sets the properties for the weather data representing the next seven days.
+ 
+ @author Chase
+ */
 - (void)wrapWeekData {
   NSLog(@"\n******WRAPPING WEEKLY DATA******\n");
   
