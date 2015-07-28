@@ -23,6 +23,7 @@ NSString *const notAvailableText = @"N/A";
  */
 -(Wrapper*)wrapData:(NSDictionary*)JSON {
   _JSON = JSON;
+  _GMTOffset = _JSON[kFCOffset];
   [self wrapTodayData];
   [self wrapHourlyData];
   [self wrapTomorrowData];
@@ -100,7 +101,7 @@ NSString *const notAvailableText = @"N/A";
     }
     
     Hour *hourObject = [[Hour alloc] init];
-    hourObject = [hourObject initWithDate:date temperature:temp feelsLikeTemp:feelsLikeTemp precipitation:precipProbability intensityPrecepitation:precipIntensity typePrecepitation:precipType dewPoint:dewPoint humidity:humidity windSpeed:windSpeed windBearing:windBearing visibility:visibility iconName:iconName farenheitSetting:YES milesSetting:YES];
+    hourObject = [hourObject initWithDate:date temperature:temp feelsLikeTemp:feelsLikeTemp precipitation:precipProbability intensityPrecepitation:precipIntensity typePrecepitation:precipType dewPoint:dewPoint humidity:humidity windSpeed:windSpeed windBearing:windBearing visibility:visibility iconName:iconName GMTOffset:_GMTOffset farenheitSetting:YES milesSetting:YES];
     
     if (hourObject) {
       [_hourlyForecast addObject:hourObject];
@@ -165,7 +166,7 @@ NSString *const notAvailableText = @"N/A";
     }
     
     Day *dayObject = [[Day alloc] init];
-    dayObject = [dayObject initWithDate:date HighTemperature:highTemp LowTemperature:lowTemp Precipitation:precipProbability farenheitSetting:TRUE];
+    dayObject = [dayObject initWithDate:date HighTemperature:highTemp LowTemperature:lowTemp Precipitation:precipProbability GMTOffset:_GMTOffset farenheitSetting:TRUE];
     
     if (dayObject) {
       [_weekForecast addObject:dayObject];

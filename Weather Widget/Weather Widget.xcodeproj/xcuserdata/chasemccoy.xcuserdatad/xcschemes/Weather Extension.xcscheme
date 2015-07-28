@@ -35,6 +35,20 @@
                ReferencedContainer = "container:Weather Widget.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D8633A7A1B65C85900ED6052"
+               BuildableName = "Weather Widget Tests.xctest"
+               BlueprintName = "Weather Widget Tests"
+               ReferencedContainer = "container:Weather Widget.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -43,13 +57,23 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D8633A7A1B65C85900ED6052"
+               BuildableName = "Weather Widget Tests.xctest"
+               BlueprintName = "Weather Widget Tests"
+               ReferencedContainer = "container:Weather Widget.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2EE175D81B6420020075BB17"
-            BuildableName = "Weather Extension.appex"
-            BlueprintName = "Weather Extension"
+            BlueprintIdentifier = "2EE175AB1B641FE20075BB17"
+            BuildableName = "Weather Widget.app"
+            BlueprintName = "Weather Widget"
             ReferencedContainer = "container:Weather Widget.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
