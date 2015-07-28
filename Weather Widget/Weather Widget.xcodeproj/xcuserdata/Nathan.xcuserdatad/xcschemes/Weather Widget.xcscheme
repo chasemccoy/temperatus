@@ -34,6 +34,20 @@
                ReferencedContainer = "container:Weather Widget.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D8633A7A1B65C85900ED6052"
+               BuildableName = "Weather Widget Tests.xctest"
+               BlueprintName = "Weather Widget Tests"
+               ReferencedContainer = "container:Weather Widget.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,6 +63,16 @@
                BlueprintIdentifier = "2EE175C41B641FE30075BB17"
                BuildableName = "Weather WidgetTests.xctest"
                BlueprintName = "Weather WidgetTests"
+               ReferencedContainer = "container:Weather Widget.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D8633A7A1B65C85900ED6052"
+               BuildableName = "Weather Widget Tests.xctest"
+               BlueprintName = "Weather Widget Tests"
                ReferencedContainer = "container:Weather Widget.xcodeproj">
             </BuildableReference>
          </TestableReference>

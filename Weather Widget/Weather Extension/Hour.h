@@ -23,6 +23,7 @@ intensityPrecepitation: (NSString *)precipitationIntensityString
        windBearing: (NSString *)windBearingString
         visibility: (NSString *)visibility
           iconName: (NSString *)iconNameString
+         GMTOffset: (NSString *)GMTOffset
   farenheitSetting: (BOOL)farenheitSetting
       milesSetting: (BOOL)milesSetting;
 
@@ -38,5 +39,6 @@ intensityPrecepitation: (NSString *)precipitationIntensityString
 @property (strong, nonatomic) NSString *windBearing;
 @property (strong, nonatomic) NSString *visibility;
 @property (strong, nonatomic) NSString *iconName;
+@property (strong, nonatomic) NSString *stringVersion;
 
 @end

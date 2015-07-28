@@ -14,10 +14,12 @@
    HighTemperature: (NSString *)highTempString
     LowTemperature: (NSString *)lowTempString
      Precipitation: (NSString *)precipitationString
+         GMTOffset: (NSString *)GMTOffset
   farenheitSetting: (BOOL)farenheitSetting {
   
   if (self) {
-    self.date = [HelperClass dateFromSecondsString:dateInSecondsString];
+    self.date = [HelperClass dateFromSecondsString:dateInSecondsString
+                                      andGMTOffset:GMTOffset];
     self.highTemp = [HelperClass temperatureStringFromDoubleString:highTempString
                                                andFarenheitSetting:farenheitSetting];
     self.lowTemp = [HelperClass temperatureStringFromDoubleString:lowTempString

@@ -22,11 +22,13 @@ intensityPrecepitation: (NSString *)precipitationIntensityString
        windBearing: (NSString *)windBearingString
         visibility: (NSString *)visibility
           iconName: (NSString *)iconNameString
+         GMTOffset: (NSString *)GMTOffset
   farenheitSetting: (BOOL)farenheitSetting
       milesSetting: (BOOL)milesSetting {
   
   if (self) {
-    self.date = [HelperClass dateFromSecondsString:dateInSecondsString];
+    self.date = [HelperClass dateFromSecondsString:dateInSecondsString
+                                      andGMTOffset:GMTOffset];
     self.temperature = [HelperClass temperatureStringFromDoubleString:tempString
                                                   andFarenheitSetting:farenheitSetting];
     self.feelsLikeTemp = [HelperClass temperatureStringFromDoubleString:feelsLikeTempString
@@ -40,6 +42,10 @@ intensityPrecepitation: (NSString *)precipitationIntensityString
     self.windBearing = [HelperClass cardinalDirectionFromBearingString:windBearingString];
     self.visibility = dewPoint;
     self.iconName = iconNameString;
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"h"];
+    self.stringVersion = [df stringFromDate:self.date];
   }
   return self;
 }

@@ -48,6 +48,7 @@
 		2EE1762A1B642B1A0075BB17 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE175FD1B6420360075BB17 /* AFURLRequestSerialization.m */; };
 		2EE1762B1B642B1C0075BB17 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE175FF1B6420360075BB17 /* AFURLResponseSerialization.m */; };
 		2EE1762C1B642B1E0075BB17 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE176011B6420360075BB17 /* AFURLSessionManager.m */; };
+		D8633A801B65C85900ED6052 /* Weather_Widget_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8633A7F1B65C85900ED6052 /* Weather_Widget_Tests.m */; };
 		D8A8C2F11B6421EB006DE2BB /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F01B6421EB006DE2BB /* Day.m */; };
 		D8A8C2F41B6423CE006DE2BB /* HelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F31B6423CE006DE2BB /* HelperClass.m */; };
 		D8A8C2F71B642D76006DE2BB /* Hour.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F61B642D76006DE2BB /* Hour.m */; };
@@ -67,6 +68,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2EE175D81B6420020075BB17;
 			remoteInfo = "Weather Extension";
+		};
+		D8633A811B65C85900ED6052 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2EE175A41B641FE20075BB17 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2EE175AB1B641FE20075BB17;
+			remoteInfo = "Weather Widget";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -137,6 +145,9 @@
 		2EE1761B1B6421E00075BB17 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2EE1761D1B6429C90075BB17 /* Wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wrapper.h; sourceTree = "<group>"; };
 		2EE1761E1B6429C90075BB17 /* Wrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wrapper.m; sourceTree = "<group>"; };
+		D8633A7B1B65C85900ED6052 /* Weather Widget Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weather Widget Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8633A7E1B65C85900ED6052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8633A7F1B65C85900ED6052 /* Weather_Widget_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Weather_Widget_Tests.m; sourceTree = "<group>"; };
 		D8A8C2EF1B6421EB006DE2BB /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
 		D8A8C2F01B6421EB006DE2BB /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
 		D8A8C2F21B6423CE006DE2BB /* HelperClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClass.h; sourceTree = "<group>"; };
@@ -169,6 +180,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8633A781B65C85900ED6052 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -191,6 +209,7 @@
 				2EE175AE1B641FE20075BB17 /* Weather Widget */,
 				2EE175DD1B6420020075BB17 /* Weather Extension */,
 				2EE175C81B641FE30075BB17 /* Weather WidgetTests */,
+				D8633A7C1B65C85900ED6052 /* Weather Widget Tests */,
 				2EE175DA1B6420020075BB17 /* Frameworks */,
 				2EE175AD1B641FE20075BB17 /* Products */,
 			);
@@ -202,6 +221,7 @@
 				2EE175AC1B641FE20075BB17 /* Weather Widget.app */,
 				2EE175C51B641FE30075BB17 /* Weather WidgetTests.xctest */,
 				2EE175D91B6420020075BB17 /* Weather Extension.appex */,
+				D8633A7B1B65C85900ED6052 /* Weather Widget Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -326,6 +346,23 @@
 			path = "../Weather Widget/AFNetworking/Forecastr";
 			sourceTree = "<group>";
 		};
+		D8633A7C1B65C85900ED6052 /* Weather Widget Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D8633A7F1B65C85900ED6052 /* Weather_Widget_Tests.m */,
+				D8633A7D1B65C85900ED6052 /* Supporting Files */,
+			);
+			path = "Weather Widget Tests";
+			sourceTree = "<group>";
+		};
+		D8633A7D1B65C85900ED6052 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D8633A7E1B65C85900ED6052 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -383,6 +420,24 @@
 			productReference = 2EE175D91B6420020075BB17 /* Weather Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		D8633A7A1B65C85900ED6052 /* Weather Widget Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8633A831B65C85900ED6052 /* Build configuration list for PBXNativeTarget "Weather Widget Tests" */;
+			buildPhases = (
+				D8633A771B65C85900ED6052 /* Sources */,
+				D8633A781B65C85900ED6052 /* Frameworks */,
+				D8633A791B65C85900ED6052 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8633A821B65C85900ED6052 /* PBXTargetDependency */,
+			);
+			name = "Weather Widget Tests";
+			productName = "Weather Widget Tests";
+			productReference = D8633A7B1B65C85900ED6052 /* Weather Widget Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -402,6 +457,10 @@
 					2EE175D81B6420020075BB17 = {
 						CreatedOnToolsVersion = 6.4;
 					};
+					D8633A7A1B65C85900ED6052 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 2EE175AB1B641FE20075BB17;
+					};
 				};
 			};
 			buildConfigurationList = 2EE175A71B641FE20075BB17 /* Build configuration list for PBXProject "Weather Widget" */;
@@ -420,6 +479,7 @@
 				2EE175AB1B641FE20075BB17 /* Weather Widget */,
 				2EE175C41B641FE30075BB17 /* Weather WidgetTests */,
 				2EE175D81B6420020075BB17 /* Weather Extension */,
+				D8633A7A1B65C85900ED6052 /* Weather Widget Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -448,6 +508,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EE175E41B6420020075BB17 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8633A791B65C85900ED6052 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +578,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8633A771B65C85900ED6052 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8633A801B65C85900ED6052 /* Weather_Widget_Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -523,6 +598,11 @@
 			isa = PBXTargetDependency;
 			target = 2EE175D81B6420020075BB17 /* Weather Extension */;
 			targetProxy = 2EE175E51B6420020075BB17 /* PBXContainerItemProxy */;
+		};
+		D8633A821B65C85900ED6052 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2EE175AB1B641FE20075BB17 /* Weather Widget */;
+			targetProxy = D8633A811B65C85900ED6052 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -704,6 +784,40 @@
 			};
 			name = Release;
 		};
+		D8633A841B65C85900ED6052 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Weather Widget Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather Widget.app/Weather Widget";
+			};
+			name = Debug;
+		};
+		D8633A851B65C85900ED6052 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Weather Widget Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather Widget.app/Weather Widget";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -742,6 +856,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		D8633A831B65C85900ED6052 /* Build configuration list for PBXNativeTarget "Weather Widget Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8633A841B65C85900ED6052 /* Debug */,
+				D8633A851B65C85900ED6052 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

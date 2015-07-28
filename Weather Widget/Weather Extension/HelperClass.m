@@ -17,8 +17,14 @@
  * @param secondsString A string value of the seconds from 1970.
  * @return A NSDate object of a date in seconds since 1970.
  */
-+ (NSDate *)dateFromSecondsString: (NSString *)secondsString {
-  return [[NSDate alloc] initWithTimeIntervalSince1970:[secondsString integerValue]];
++ (NSDate *)dateFromSecondsString: (NSString *)secondsString
+                     andGMTOffset: (NSString *)hoursOffset {
+  if (secondsString && hoursOffset) {
+    NSInteger *secondsOffset = [hoursOffset integerValue] * 3600;
+    NSDate *dateBeforeOffset = [NSDate dateWithTimeIntervalSince1970:[secondsString integerValue]];
+    return [dateBeforeOffset dateByAddingTimeInterval:(int) secondsOffset];
+  }
+  return nil;
 }
 
 

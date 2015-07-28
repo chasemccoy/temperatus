@@ -10,7 +10,8 @@
 
 @interface HelperClass : NSObject
 
-+ (NSDate *)dateFromSecondsString: (NSString *)secondsString;
++ (NSDate *)dateFromSecondsString: (NSString *)secondsString
+                     andGMTOffset: (NSString *)secondsOffset;
 + (NSString *)integerStringFromDoubleString: (NSString *)doubleString;
 + (NSString *)percentageStringFromDoubleString: (NSString *)doubleString;
 + (NSString *)dayOfWeekStringFromDate: (NSDate *)date;

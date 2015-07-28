@@ -15,6 +15,7 @@
    HighTemperature: (NSString *)highTempString
     LowTemperature: (NSString *)lowTempString
      Precipitation: (NSString *)precipitationString
+         GMTOffset: (NSString *)GMTOffset
   farenheitSetting: (BOOL)farenheitSetting;
 
 @property (strong, nonatomic) NSDate *date;
