@@ -20,9 +20,9 @@
 + (NSDate *)dateFromSecondsString: (NSString *)secondsString
                      andGMTOffset: (NSString *)hoursOffset {
   if (secondsString && hoursOffset) {
-    NSInteger *secondsOffset = [hoursOffset integerValue] * 3600;
+    NSInteger secondsOffset = [hoursOffset integerValue] * 3600;
     NSDate *dateBeforeOffset = [NSDate dateWithTimeIntervalSince1970:[secondsString integerValue]];
-    return [dateBeforeOffset dateByAddingTimeInterval:(int) secondsOffset];
+    return [dateBeforeOffset dateByAddingTimeInterval:secondsOffset];
   }
   return nil;
 }

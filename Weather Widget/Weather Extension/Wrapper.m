@@ -80,7 +80,7 @@ NSString *const notAvailableText = @"N/A";
   NSString *summary = _JSON[kFCHourlyForecast][kFCSummary];
   _hourlySummary = summary ? summary : notAvailableText;
   
-  for (int x = 1; x < 8; x++) {
+  for (int x = 6; x < 13; x++) {
     NSDictionary *hour = hourly[x];
     
     NSString *date = hour[kFCTime];
