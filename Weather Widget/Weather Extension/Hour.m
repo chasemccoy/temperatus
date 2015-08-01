@@ -42,10 +42,7 @@ intensityPrecepitation: (NSString *)precipitationIntensityString
     self.windBearing = [HelperClass cardinalDirectionFromBearingString:windBearingString];
     self.visibility = dewPoint;
     self.iconName = iconNameString;
-    
-    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"h"];
-    self.stringVersion = [df stringFromDate:self.date];
+    self.stringVersion = [HelperClass stringVersionOfHourFromDate:self.date];
   }
   return self;
 }

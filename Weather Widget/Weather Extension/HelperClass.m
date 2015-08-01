@@ -20,11 +20,12 @@
 + (NSDate *)dateFromSecondsString: (NSString *)secondsString
                      andGMTOffset: (NSString *)hoursOffset {
   if (secondsString && hoursOffset) {
-    NSInteger *secondsOffset = [hoursOffset integerValue] * 3600;
+    int secondsOffset = [hoursOffset intValue] * 3600;
     NSDate *dateBeforeOffset = [NSDate dateWithTimeIntervalSince1970:[secondsString integerValue]];
     return [dateBeforeOffset dateByAddingTimeInterval:(int) secondsOffset];
   }
   return nil;
+  
 }
 
 
@@ -38,8 +39,11 @@
  * @return An NSString object of the integer.
  */
 + (NSString *)integerStringFromDoubleString: (NSString *)doubleString {
-  double toReturn = [doubleString doubleValue];
-  return [NSString stringWithFormat:@"%d",(int) (toReturn + 0.5)];
+  if (doubleString) {
+    double toReturn = [doubleString doubleValue];
+    return [NSString stringWithFormat:@"%d",(int) (toReturn + 0.5)];
+  }
+  return nil;
 }
 
 
@@ -53,8 +57,11 @@
  * @return An NSString object of the value as a percent.
  */
 + (NSString *)percentageStringFromDoubleString: (NSString *)doubleString {
-  NSString *toReturn = [self integerStringFromDoubleString:doubleString];
-  return [toReturn stringByAppendingString:@"%"];
+  if (doubleString) {
+    NSString *toReturn = [self integerStringFromDoubleString:doubleString];
+    return [toReturn stringByAppendingString:@"%"];
+  }
+  return nil;
 }
 
 
@@ -69,9 +76,28 @@
  * @return An NSString object of the 3 letter version of the day of the week.
  */
 + (NSString *)dayOfWeekStringFromDate: (NSDate *)date {
-  NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-  [dateFormatter setDateFormat:@"EEE"];
-  return [dateFormatter stringFromDate:date];
+  if (date) {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEE"];
+    return [dateFormatter stringFromDate:date];
+  }
+  return nil;
+}
+
+
+
+
+/**
+ * Returns the digit of the hour of a date as a string.
+ * @author Nate
+ *
+ * @param date The date object to be processed.
+ * @return An NSString object of the single (or double) digit version of the hour.
+ */
++ (NSString *)stringVersionOfHourFromDate: (NSDate *)date {
+  NSDateFormatter *df = [[NSDateFormatter alloc] init];
+  [df setDateFormat:@"h"];
+  return [df stringFromDate:date];
 }
 
 
@@ -87,12 +113,15 @@
  *         from "None" to "Heavy".
  */
 + (NSString *)descriptionForPrecipIntensity: (NSString *)precipIntensityString {
-  double precipIntensity = [precipIntensityString doubleValue];
-  if (precipIntensity < 0.002) { return @"None"; }
-  if (precipIntensity < 0.017) { return @"Very light"; }
-  if (precipIntensity < 0.1)   { return @"Light"; }
-  if (precipIntensity < 0.4)   { return @"Moderate"; }
-  return @"Heavy";
+  if (precipIntensityString) {
+    double precipIntensity = [precipIntensityString doubleValue];
+    if (precipIntensity < 0.002) { return @"None"; }
+    if (precipIntensity < 0.017) { return @"Very light"; }
+    if (precipIntensity < 0.1)   { return @"Light"; }
+    if (precipIntensity < 0.4)   { return @"Moderate"; }
+    return @"Heavy";
+  }
+  return nil;
 }
 
 
@@ -107,24 +136,27 @@
  * @return An NSString object of the general cardinal direction.
  */
 + (NSString *)cardinalDirectionFromBearingString: (NSString *)bearingString {
-  double bearing = [bearingString doubleValue];
-  if (bearing < 11.25)  { return @"N"; }
-  if (bearing < 33.75)  { return @"NNE"; }
-  if (bearing < 56.25)  { return @"NE"; }
-  if (bearing < 78.75)  { return @"NEE"; }
-  if (bearing < 101.25) { return @"E"; }
-  if (bearing < 123.75) { return @"SEE"; }
-  if (bearing < 146.25) { return @"SE"; }
-  if (bearing < 168.75) { return @"SSE"; }
-  if (bearing < 191.25) { return @"S"; }
-  if (bearing < 213.75) { return @"SSW"; }
-  if (bearing < 236.25) { return @"SW"; }
-  if (bearing < 258.75) { return @"SWW"; }
-  if (bearing < 281.25) { return @"W"; }
-  if (bearing < 303.75) { return @"NWW"; }
-  if (bearing < 326.25) { return @"NW"; }
-  if (bearing < 348.75) { return @"NNW"; }
-  return @"N";
+  if (bearingString) {
+    double bearing = [bearingString doubleValue];
+    if (bearing < 11.25)  { return @"N"; }
+    if (bearing < 33.75)  { return @"NNE"; }
+    if (bearing < 56.25)  { return @"NE"; }
+    if (bearing < 78.75)  { return @"NEE"; }
+    if (bearing < 101.25) { return @"E"; }
+    if (bearing < 123.75) { return @"SEE"; }
+    if (bearing < 146.25) { return @"SE"; }
+    if (bearing < 168.75) { return @"SSE"; }
+    if (bearing < 191.25) { return @"S"; }
+    if (bearing < 213.75) { return @"SSW"; }
+    if (bearing < 236.25) { return @"SW"; }
+    if (bearing < 258.75) { return @"SWW"; }
+    if (bearing < 281.25) { return @"W"; }
+    if (bearing < 303.75) { return @"NWW"; }
+    if (bearing < 326.25) { return @"NW"; }
+    if (bearing < 348.75) { return @"NNW"; }
+    return @"N";
+  }
+  return nil;
 }
 
 
@@ -140,13 +172,16 @@
  */
 + (NSString *)temperatureStringFromDoubleString: (NSString *)doubleString
                             andFarenheitSetting: (BOOL)farenheitSetting {
-  if (farenheitSetting) {
+  if (doubleString) {
+    if (farenheitSetting) {
+      return [[self integerStringFromDoubleString:doubleString] stringByAppendingString:@"°"];
+    }
+    
+    double celsiusTemp = (([doubleString doubleValue] - 32.0) * 5.0) / 9.0;
+    doubleString = [NSString stringWithFormat:@"%f", celsiusTemp];
     return [[self integerStringFromDoubleString:doubleString] stringByAppendingString:@"°"];
   }
-  
-  double celsiusTemp = (([doubleString doubleValue] - 32.0) * 5.0) / 9.0;
-  doubleString = [NSString stringWithFormat:@"%f", celsiusTemp];
-  return [[self integerStringFromDoubleString:doubleString] stringByAppendingString:@"°"];
+  return nil;
 }
 
 
@@ -163,12 +198,15 @@
  */
 + (NSString *)speedStringFromDoubleString: (NSString *)doubleString
                           andMilesSetting: (BOOL)milesSetting {
-  if (milesSetting) {
-    return [NSString stringWithFormat:@"%.1f mph",[doubleString doubleValue]];
+  if (doubleString) {
+    if (milesSetting) {
+      return [NSString stringWithFormat:@"%.1f mph",[doubleString doubleValue]];
+    }
+    
+    double speed = [doubleString doubleValue] * 1.609344;
+    return [NSString stringWithFormat:@"%.1f km/h",speed];
   }
-  
-  double speed = [doubleString doubleValue] * 1.609344;
-  return [NSString stringWithFormat:@"%.1f km/h",speed];
+  return nil;
 }
 
 

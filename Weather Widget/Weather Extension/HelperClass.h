@@ -15,6 +15,7 @@
 + (NSString *)integerStringFromDoubleString: (NSString *)doubleString;
 + (NSString *)percentageStringFromDoubleString: (NSString *)doubleString;
 + (NSString *)dayOfWeekStringFromDate: (NSDate *)date;
++ (NSString *)stringVersionOfHourFromDate: (NSDate *)date;
 + (NSString *)descriptionForPrecipIntensity: (NSString *)precipIntensityString;
 + (NSString *)cardinalDirectionFromBearingString: (NSString *)bearingString;
 + (NSString *)temperatureStringFromDoubleString: (NSString *)doubleString

@@ -100,7 +100,20 @@ NSString *const notAvailableText = @"N/A";
     }
     
     Hour *hourObject = [[Hour alloc] init];
-    hourObject = [hourObject initWithDate:date temperature:temp feelsLikeTemp:feelsLikeTemp precipitation:precipProbability intensityPrecepitation:precipIntensity typePrecepitation:precipType dewPoint:dewPoint humidity:humidity windSpeed:windSpeed windBearing:windBearing visibility:visibility iconName:iconName farenheitSetting:YES milesSetting:YES];
+    hourObject = [hourObject initWithDate:date
+                              temperature:temp
+                            feelsLikeTemp:feelsLikeTemp
+                            precipitation:precipProbability
+                   intensityPrecepitation:precipIntensity
+                        typePrecepitation:precipType
+                                 dewPoint:dewPoint
+                                 humidity:humidity
+                                windSpeed:windSpeed
+                              windBearing:windBearing
+                               visibility:visibility
+                                 iconName:iconName
+                         farenheitSetting:YES
+                             milesSetting:YES];
     
     if (hourObject) {
       [_hourlyForecast addObject:hourObject];
