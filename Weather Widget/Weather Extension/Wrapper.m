@@ -23,6 +23,7 @@ NSString *const notAvailableText = @"N/A";
  */
 -(Wrapper*)wrapData:(NSDictionary*)JSON {
   _JSON = JSON;
+  _GMTOffset = _JSON[kFCOffset];
   [self wrapTodayData];
   [self wrapHourlyData];
   [self wrapTomorrowData];
@@ -79,7 +80,7 @@ NSString *const notAvailableText = @"N/A";
   NSString *summary = _JSON[kFCHourlyForecast][kFCSummary];
   _hourlySummary = summary ? summary : notAvailableText;
   
-  for (int x = 1; x < 8; x++) {
+  for (int x = 6; x < 13; x++) {
     NSDictionary *hour = hourly[x];
     
     NSString *date = hour[kFCTime];
@@ -178,7 +179,7 @@ NSString *const notAvailableText = @"N/A";
     }
     
     Day *dayObject = [[Day alloc] init];
-    dayObject = [dayObject initWithDate:date HighTemperature:highTemp LowTemperature:lowTemp Precipitation:precipProbability farenheitSetting:TRUE];
+    dayObject = [dayObject initWithDate:date HighTemperature:highTemp LowTemperature:lowTemp Precipitation:precipProbability GMTOffset:_GMTOffset farenheitSetting:TRUE];
     
     if (dayObject) {
       [_weekForecast addObject:dayObject];

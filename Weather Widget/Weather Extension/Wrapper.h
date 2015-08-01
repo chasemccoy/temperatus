@@ -16,6 +16,8 @@
 
 @property (strong, nonatomic) NSDictionary *JSON;
 
+@property (strong, nonatomic) NSString *GMTOffset;
+
 // Today
 @property (strong, nonatomic) NSString *currentSummary;
 @property (strong, nonatomic) NSString *currentTemp;

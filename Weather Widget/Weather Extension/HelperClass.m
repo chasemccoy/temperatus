@@ -22,7 +22,7 @@
   if (secondsString && hoursOffset) {
     int secondsOffset = [hoursOffset intValue] * 3600;
     NSDate *dateBeforeOffset = [NSDate dateWithTimeIntervalSince1970:[secondsString integerValue]];
-    return [dateBeforeOffset dateByAddingTimeInterval:(int) secondsOffset];
+    return [dateBeforeOffset dateByAddingTimeInterval:secondsOffset];
   }
   return nil;
   
