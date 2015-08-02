@@ -14,11 +14,14 @@
 
 @interface Wrapper : NSObject
 
+# pragma mark - Properties
+
 @property (strong, nonatomic) NSDictionary *JSON;
 
 @property (strong, nonatomic) NSString *GMTOffset;
 
 // Today
+# pragma mark Today
 @property (strong, nonatomic) NSString *currentSummary;
 @property (strong, nonatomic) NSString *currentTemp;
 @property (strong, nonatomic) NSString *currentFeelsLikeTemp;
@@ -29,10 +32,12 @@
 @property (strong, nonatomic) NSString *todayPrecipType;
 
 // Hourly
+# pragma mark Hourly
 @property (strong, nonatomic) NSString *hourlySummary;
 @property (strong, nonatomic) NSMutableArray *hourlyForecast;
 
 // Tomorrow
+# pragma mark Tomorrow
 @property (strong, nonatomic) NSString *tomorrowSummary;
 @property (strong, nonatomic) NSString *tomorrowHighTemp;
 @property (strong, nonatomic) NSString *tomorrowLowTemp;
@@ -41,9 +46,11 @@
 @property (strong, nonatomic) NSString *tomorrowPrecipType;
 
 // This Week
+# pragma mark This Week
 @property (strong, nonatomic) NSString *weekSummary;
 @property (strong, nonatomic) NSMutableArray *weekForecast;
 
+# pragma mark - Methods
 - (Wrapper*)wrapData:(NSDictionary*)JSON;
 - (void)wrapTodayData;
 - (void)wrapHourlyData;

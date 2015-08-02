@@ -22,8 +22,8 @@ NSString *const notAvailableText = @"N/A";
  @author Chase
  */
 -(Wrapper*)wrapData:(NSDictionary*)JSON {
-  _JSON = JSON;
-  _GMTOffset = _JSON[kFCOffset];
+  self.JSON = JSON;
+  self.GMTOffset = self.JSON[kFCOffset];
   [self wrapTodayData];
   [self wrapHourlyData];
   [self wrapTomorrowData];
@@ -113,6 +113,7 @@ NSString *const notAvailableText = @"N/A";
                               windBearing:windBearing
                                visibility:visibility
                                  iconName:iconName
+                                GMTOffset:_GMTOffset
                          farenheitSetting:YES
                              milesSetting:YES];
     

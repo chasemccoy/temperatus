@@ -864,6 +864,7 @@
 				D8633A851B65C85900ED6052 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
