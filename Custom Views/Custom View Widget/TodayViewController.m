@@ -19,18 +19,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
   
-  self.preferredContentSize = CGSizeMake(0, 250);
+  self.preferredContentSize = CGSizeMake(0, 200);
   
   self.customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width / 4, 100)];
-  self.customView.backgroundColor = [UIColor redColor];
+  self.customView.backgroundColor = [UIColor greenColor];
   [self.view addSubview:self.customView];
   
-  self.customView2 = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 4, 0, self.view.frame.size.width / 4, 100)];
-  self.customView2.backgroundColor = [UIColor greenColor];
-  [self.view addSubview:self.customView2];
+//  self.customView2 = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 4, 0, self.view.frame.size.width / 4, 100)];
+//  self.customView2.backgroundColor = [UIColor greenColor];
+//  [self.view addSubview:self.customView2];
+  
+  CGRect viewFrame = CGRectMake(self.view.frame.size.width / 4, 0, self.view.frame.size.width / 4, 100);
+  self.myCustomView = [[myView alloc] initWithFrame:viewFrame];
+  self.myCustomView.clipsToBounds = YES;
+  [self.view addSubview:self.myCustomView];
   
   self.customView3 = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, 0, self.view.frame.size.width / 2, 100)];
-  self.customView3.backgroundColor = [UIColor blueColor];
+  self.customView3.backgroundColor = [UIColor orangeColor];
   [self.view addSubview:self.customView3];
   
   self.customView4 = [[UIView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 100)];

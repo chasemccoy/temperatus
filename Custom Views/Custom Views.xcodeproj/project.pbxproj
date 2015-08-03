@@ -19,6 +19,7 @@
 		2E53D8591B6EAACC009D5C64 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E53D8581B6EAACC009D5C64 /* TodayViewController.m */; };
 		2E53D85B1B6EAACC009D5C64 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E53D85A1B6EAACC009D5C64 /* MainInterface.storyboard */; };
 		2E53D85E1B6EAACC009D5C64 /* Custom View Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2E53D8501B6EAACC009D5C64 /* Custom View Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2E67BE2A1B6ED92500901F4C /* myView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2F52B51B6DA9D000AA437F /* myView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -343,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E67BE2A1B6ED92500901F4C /* myView.m in Sources */,
 				2E53D8591B6EAACC009D5C64 /* TodayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,6 +579,7 @@
 				2E53D8601B6EAACC009D5C64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

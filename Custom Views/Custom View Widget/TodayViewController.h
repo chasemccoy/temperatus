@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "myView.h"
 
 @interface TodayViewController : UIViewController
 
@@ -14,5 +15,6 @@
 @property (nonatomic, strong) UIView *customView2;
 @property (nonatomic, strong) UIView *customView3;
 @property (nonatomic, strong) UIView *customView4;
+@property (nonatomic, strong) UIView *myCustomView;
 
 @end
