@@ -26,12 +26,17 @@
   [self.tempView setBackgroundColor:[UIColor clearColor]];
   [self.view addSubview:self.tempView];
   
+  self.highLow = [[highLowTempView alloc] initWithFrame:CGRectMake((self.view.frame.size.width / 4) * 2, 0, self.view.frame.size.width / 4, 100)];
+  self.highLow.clipsToBounds = YES;
+  [self.highLow setBackgroundColor:[UIColor clearColor]];
+  [self.view addSubview:self.highLow];
+  
   CGRect viewFrame = CGRectMake(self.view.frame.size.width / 4, 0, self.view.frame.size.width / 4, 100);
   self.myCustomView = [[myView alloc] initWithFrame:viewFrame];
   self.myCustomView.clipsToBounds = YES;
   [self.view addSubview:self.myCustomView];
   
-  self.customView3 = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, 0, self.view.frame.size.width / 2, 100)];
+  self.customView3 = [[UIView alloc] initWithFrame:CGRectMake((self.view.frame.size.width / 4) * 3, 0, self.view.frame.size.width / 4, 100)];
   self.customView3.backgroundColor = [UIColor orangeColor];
   [self.view addSubview:self.customView3];
   
