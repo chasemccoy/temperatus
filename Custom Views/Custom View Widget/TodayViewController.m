@@ -19,7 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
   
-  self.preferredContentSize = CGSizeMake(0, 200);
+  self.preferredContentSize = CGSizeMake(0, 300);
   
   self.tempView = [[currentTempView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width / 4, 100)];
   self.tempView.clipsToBounds = YES;
@@ -38,6 +38,14 @@
   self.customView4 = [[UIView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 100)];
   self.customView4.backgroundColor = [UIColor purpleColor];
   [self.view addSubview:self.customView4];
+  
+  viewFrame = CGRectMake(0, 200, self.view.frame.size.width, 100);
+  self.fiveDayView = [[FiveModuleView alloc] initWithFrame:viewFrame
+                                            dayStringArray:@[ @"Sat", @"Sun", @"Mon", @"Tue", @"Wed"]
+                                           highStringArray:@[ @"99°", @"103°", @"1°", @"87°", @"145°"]
+                                            lowStringArray:@[ @"67°", @"89°", @"86°", @"54°", @"2°"]
+                                         precipStringArray:@[ @"90%", @"52%", @"0%", @"11%", @"45%"]];
+  [self.view addSubview:self.fiveDayView];
 }
 
 - (UIEdgeInsets)widgetMarginInsetsForProposedMarginInsets:(UIEdgeInsets)defaultMarginInsets {

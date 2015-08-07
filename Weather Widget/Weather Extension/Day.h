@@ -11,12 +11,12 @@
 
 @interface Day : NSObject
 
-- (id)initWithDate: (NSString *)dateInSecondsString
-   HighTemperature: (NSString *)highTempString
-    LowTemperature: (NSString *)lowTempString
-     Precipitation: (NSString *)precipitationString
-         GMTOffset: (NSString *)GMTOffset
-  farenheitSetting: (BOOL)farenheitSetting;
+- (id)initWithDate:(NSString *)dateInSecondsString
+   HighTemperature:(NSString *)highTempString
+    LowTemperature:(NSString *)lowTempString
+     Precipitation:(NSString *)precipitationString
+         GMTOffset:(NSString *)GMTOffset
+  farenheitSetting:(BOOL)farenheitSetting;
 
 @property (strong, nonatomic) NSDate *date;
 @property (strong, nonatomic) NSString *highTemp;

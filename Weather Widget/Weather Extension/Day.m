@@ -10,22 +10,22 @@
 
 @implementation Day
 
-- (id)initWithDate: (NSString *)dateInSecondsString
-   HighTemperature: (NSString *)highTempString
-    LowTemperature: (NSString *)lowTempString
-     Precipitation: (NSString *)precipitationString
-         GMTOffset: (NSString *)GMTOffset
-  farenheitSetting: (BOOL)farenheitSetting {
+- (id)initWithDate:(NSString *)dateInSecondsString
+   HighTemperature:(NSString *)highTempString
+    LowTemperature:(NSString *)lowTempString
+     Precipitation:(NSString *)precipitationString
+         GMTOffset:(NSString *)GMTOffset
+  farenheitSetting:(BOOL)farenheitSetting {
   
   if (self) {
-    self.date = [HelperClass dateFromSecondsString:dateInSecondsString
+    _date = [HelperClass dateFromSecondsString:dateInSecondsString
                                       andGMTOffset:GMTOffset];
-    self.highTemp = [HelperClass temperatureStringFromDoubleString:highTempString
+    _highTemp = [HelperClass temperatureStringFromDoubleString:highTempString
                                                andFarenheitSetting:farenheitSetting];
-    self.lowTemp = [HelperClass temperatureStringFromDoubleString:lowTempString
+    _lowTemp = [HelperClass temperatureStringFromDoubleString:lowTempString
                                               andFarenheitSetting:farenheitSetting];
-    self.precipPercent = [HelperClass percentageStringFromDoubleString:precipitationString];
-    self.dayOfWeek = [HelperClass dayOfWeekStringFromDate:self.date];
+    _precipPercent = [HelperClass percentageStringFromDoubleString:precipitationString];
+    _dayOfWeek = [HelperClass dayOfWeekStringFromDate:_date];
   }
   return self;
 }

@@ -10,17 +10,17 @@
 
 @interface HelperClass : NSObject
 
-+ (NSDate *)dateFromSecondsString: (NSString *)secondsString
-                     andGMTOffset: (NSString *)secondsOffset;
-+ (NSString *)integerStringFromDoubleString: (NSString *)doubleString;
-+ (NSString *)percentageStringFromDoubleString: (NSString *)doubleString;
-+ (NSString *)dayOfWeekStringFromDate: (NSDate *)date;
-+ (NSString *)stringVersionOfHourFromDate: (NSDate *)date;
-+ (NSString *)descriptionForPrecipIntensity: (NSString *)precipIntensityString;
-+ (NSString *)cardinalDirectionFromBearingString: (NSString *)bearingString;
-+ (NSString *)temperatureStringFromDoubleString: (NSString *)doubleString
-                            andFarenheitSetting: (BOOL)farenheitSetting;
-+ (NSString *)speedStringFromDoubleString: (NSString *)doubleString
-                          andMilesSetting: (BOOL)milesSetting;
++ (NSDate *)dateFromSecondsString:(NSString *)secondsString
+                     andGMTOffset:(NSString *)secondsOffset;
++ (NSString *)integerStringFromDoubleString:(NSString *)doubleString;
++ (NSString *)percentageStringFromDoubleString:(NSString *)doubleString;
++ (NSString *)dayOfWeekStringFromDate:(NSDate *)date;
++ (NSString *)stringVersionOfHourFromDate:(NSDate *)date;
++ (NSString *)descriptionForPrecipIntensity:(NSString *)precipIntensityString;
++ (NSString *)cardinalDirectionFromBearingString:(NSString *)bearingString;
++ (NSString *)temperatureStringFromDoubleString:(NSString *)doubleString
+                            andFarenheitSetting:(BOOL)farenheitSetting;
++ (NSString *)speedStringFromDoubleString:(NSString *)doubleString
+                          andMilesSetting:(BOOL)milesSetting;
 
 @end

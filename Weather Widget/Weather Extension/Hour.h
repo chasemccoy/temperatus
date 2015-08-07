@@ -9,23 +9,23 @@
 #import <Foundation/Foundation.h>
 #import "HelperClass.h"
 
-@interface Hour : NSObject
+@interface Hour :NSObject
 
-- (id)initWithDate: (NSString *)dateInSecondsString
-       temperature: (NSString *)tempString
-     feelsLikeTemp: (NSString *)feelsLikeTempString
-     precipitation: (NSString *)precepitationPercentString
-intensityPrecepitation: (NSString *)precipitationIntensityString
- typePrecepitation: (NSString *)precipitationTypeString
-          dewPoint: (NSString *)dewPoint
-          humidity: (NSString *)humidityString
-         windSpeed: (NSString *)windSpeedString
-       windBearing: (NSString *)windBearingString
-        visibility: (NSString *)visibility
-          iconName: (NSString *)iconNameString
-         GMTOffset: (NSString *)GMTOffset
-  farenheitSetting: (BOOL)farenheitSetting
-      milesSetting: (BOOL)milesSetting;
+- (id)initWithDate:(NSString *)dateInSecondsString
+       temperature:(NSString *)tempString
+     feelsLikeTemp:(NSString *)feelsLikeTempString
+     precipitation:(NSString *)precepitationPercentString
+intensityPrecepitation:(NSString *)precipitationIntensityString
+ typePrecepitation:(NSString *)precipitationTypeString
+          dewPoint:(NSString *)dewPoint
+          humidity:(NSString *)humidityString
+         windSpeed:(NSString *)windSpeedString
+       windBearing:(NSString *)windBearingString
+        visibility:(NSString *)visibility
+          iconName:(NSString *)iconNameString
+         GMTOffset:(NSString *)GMTOffset
+  farenheitSetting:(BOOL)farenheitSetting
+      milesSetting:(BOOL)milesSetting;
 
 @property (strong, nonatomic) NSDate *date;
 @property (strong, nonatomic) NSString *temperature;

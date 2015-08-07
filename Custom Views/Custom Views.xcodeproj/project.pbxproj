@@ -22,6 +22,10 @@
 		2E67BE2A1B6ED92500901F4C /* myView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2F52B51B6DA9D000AA437F /* myView.m */; };
 		2EC8BE4F1B7429E5005BC532 /* currentTempView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC8BE4E1B7429E5005BC532 /* currentTempView.m */; };
 		2EC8BE501B7429FB005BC532 /* currentTempView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC8BE4E1B7429E5005BC532 /* currentTempView.m */; };
+		D88967221B744BE70058814C /* FiveModuleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D88967211B744BE70058814C /* FiveModuleView.m */; };
+		D88967251B744F600058814C /* OneFifthView.m in Sources */ = {isa = PBXBuildFile; fileRef = D88967241B744F600058814C /* OneFifthView.m */; };
+		D88967261B7456D60058814C /* FiveModuleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D88967211B744BE70058814C /* FiveModuleView.m */; };
+		D88967271B7456FC0058814C /* OneFifthView.m in Sources */ = {isa = PBXBuildFile; fileRef = D88967241B744F600058814C /* OneFifthView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +83,10 @@
 		2E53D85A1B6EAACC009D5C64 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		2EC8BE4D1B7429E5005BC532 /* currentTempView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = currentTempView.h; sourceTree = "<group>"; };
 		2EC8BE4E1B7429E5005BC532 /* currentTempView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = currentTempView.m; sourceTree = "<group>"; };
+		D88967201B744BE70058814C /* FiveModuleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiveModuleView.h; sourceTree = "<group>"; };
+		D88967211B744BE70058814C /* FiveModuleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiveModuleView.m; sourceTree = "<group>"; };
+		D88967231B744F600058814C /* OneFifthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneFifthView.h; sourceTree = "<group>"; };
+		D88967241B744F600058814C /* OneFifthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneFifthView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +145,10 @@
 				2E2F52B71B6DABBA00AA437F /* ViewController.m */,
 				2E2F52B41B6DA9D000AA437F /* myView.h */,
 				2E2F52B51B6DA9D000AA437F /* myView.m */,
+				D88967201B744BE70058814C /* FiveModuleView.h */,
+				D88967211B744BE70058814C /* FiveModuleView.m */,
+				D88967231B744F600058814C /* OneFifthView.h */,
+				D88967241B744F600058814C /* OneFifthView.m */,
 				2EC8BE4D1B7429E5005BC532 /* currentTempView.h */,
 				2EC8BE4E1B7429E5005BC532 /* currentTempView.m */,
 				2E2F52981B6DA9B300AA437F /* Main.storyboard */,
@@ -335,7 +347,9 @@
 				2E2F52941B6DA9B300AA437F /* AppDelegate.m in Sources */,
 				2E2F52B81B6DABBA00AA437F /* ViewController.m in Sources */,
 				2EC8BE4F1B7429E5005BC532 /* currentTempView.m in Sources */,
+				D88967221B744BE70058814C /* FiveModuleView.m in Sources */,
 				2E2F52911B6DA9B300AA437F /* main.m in Sources */,
+				D88967251B744F600058814C /* OneFifthView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +367,8 @@
 			files = (
 				2EC8BE501B7429FB005BC532 /* currentTempView.m in Sources */,
 				2E67BE2A1B6ED92500901F4C /* myView.m in Sources */,
+				D88967261B7456D60058814C /* FiveModuleView.m in Sources */,
+				D88967271B7456FC0058814C /* OneFifthView.m in Sources */,
 				2E53D8591B6EAACC009D5C64 /* TodayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
