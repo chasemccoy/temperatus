@@ -18,7 +18,7 @@
     self.tempLabel.textAlignment = NSTextAlignmentCenter;
     [self.tempLabel setTextColor:[UIColor whiteColor]];
     self.tempLabel.adjustsFontSizeToFitWidth = YES;
-    [self.tempLabel setFont:[UIFont systemFontOfSize:40]];
+    [self.tempLabel setFont:[UIFont systemFontOfSize:40 weight:UIFontWeightThin]];
     [self.tempLabel sizeToFit];
     [self addSubview:self.tempLabel];
     [self.tempLabel setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
