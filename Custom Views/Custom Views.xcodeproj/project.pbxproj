@@ -20,6 +20,8 @@
 		2E53D85B1B6EAACC009D5C64 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E53D85A1B6EAACC009D5C64 /* MainInterface.storyboard */; };
 		2E53D85E1B6EAACC009D5C64 /* Custom View Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2E53D8501B6EAACC009D5C64 /* Custom View Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2E67BE2A1B6ED92500901F4C /* myView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2F52B51B6DA9D000AA437F /* myView.m */; };
+		2EC8BE4F1B7429E5005BC532 /* currentTempView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC8BE4E1B7429E5005BC532 /* currentTempView.m */; };
+		2EC8BE501B7429FB005BC532 /* currentTempView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EC8BE4E1B7429E5005BC532 /* currentTempView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		2E53D8571B6EAACC009D5C64 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
 		2E53D8581B6EAACC009D5C64 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		2E53D85A1B6EAACC009D5C64 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		2EC8BE4D1B7429E5005BC532 /* currentTempView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = currentTempView.h; sourceTree = "<group>"; };
+		2EC8BE4E1B7429E5005BC532 /* currentTempView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = currentTempView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,8 @@
 				2E2F52B71B6DABBA00AA437F /* ViewController.m */,
 				2E2F52B41B6DA9D000AA437F /* myView.h */,
 				2E2F52B51B6DA9D000AA437F /* myView.m */,
+				2EC8BE4D1B7429E5005BC532 /* currentTempView.h */,
+				2EC8BE4E1B7429E5005BC532 /* currentTempView.m */,
 				2E2F52981B6DA9B300AA437F /* Main.storyboard */,
 				2E2F529B1B6DA9B300AA437F /* Images.xcassets */,
 				2E2F529D1B6DA9B300AA437F /* LaunchScreen.xib */,
@@ -328,6 +334,7 @@
 				2E2F52B61B6DA9D000AA437F /* myView.m in Sources */,
 				2E2F52941B6DA9B300AA437F /* AppDelegate.m in Sources */,
 				2E2F52B81B6DABBA00AA437F /* ViewController.m in Sources */,
+				2EC8BE4F1B7429E5005BC532 /* currentTempView.m in Sources */,
 				2E2F52911B6DA9B300AA437F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EC8BE501B7429FB005BC532 /* currentTempView.m in Sources */,
 				2E67BE2A1B6ED92500901F4C /* myView.m in Sources */,
 				2E53D8591B6EAACC009D5C64 /* TodayViewController.m in Sources */,
 			);

@@ -21,13 +21,10 @@
   
   self.preferredContentSize = CGSizeMake(0, 200);
   
-  self.customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width / 4, 100)];
-  self.customView.backgroundColor = [UIColor greenColor];
-  [self.view addSubview:self.customView];
-  
-//  self.customView2 = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 4, 0, self.view.frame.size.width / 4, 100)];
-//  self.customView2.backgroundColor = [UIColor greenColor];
-//  [self.view addSubview:self.customView2];
+  self.tempView = [[currentTempView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width / 4, 100)];
+  self.tempView.clipsToBounds = YES;
+  [self.tempView setBackgroundColor:[UIColor clearColor]];
+  [self.view addSubview:self.tempView];
   
   CGRect viewFrame = CGRectMake(self.view.frame.size.width / 4, 0, self.view.frame.size.width / 4, 100);
   self.myCustomView = [[myView alloc] initWithFrame:viewFrame];

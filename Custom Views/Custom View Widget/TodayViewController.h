@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "myView.h"
+#import "currentTempView.h"
 
 @interface TodayViewController : UIViewController
 
@@ -16,5 +17,6 @@
 @property (nonatomic, strong) UIView *customView3;
 @property (nonatomic, strong) UIView *customView4;
 @property (nonatomic, strong) UIView *myCustomView;
+@property (nonatomic, strong) currentTempView *tempView;
 
 @end
