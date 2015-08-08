@@ -48,16 +48,15 @@
 		2EE1762A1B642B1A0075BB17 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE175FD1B6420360075BB17 /* AFURLRequestSerialization.m */; };
 		2EE1762B1B642B1C0075BB17 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE175FF1B6420360075BB17 /* AFURLResponseSerialization.m */; };
 		2EE1762C1B642B1E0075BB17 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE176011B6420360075BB17 /* AFURLSessionManager.m */; };
+		2EFCC56F1B7690A7000F5398 /* COFullView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFCC56E1B7690A7000F5398 /* COFullView.m */; };
 		D8633A801B65C85900ED6052 /* Weather_Widget_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8633A7F1B65C85900ED6052 /* Weather_Widget_Tests.m */; };
 		D8A8C2F11B6421EB006DE2BB /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F01B6421EB006DE2BB /* Day.m */; };
 		D8A8C2F41B6423CE006DE2BB /* HelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F31B6423CE006DE2BB /* HelperClass.m */; };
 		D8A8C2F71B642D76006DE2BB /* Hour.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F61B642D76006DE2BB /* Hour.m */; };
 		D8B3E3E41B768DAC003E97E7 /* COQuarterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3E3E31B768DAC003E97E7 /* COQuarterView.m */; };
 		D8B3E3E81B768DEE003E97E7 /* COHalfView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3E3E71B768DEE003E97E7 /* COHalfView.m */; };
-		D8B3E3EB1B768E06003E97E7 /* COFullView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3E3EA1B768E06003E97E7 /* COFullView.m */; };
 		D8B3E3EC1B768E13003E97E7 /* COQuarterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3E3E31B768DAC003E97E7 /* COQuarterView.m */; };
 		D8B3E3ED1B768E26003E97E7 /* COHalfView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3E3E71B768DEE003E97E7 /* COHalfView.m */; };
-		D8B3E3EE1B768E2B003E97E7 /* COFullView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3E3EA1B768E06003E97E7 /* COFullView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +150,8 @@
 		2EE1761B1B6421E00075BB17 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2EE1761D1B6429C90075BB17 /* Wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wrapper.h; sourceTree = "<group>"; };
 		2EE1761E1B6429C90075BB17 /* Wrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wrapper.m; sourceTree = "<group>"; };
+		2EFCC56D1B7690A7000F5398 /* COFullView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COFullView.h; path = "Weather Extension/COFullView.h"; sourceTree = "<group>"; };
+		2EFCC56E1B7690A7000F5398 /* COFullView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COFullView.m; path = "Weather Extension/COFullView.m"; sourceTree = "<group>"; };
 		D8633A7B1B65C85900ED6052 /* Weather Widget Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weather Widget Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8633A7E1B65C85900ED6052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8633A7F1B65C85900ED6052 /* Weather_Widget_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Weather_Widget_Tests.m; sourceTree = "<group>"; };
@@ -164,8 +165,6 @@
 		D8B3E3E31B768DAC003E97E7 /* COQuarterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COQuarterView.m; path = "Weather Extension/COQuarterView.m"; sourceTree = "<group>"; };
 		D8B3E3E61B768DEE003E97E7 /* COHalfView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COHalfView.h; path = "Weather Extension/COHalfView.h"; sourceTree = "<group>"; };
 		D8B3E3E71B768DEE003E97E7 /* COHalfView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COHalfView.m; path = "Weather Extension/COHalfView.m"; sourceTree = "<group>"; };
-		D8B3E3E91B768E06003E97E7 /* COFullView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COFullView.h; sourceTree = "<group>"; };
-		D8B3E3EA1B768E06003E97E7 /* COFullView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COFullView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,8 +382,8 @@
 				D8B3E3E31B768DAC003E97E7 /* COQuarterView.m */,
 				D8B3E3E61B768DEE003E97E7 /* COHalfView.h */,
 				D8B3E3E71B768DEE003E97E7 /* COHalfView.m */,
-				D8B3E3E91B768E06003E97E7 /* COFullView.h */,
-				D8B3E3EA1B768E06003E97E7 /* COFullView.m */,
+				2EFCC56D1B7690A7000F5398 /* COFullView.h */,
+				2EFCC56E1B7690A7000F5398 /* COFullView.m */,
 			);
 			name = Modules;
 			path = ..;
@@ -570,7 +569,6 @@
 				2EE176131B6420360075BB17 /* AFURLSessionManager.m in Sources */,
 				2EE175B21B641FE20075BB17 /* main.m in Sources */,
 				D8B3E3E41B768DAC003E97E7 /* COQuarterView.m in Sources */,
-				D8B3E3EB1B768E06003E97E7 /* COFullView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,7 +593,7 @@
 				2EE176201B642AE20075BB17 /* Forecastr+CLLocation.m in Sources */,
 				2EE1762B1B642B1C0075BB17 /* AFURLResponseSerialization.m in Sources */,
 				2EE176251B642B080075BB17 /* AFHTTPSessionManager.m in Sources */,
-				D8B3E3EE1B768E2B003E97E7 /* COFullView.m in Sources */,
+				2EFCC56F1B7690A7000F5398 /* COFullView.m in Sources */,
 				2EE1762A1B642B1A0075BB17 /* AFURLRequestSerialization.m in Sources */,
 				2EE176281B642B160075BB17 /* AFSecurityPolicy.m in Sources */,
 				2EE176261B642B0E0075BB17 /* AFNetworkActivityIndicatorManager.m in Sources */,
