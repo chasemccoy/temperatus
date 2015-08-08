@@ -28,19 +28,20 @@ intensityPrecepitation:(NSString *)precipitationIntensityString
   
   if (self) {
     _date = [HelperClass dateFromSecondsString:dateInSecondsString
-                                      andGMTOffset:GMTOffset];
+                                  andGMTOffset:GMTOffset];
     _temperature = [HelperClass temperatureStringFromDoubleString:tempString
-                                                  andFarenheitSetting:farenheitSetting];
+                                              andFarenheitSetting:farenheitSetting];
     _feelsLikeTemp = [HelperClass temperatureStringFromDoubleString:feelsLikeTempString
-                                                    andFarenheitSetting:farenheitSetting];
+                                                andFarenheitSetting:farenheitSetting];
     _precipPercent = [HelperClass percentageStringFromDoubleString:precepitationPercentString];
     _precipintensity = [HelperClass descriptionForPrecipIntensity:precipitationIntensityString];
     _precipType = precipitationTypeString;
     _dewPoint = dewPoint;
     _humidity = [HelperClass percentageStringFromDoubleString:humidityString];
-    _windSpeed = [HelperClass speedStringFromDoubleString:windSpeedString andMilesSetting:milesSetting];
+    _windSpeed = [HelperClass speedStringFromDoubleString:windSpeedString
+                                          andMilesSetting:milesSetting];
     _windBearing = [HelperClass cardinalDirectionFromBearingString:windBearingString];
-    _visibility = dewPoint;
+    _visibility = visibility;
     _iconName = iconNameString;
     _stringVersion = [HelperClass stringVersionOfHourFromDate:_date];
   }

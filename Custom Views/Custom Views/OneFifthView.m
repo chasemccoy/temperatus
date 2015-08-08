@@ -63,7 +63,7 @@
 }
 
 - (instancetype)initWithFrame:(CGRect)aRect
-                    dayString:(NSString *)hourString
+                   hourString:(NSString *)hourString
                    tempString:(NSString *)tempString
                  precipString:(NSString *)precipString {
   self = [super initWithFrame:aRect];

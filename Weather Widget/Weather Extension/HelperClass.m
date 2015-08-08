@@ -25,7 +25,6 @@
     return [dateBeforeOffset dateByAddingTimeInterval:secondsOffset];
   }
   return nil;
-  
 }
 
 

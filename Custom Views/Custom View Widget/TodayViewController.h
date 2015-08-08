@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UIView *myCustomView;
 @property (nonatomic, strong) currentTempView *tempView;
 @property (nonatomic, strong) UIView *fiveDayView;
+@property (nonatomic, strong) UIView *fiveHourView;
 @property (nonatomic, strong) highLowTempView *highLow;
 
 @end

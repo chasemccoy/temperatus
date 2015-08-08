@@ -17,11 +17,11 @@
                lowStringArray:(NSArray *)lowStringArray
             precipStringArray:(NSArray *)precipStringArray;
 
+- (instancetype)initWithFrame:(CGRect)aRect
+              hourStringArray:(NSArray *)hourStringArray
+              tempStringArray:(NSArray *)tempStringArray
+            precipStringArray:(NSArray *)precipStringArray;
+
 @property (nonatomic, strong) NSMutableArray *views;
-@property (nonatomic, strong) UIView *view1;
-@property (nonatomic, strong) UIView *view2;
-@property (nonatomic, strong) UIView *view3;
-@property (nonatomic, strong) UIView *view4;
-@property (nonatomic, strong) UIView *view5;
 
 @end

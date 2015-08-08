@@ -16,6 +16,11 @@
                     lowString:(NSString *)lowString
                  precipString:(NSString *)precipString;
 
+- (instancetype)initWithFrame:(CGRect)aRect
+                   hourString:(NSString *)hourString
+                   tempString:(NSString *)tempString
+                 precipString:(NSString *)precipString;
+
 @property (nonatomic, strong) UILabel *temp;
 @property (nonatomic, strong) UILabel *high;
 @property (nonatomic, strong) UILabel *low;

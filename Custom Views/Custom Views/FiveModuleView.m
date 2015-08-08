@@ -10,39 +10,6 @@
 
 @implementation FiveModuleView
 
-- (instancetype)initWithFrame:(CGRect)aRect {
-  self = [super initWithFrame:aRect];
-  if (self) {
-    int width = aRect.size.width / 5;
-    
-    CGRect viewFrame = CGRectMake(0, 0, width, 100);
-    self.view1 = [[OneFifthView alloc] initWithFrame:viewFrame];
-    self.view1.clipsToBounds = YES;
-    [self addSubview:self.view1];
-    
-    viewFrame = CGRectMake(width, 0, width, 100);
-    self.view2 = [[OneFifthView alloc] initWithFrame:viewFrame];
-    self.view2.clipsToBounds = YES;
-    [self addSubview:self.view2];
-    
-    viewFrame = CGRectMake(width * 2, 0, width, 100);
-    self.view3 = [[OneFifthView alloc] initWithFrame:viewFrame];
-    self.view3.clipsToBounds = YES;
-    [self addSubview:self.view3];
-    
-    viewFrame = CGRectMake(width * 3, 0, width, 100);
-    self.view4 = [[OneFifthView alloc] initWithFrame:viewFrame];
-    self.view4.clipsToBounds = YES;
-    [self addSubview:self.view4];
-    
-    viewFrame = CGRectMake(width * 4, 0, width, 100);
-    self.view5 = [[OneFifthView alloc] initWithFrame:viewFrame];
-    self.view5.clipsToBounds = YES;
-    [self addSubview:self.view5];
-  }
-  return self;
-}
-
 - (instancetype)initWithFrame:(CGRect)aRect
                dayStringArray:(NSArray *)dayStringArray
               highStringArray:(NSArray *)highStringArray
@@ -81,6 +48,34 @@
 //        default:
 //          break;
 //      }
+    }
+  }
+  return self;
+}
+
+
+
+
+- (instancetype)initWithFrame:(CGRect)aRect
+              hourStringArray:(NSArray *)hourStringArray
+              tempStringArray:(NSArray *)tempStringArray
+            precipStringArray:(NSArray *)precipStringArray {
+  self = [super initWithFrame:aRect];
+  if (self) {
+    self.views = [[NSMutableArray alloc] init];
+    int width = aRect.size.width / 5;
+    CGRect viewFrame;
+    UIView *view;
+    
+    for (int i = 0; i < 5; i++) {
+      viewFrame = CGRectMake(width * i, 0, width, 100);
+      view = [[OneFifthView alloc] initWithFrame:viewFrame
+                                      hourString:[hourStringArray objectAtIndex:i]
+                                      tempString:[tempStringArray objectAtIndex:i]
+                                    precipString:[precipStringArray objectAtIndex:i]];
+      view.clipsToBounds = YES;
+      [self.views addObject:view];
+      [self addSubview:[self.views objectAtIndex:i]];
     }
   }
   return self;

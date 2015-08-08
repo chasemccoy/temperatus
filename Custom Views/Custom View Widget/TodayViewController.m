@@ -40,17 +40,33 @@
   self.customView3.backgroundColor = [UIColor orangeColor];
   [self.view addSubview:self.customView3];
   
-  self.customView4 = [[UIView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 100)];
-  self.customView4.backgroundColor = [UIColor purpleColor];
-  [self.view addSubview:self.customView4];
+//  self.customView4 = [[UIView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 100)];
+//  self.customView4.backgroundColor = [UIColor purpleColor];
+//  [self.view addSubview:self.customView4];
   
-  viewFrame = CGRectMake(0, 200, self.view.frame.size.width, 100);
+  viewFrame = CGRectMake(0, 100, self.view.frame.size.width, 100);
   self.fiveDayView = [[FiveModuleView alloc] initWithFrame:viewFrame
                                             dayStringArray:@[ @"Sat", @"Sun", @"Mon", @"Tue", @"Wed"]
                                            highStringArray:@[ @"99°", @"103°", @"1°", @"87°", @"145°"]
                                             lowStringArray:@[ @"67°", @"89°", @"86°", @"54°", @"2°"]
                                          precipStringArray:@[ @"90%", @"52%", @"0%", @"11%", @"45%"]];
   [self.view addSubview:self.fiveDayView];
+  
+  viewFrame = CGRectMake(0, 200, self.view.frame.size.width, 100);
+  NSDateFormatter *df = [[NSDateFormatter alloc] init];
+  [df setDateFormat:@"ha"];
+  NSDate *date = [NSDate date];
+  NSArray *hourStringArray = @[ [df stringFromDate:[date dateByAddingTimeInterval:3600]],
+                                [df stringFromDate:[date dateByAddingTimeInterval:3600 * 2]],
+                                [df stringFromDate:[date dateByAddingTimeInterval:3600 * 3]],
+                                [df stringFromDate:[date dateByAddingTimeInterval:3600 * 4]],
+                                [df stringFromDate:[date dateByAddingTimeInterval:3600 * 5]],
+                                ];
+  self.fiveHourView = [[FiveModuleView alloc] initWithFrame:viewFrame
+                                            hourStringArray:hourStringArray
+                                            tempStringArray:@[ @"99°", @"103°", @"1°", @"87°", @"145°"]
+                                          precipStringArray:@[ @"90%", @"52%", @"0%", @"11%", @"45%"]];
+  [self.view addSubview:self.fiveHourView];
 }
 
 - (UIEdgeInsets)widgetMarginInsetsForProposedMarginInsets:(UIEdgeInsets)defaultMarginInsets {
