@@ -80,21 +80,21 @@ NSString *const notAvailableText = @"N/A";
   NSString *summary = _JSON[kFCHourlyForecast][kFCSummary];
   _hourlySummary = summary ? summary : notAvailableText;
   
-  for (int x = 6; x < 13; x++) {
+  for (int x = 6; x < 11; x++) {
     NSDictionary *hour = hourly[x];
     
-    NSString *date = hour[kFCTime];
-    NSString *temp = hour[kFCTemperature];
-    NSString *feelsLikeTemp = hour[kFCApparentTemperature];
-    NSString *precipProbability = hour[kFCPrecipProbability];
-    NSString *precipIntensity = hour[kFCPrecipIntensity];
-    NSString *precipType = hour[kFCPrecipType];
-    NSString *dewPoint = hour[kFCDewPoint];
-    NSString *humidity = hour[kFCHumidity];
-    NSString *windSpeed = hour[kFCWindSpeed];
-    NSString *windBearing = hour[kFCWindBearing];
-    NSString *visibility = hour[kFCVisibility];
-    NSString *iconName = hour[kFCIcon];
+    NSString *date = hour[kFCTime] ? hour[kFCTime] : notAvailableText;
+    NSString *temp = hour[kFCTemperature] ? hour[kFCTemperature] : notAvailableText;
+    NSString *feelsLikeTemp = hour[kFCApparentTemperature] ? hour[kFCApparentTemperature] : notAvailableText;
+    NSString *precipProbability = hour[kFCPrecipProbability] ? hour[kFCPrecipProbability] : notAvailableText;
+    NSString *precipIntensity = hour[kFCPrecipIntensity] ? hour[kFCPrecipIntensity] : notAvailableText;
+    NSString *precipType = hour[kFCPrecipType] ? hour[kFCPrecipType] : notAvailableText;
+    NSString *dewPoint = hour[kFCDewPoint] ? hour[kFCDewPoint] : notAvailableText;
+    NSString *humidity = hour[kFCHumidity] ? hour[kFCHumidity] : notAvailableText;
+    NSString *windSpeed = hour[kFCWindSpeed] ? hour[kFCHumidity] : notAvailableText;
+    NSString *windBearing = hour[kFCWindBearing] ? hour[kFCWindBearing] : notAvailableText;
+    NSString *visibility = hour[kFCVisibility] ? hour[kFCVisibility] : notAvailableText;
+    NSString *iconName = hour[kFCIcon] ? [HelperClass imageNameForWeatherIconType:hour[kFCIcon]] : notAvailableText;
     
     if (_hourlyForecast == nil) {
       _hourlyForecast = [[NSMutableArray alloc] init];
@@ -167,7 +167,7 @@ NSString *const notAvailableText = @"N/A";
   NSString *summary = _JSON[kFCDailyForecast][kFCSummary];
   _weekSummary = summary ? summary : notAvailableText;
   
-  for (int x = 1; x < 8; x++) {
+  for (int x = 1; x < 6; x++) {
     NSDictionary *day = daily[x];
     
     NSString *highTemp = day[kFCTemperatureMax];

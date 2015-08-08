@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Forecastr+CLLocation.h"
 
 @interface HelperClass : NSObject
 
@@ -22,5 +23,6 @@
                             andFarenheitSetting:(BOOL)farenheitSetting;
 + (NSString *)speedStringFromDoubleString:(NSString *)doubleString
                           andMilesSetting:(BOOL)milesSetting;
++ (NSString *)imageNameForWeatherIconType:(NSString *)iconDescription;
 
 @end

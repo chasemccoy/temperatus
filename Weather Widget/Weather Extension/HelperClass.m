@@ -208,5 +208,31 @@
   return nil;
 }
 
+/**
+ * Returns a string of an image name based on the icon description from Forecast.
+ * @author Forecastr
+ *
+ * @param iconDescription The icon name from Forecast.
+ * @return An NSString object of the image name of the icon.
+ */
++ (NSString *)imageNameForWeatherIconType:(NSString *)iconDescription
+{
+  if ([iconDescription isEqualToString:kFCIconClearDay]) { return @"clearDay.png"; }
+  else if ([iconDescription isEqualToString:kFCIconClearNight]) { return @"clearNight.png"; }
+  else if ([iconDescription isEqualToString:kFCIconRain]) { return @"rain.png"; }
+  else if ([iconDescription isEqualToString:kFCIconSnow]) { return @"snow.png"; }
+  else if ([iconDescription isEqualToString:kFCIconSleet]) { return @"sleet.png"; }
+  else if ([iconDescription isEqualToString:kFCIconWind]) { return @"wind.png"; }
+  else if ([iconDescription isEqualToString:kFCIconFog]) { return @"fog.png"; }
+  else if ([iconDescription isEqualToString:kFCIconCloudy]) { return @"cloudy.png"; }
+  else if ([iconDescription isEqualToString:kFCIconPartlyCloudyDay]) { return @"partlyCloudyDay.png"; }
+  else if ([iconDescription isEqualToString:kFCIconPartlyCloudyNight]) { return @"partlyCloudyNight.png"; }
+  else if ([iconDescription isEqualToString:kFCIconHail]) { return @"hail.png"; }
+  else if ([iconDescription isEqualToString:kFCIconThunderstorm]) { return @"thunderstorm.png"; }
+  else if ([iconDescription isEqualToString:kFCIconTornado]) { return @"tornado.png"; }
+  else if ([iconDescription isEqualToString:kFCIconHurricane]) { return @"hurricane.png"; }
+  else return @"cloudy.png"; // Default in case nothing matched
+}
+
 
 @end
