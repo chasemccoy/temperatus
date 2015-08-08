@@ -95,8 +95,8 @@
  */
 + (NSString *)stringVersionOfHourFromDate:(NSDate *)date {
   NSDateFormatter *df = [[NSDateFormatter alloc] init];
-  [df setDateFormat:@"h"];
-  return [df stringFromDate:date];
+  [df setDateFormat:@"ha"];
+  return [df stringFromDate:date].lowercaseString;
 }
 
 
