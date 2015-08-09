@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "COFifthView.h"
 
 @interface COFullView : UIView
+
+- (instancetype)initDaylyModuleWithFrame:(CGRect)aRect
+                          dayStringArray:(NSArray *)dayStringArray
+                         highStringArray:(NSArray *)highStringArray
+                          lowStringArray:(NSArray *)lowStringArray
+                       precipStringArray:(NSArray *)precipStringArray;
+
+- (instancetype)initHourlyModuleWithFrame:(CGRect)aRect
+                          hourStringArray:(NSArray *)hourStringArray
+                          tempStringArray:(NSArray *)tempStringArray
+                        precipStringArray:(NSArray *)precipStringArray;
 
 @end

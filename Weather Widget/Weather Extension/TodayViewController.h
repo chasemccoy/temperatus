@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "UpdateInfo.h"
+#import "COFullView.h"
+#import "COHalfView.h"
+#import "COQuarterView.h"
 
 @interface TodayViewController : UIViewController
 

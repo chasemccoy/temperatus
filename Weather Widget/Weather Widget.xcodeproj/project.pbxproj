@@ -57,6 +57,8 @@
 		D8B3E3E81B768DEE003E97E7 /* COHalfView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3E3E71B768DEE003E97E7 /* COHalfView.m */; };
 		D8B3E3EC1B768E13003E97E7 /* COQuarterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3E3E31B768DAC003E97E7 /* COQuarterView.m */; };
 		D8B3E3ED1B768E26003E97E7 /* COHalfView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3E3E71B768DEE003E97E7 /* COHalfView.m */; };
+		D8B3E3F11B769AAA003E97E7 /* COFifthView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3E3F01B769AAA003E97E7 /* COFifthView.m */; };
+		D8B3E3F21B76A428003E97E7 /* COFifthView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3E3F01B769AAA003E97E7 /* COFifthView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +167,8 @@
 		D8B3E3E31B768DAC003E97E7 /* COQuarterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COQuarterView.m; path = "Weather Extension/COQuarterView.m"; sourceTree = "<group>"; };
 		D8B3E3E61B768DEE003E97E7 /* COHalfView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COHalfView.h; path = "Weather Extension/COHalfView.h"; sourceTree = "<group>"; };
 		D8B3E3E71B768DEE003E97E7 /* COHalfView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COHalfView.m; path = "Weather Extension/COHalfView.m"; sourceTree = "<group>"; };
+		D8B3E3EF1B769AAA003E97E7 /* COFifthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COFifthView.h; path = "Weather Extension/COFifthView.h"; sourceTree = "<group>"; };
+		D8B3E3F01B769AAA003E97E7 /* COFifthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COFifthView.m; path = "Weather Extension/COFifthView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,6 +382,8 @@
 		D8B3E3E51B768DB9003E97E7 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D8B3E3EF1B769AAA003E97E7 /* COFifthView.h */,
+				D8B3E3F01B769AAA003E97E7 /* COFifthView.m */,
 				D8B3E3E21B768DAC003E97E7 /* COQuarterView.h */,
 				D8B3E3E31B768DAC003E97E7 /* COQuarterView.m */,
 				D8B3E3E61B768DEE003E97E7 /* COHalfView.h */,
@@ -567,6 +573,7 @@
 				D8B3E3E81B768DEE003E97E7 /* COHalfView.m in Sources */,
 				2EE176141B6420360075BB17 /* Forecastr+CLLocation.m in Sources */,
 				2EE176131B6420360075BB17 /* AFURLSessionManager.m in Sources */,
+				D8B3E3F11B769AAA003E97E7 /* COFifthView.m in Sources */,
 				2EE175B21B641FE20075BB17 /* main.m in Sources */,
 				D8B3E3E41B768DAC003E97E7 /* COQuarterView.m in Sources */,
 			);
@@ -587,6 +594,7 @@
 				2E3390921B65950900719AC5 /* UpdateInfo.m in Sources */,
 				D8A8C2F71B642D76006DE2BB /* Hour.m in Sources */,
 				D8A8C2F11B6421EB006DE2BB /* Day.m in Sources */,
+				D8B3E3F21B76A428003E97E7 /* COFifthView.m in Sources */,
 				D8A8C2F41B6423CE006DE2BB /* HelperClass.m in Sources */,
 				2EE176291B642B180075BB17 /* AFURLConnectionOperation.m in Sources */,
 				2EE176211B642AE50075BB17 /* Forecastr.m in Sources */,
