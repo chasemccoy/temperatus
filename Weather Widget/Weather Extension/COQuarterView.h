@@ -10,4 +10,10 @@
 
 @interface COQuarterView : UIView
 
+- (instancetype)initCurrentTempModuleWithFrame:(CGRect)aRect
+                                andTemperature:(NSString *)temp;
+- (instancetype)initHighLowTempModuleWithFrame:(CGRect)aRect
+                                      highTemp:(NSString *)highTemp
+                                       lowTemp:(NSString *)lowTemp;
+
 @end

@@ -16,8 +16,8 @@
     self.highTemp = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     self.lowTemp = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     
-    self.highTemp.text = @"80°";
-    self.lowTemp.text = @"67°";
+    self.highTemp.text = @"H: 80°";
+    self.lowTemp.text = @"L: 67°";
     
     self.highTemp.textAlignment = NSTextAlignmentCenter;
     self.lowTemp.textAlignment = NSTextAlignmentCenter;
@@ -28,8 +28,8 @@
     self.highTemp.adjustsFontSizeToFitWidth = YES;
     self.lowTemp.adjustsFontSizeToFitWidth = YES;
     
-    [self.highTemp setFont:[UIFont systemFontOfSize:28 weight:UIFontWeightThin]];
-    [self.lowTemp setFont:[UIFont systemFontOfSize:22 weight:UIFontWeightThin]];
+    [self.highTemp setFont:[UIFont systemFontOfSize:24 weight:UIFontWeightThin]];
+    [self.lowTemp setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightThin]];
     
     [self.highTemp sizeToFit];
     [self.lowTemp sizeToFit];
