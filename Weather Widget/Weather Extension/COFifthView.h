@@ -7,18 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIView+Borders.h"
 
 @interface COFifthView : UIView
 
 - (instancetype)initDayModuleWithFrame:(CGRect)aRect
-                              dayString:(NSString *)dayString
-                             highString:(NSString *)highString
-                              lowString:(NSString *)lowString
-                           precipString:(NSString *)precipString;
+                             dayString:(NSString *)dayString
+                            highString:(NSString *)highString
+                             lowString:(NSString *)lowString
+                          precipString:(NSString *)precipString
+                     withBorderOnRight:(BOOL)borderOnRight;
 
 - (instancetype)initHourModuleWithFrame:(CGRect)aRect
                              hourString:(NSString *)hourString
                              tempString:(NSString *)tempString
-                           precipString:(NSString *)precipString;
+                           precipString:(NSString *)precipString
+                      withBorderOnRight:(BOOL)borderOnRight;
 
 @end

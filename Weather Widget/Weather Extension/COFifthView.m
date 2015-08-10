@@ -8,13 +8,16 @@
 
 #import "COFifthView.h"
 
+NSInteger const ALPHAVALUE = 0.1;
+
 @implementation COFifthView
 
 - (instancetype)initDayModuleWithFrame:(CGRect)aRect
-                              dayString:(NSString *)dayString
-                             highString:(NSString *)highString
-                              lowString:(NSString *)lowString
-                           precipString:(NSString *)precipString {
+                             dayString:(NSString *)dayString
+                            highString:(NSString *)highString
+                             lowString:(NSString *)lowString
+                          precipString:(NSString *)precipString
+                     withBorderOnRight:(BOOL)borderOnRight {
   self = [super initWithFrame:aRect];
   if (self) {
     UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
@@ -52,6 +55,16 @@
     [label4 sizeToFit];
     [self addSubview:label4];
     [label4 setCenter:CGPointMake(self.frame.size.width / 2, (self.frame.size.height / 6) * 5)];
+    
+    if (borderOnRight) {
+      CALayer *layer = [self createRightBorderWithWidth:1
+                                                  color:[UIColor colorWithWhite:1
+                                                                          alpha:ALPHAVALUE]
+                                            rightOffset:0
+                                              topOffset:10
+                                        andBottomOffset:10];
+      [self.layer insertSublayer:layer atIndex:0];
+    }
   }
   return self;
 }
@@ -59,7 +72,8 @@
 - (instancetype)initHourModuleWithFrame:(CGRect)aRect
                              hourString:(NSString *)hourString
                              tempString:(NSString *)tempString
-                           precipString:(NSString *)precipString {
+                           precipString:(NSString *)precipString
+                      withBorderOnRight:(BOOL)borderOnRight {
   self = [super initWithFrame:aRect];
   if (self) {
     UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
@@ -88,6 +102,15 @@
     [label3 sizeToFit];
     [self addSubview:label3];
     [label3 setCenter:CGPointMake(self.frame.size.width / 2, (self.frame.size.height / 6) * 5)];
+    
+    if (borderOnRight) {
+      CALayer *layer = [self createRightBorderWithWidth:1
+                                                  color:[UIColor colorWithWhite:1 alpha:ALPHAVALUE]
+                                            rightOffset:0
+                                              topOffset:10
+                                        andBottomOffset:10];
+      [self.layer insertSublayer:layer atIndex:0];
+    }
   }
   return self;
 }

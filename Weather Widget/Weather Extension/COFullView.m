@@ -22,15 +22,17 @@
     UIView *view;
     
     for (int i = 0; i < 5; i++) {
-      viewFrame = CGRectMake(width * i, 0, width, 100);
+      viewFrame = CGRectMake(width * i, 0, width, aRect.size.height);
       view = [[COFifthView alloc] initDayModuleWithFrame:viewFrame
-                                                dayString:[dayStringArray objectAtIndex:i]
-                                               highString:[highStringArray objectAtIndex:i]
-                                                lowString:[lowStringArray objectAtIndex:i]
-                                             precipString:[precipStringArray objectAtIndex:i]];
+                                               dayString:[dayStringArray objectAtIndex:i]
+                                              highString:[highStringArray objectAtIndex:i]
+                                               lowString:[lowStringArray objectAtIndex:i]
+                                            precipString:[precipStringArray objectAtIndex:i]
+                                       withBorderOnRight:(i < 4) ? YES : NO];
       view.clipsToBounds = YES;
       [self addSubview:view];
     }
+    [self addBottomBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.3]];
   }
   return self;
 }
@@ -46,14 +48,16 @@
     UIView *view;
     
     for (int i = 0; i < 5; i++) {
-      viewFrame = CGRectMake(width * i, 0, width, 100);
+      viewFrame = CGRectMake(width * i, 0, width, aRect.size.height);
       view = [[COFifthView alloc] initHourModuleWithFrame:viewFrame
                                                hourString:[hourStringArray objectAtIndex:i]
                                                tempString:[tempStringArray objectAtIndex:i]
-                                             precipString:[precipStringArray objectAtIndex:i]];
+                                             precipString:[precipStringArray objectAtIndex:i]
+                                        withBorderOnRight:(i < 4) ? YES : NO];
       view.clipsToBounds = YES;
       [self addSubview:view];
     }
+    [self addBottomBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.3]];
   }
   return self;
 }
