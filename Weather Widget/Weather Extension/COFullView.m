@@ -10,7 +10,7 @@
 
 @implementation COFullView
 
-- (instancetype)initDaylyModuleWithFrame:(CGRect)aRect
+- (instancetype)initDailyModuleWithFrame:(CGRect)aRect
                           dayStringArray:(NSArray *)dayStringArray
                          highStringArray:(NSArray *)highStringArray
                           lowStringArray:(NSArray *)lowStringArray
@@ -37,6 +37,9 @@
   return self;
 }
 
+
+
+
 - (instancetype)initHourlyModuleWithFrame:(CGRect)aRect
                           hourStringArray:(NSArray *)hourStringArray
                           tempStringArray:(NSArray *)tempStringArray
@@ -60,6 +63,78 @@
     [self addBottomBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.3]];
   }
   return self;
+}
+
+
+
+
+- (instancetype)initDailyModuleWithFrame:(CGRect)aRect
+                           andDaylyArray:(NSArray *)daylyArray {
+  NSLog(@"init dayly");
+  self = [super initWithFrame:aRect];
+  if (self) {
+    _views = [[NSMutableArray alloc] init];
+    NSInteger width = aRect.size.width / 5;
+    CGRect viewFrame;
+    UIView *view;
+    
+    for (int i = 0; i < 5; i++) {
+      viewFrame = CGRectMake(width * i, 0, width, aRect.size.height);
+      view = [[COFifthView alloc] initDayModuleWithFrame:viewFrame
+                                               DayObject:[daylyArray objectAtIndex:i]
+                                       withborderOnRight:(i < 4) ? YES : NO];
+      view.clipsToBounds = YES;
+      [_views addObject:view];
+      [self addSubview:view];
+    }
+    [self addBottomBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.3]];
+  }
+  return self;
+}
+
+
+
+
+- (instancetype)initHourlyModuleWithFrame:(CGRect)aRect
+                             andHourArray:(NSArray *)hourArray {
+  NSLog(@"init hourly");
+  self = [super initWithFrame:aRect];
+  if (self) {
+    _views = [[NSMutableArray alloc] init];
+    NSInteger width = aRect.size.width / 5;
+    CGRect viewFrame;
+    UIView *view;
+    
+    for (int i = 0; i < 5; i++) {
+      viewFrame = CGRectMake(width * i, 0, width, aRect.size.height);
+      view = [[COFifthView alloc] initHourModuleWithFrame:viewFrame
+                                               HourObject:[hourArray objectAtIndex:i]
+                                        withborderOnRight:(i < 4) ? YES : NO];
+      view.clipsToBounds = YES;
+      [_views addObject:view];
+      [self addSubview:view];
+    }
+    [self addBottomBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.3]];
+  }
+  return self;
+}
+
+
+
+
+- (void)editInfoWithDayArray:(NSArray *)dayArray {
+  for (int i = 0; i < 5; i++) {
+    [[_views objectAtIndex:i] editInfoWithDayObject:[dayArray objectAtIndex:i]];
+  }
+}
+
+
+
+
+- (void)editInfoWithHourArray:(NSArray *)hourArray {
+  for (int i = 0; i < 5; i++) {
+    [[_views objectAtIndex:i] editInfoWithHourObject:[hourArray objectAtIndex:i]];
+  }
 }
 
 @end

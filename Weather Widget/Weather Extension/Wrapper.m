@@ -180,7 +180,12 @@ NSString *const notAvailableText = @"N/A";
     }
     
     Day *dayObject = [[Day alloc] init];
-    dayObject = [dayObject initWithDate:date HighTemperature:highTemp LowTemperature:lowTemp Precipitation:precipProbability GMTOffset:_GMTOffset farenheitSetting:TRUE];
+    dayObject = [dayObject initWithDate:date
+                        HighTemperature:highTemp
+                         LowTemperature:lowTemp
+                          Precipitation:precipProbability
+                              GMTOffset:_GMTOffset
+                       farenheitSetting:TRUE];
     
     if (dayObject) {
       [_weekForecast addObject:dayObject];

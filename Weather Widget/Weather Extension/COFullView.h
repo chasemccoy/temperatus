@@ -11,7 +11,7 @@
 
 @interface COFullView : UIView
 
-- (instancetype)initDaylyModuleWithFrame:(CGRect)aRect
+- (instancetype)initDailyModuleWithFrame:(CGRect)aRect
                           dayStringArray:(NSArray *)dayStringArray
                          highStringArray:(NSArray *)highStringArray
                           lowStringArray:(NSArray *)lowStringArray
@@ -21,5 +21,16 @@
                           hourStringArray:(NSArray *)hourStringArray
                           tempStringArray:(NSArray *)tempStringArray
                         precipStringArray:(NSArray *)precipStringArray;
+
+- (instancetype)initDailyModuleWithFrame:(CGRect)aRect
+                           andDaylyArray:(NSArray *)daylyArray;
+
+- (instancetype)initHourlyModuleWithFrame:(CGRect)aRect
+                             andHourArray:(NSArray *)hourArray;
+
+- (void)editInfoWithDayArray:(NSArray *)dayArray;
+- (void)editInfoWithHourArray:(NSArray *)hourArray;
+
+@property (nonatomic, strong) NSMutableArray *views;
 
 @end

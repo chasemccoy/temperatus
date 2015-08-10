@@ -17,6 +17,11 @@
 @property (strong, nonatomic) UpdateInfo *updateInfo;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
+@property (strong, nonatomic) COFullView *hourView;
+@property (strong, nonatomic) COFullView *dayView;
+@property (strong, nonatomic) Wrapper *myWrapper;
+
 - (void)updateView;
+- (void)createView;
 
 @end

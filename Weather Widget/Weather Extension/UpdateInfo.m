@@ -25,7 +25,7 @@
 
 - (void)update {
   [self getLocation];
-  //[self updateForecastData];
+  [self updateForecastData];
 }
 
 - (void)getLocation {
