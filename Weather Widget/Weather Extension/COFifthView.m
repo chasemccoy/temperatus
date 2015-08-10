@@ -8,7 +8,7 @@
 
 #import "COFifthView.h"
 
-NSInteger const ALPHAVALUE = 0.1;
+NSInteger const ALPHAVALUE = 0.3;
 
 @implementation COFifthView
 
@@ -22,8 +22,8 @@ NSInteger const ALPHAVALUE = 0.1;
   if (self) {
     UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     label1.text = dayString;
-    [label1 setTextColor:[UIColor whiteColor]];
-    [label1 setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightThin]];
+    [label1 setTextColor:[UIColor colorWithWhite:1.0 alpha:0.6]];
+    [label1 setFont:[UIFont systemFontOfSize:18 weight:UIFontWeightThin]];
     label1.textAlignment = NSTextAlignmentCenter;
     [label1 sizeToFit];
     [self addSubview:label1];
@@ -32,7 +32,7 @@ NSInteger const ALPHAVALUE = 0.1;
     UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     label2.text = highString;
     [label2 setTextColor:[UIColor whiteColor]];
-    [label2 setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightThin]];
+    [label2 setFont:[UIFont systemFontOfSize:16 weight:UIFontWeightLight]];
     label2.textAlignment = NSTextAlignmentCenter;
     [label2 sizeToFit];
     [self addSubview:label2];
@@ -41,7 +41,7 @@ NSInteger const ALPHAVALUE = 0.1;
     UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     label3.text = lowString;
     [label3 setTextColor:[UIColor colorWithWhite:1 alpha:0.5]];
-    [label3 setFont:[UIFont systemFontOfSize:18 weight:UIFontWeightThin]];
+    [label3 setFont:[UIFont systemFontOfSize:16 weight:UIFontWeightLight]];
     label3.textAlignment = NSTextAlignmentCenter;
     [label3 sizeToFit];
     [self addSubview:label3];
@@ -49,8 +49,8 @@ NSInteger const ALPHAVALUE = 0.1;
     
     UILabel *label4 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     label4.text = precipString;
-    [label4 setTextColor:[UIColor whiteColor]];
-    [label4 setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightThin]];
+    [label4 setTextColor:[UIColor colorWithRed:0.444 green:0.698 blue:1 alpha:1]];
+    [label4 setFont:[UIFont systemFontOfSize:16 weight:UIFontWeightLight]];
     label4.textAlignment = NSTextAlignmentCenter;
     [label4 sizeToFit];
     [self addSubview:label4];
@@ -78,8 +78,8 @@ NSInteger const ALPHAVALUE = 0.1;
   if (self) {
     UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     label1.text = hourString;
-    [label1 setTextColor:[UIColor whiteColor]];
-    [label1 setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightThin]];
+    [label1 setTextColor:[UIColor colorWithWhite:1.0 alpha:0.6]];
+    [label1 setFont:[UIFont systemFontOfSize:18 weight:UIFontWeightThin]];
     label1.textAlignment = NSTextAlignmentCenter;
     [label1 sizeToFit];
     [self addSubview:label1];
@@ -88,7 +88,7 @@ NSInteger const ALPHAVALUE = 0.1;
     UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     label2.text = tempString;
     [label2 setTextColor:[UIColor whiteColor]];
-    [label2 setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightThin]];
+    [label2 setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightLight]];
     label2.textAlignment = NSTextAlignmentCenter;
     [label2 sizeToFit];
     [self addSubview:label2];
@@ -96,8 +96,8 @@ NSInteger const ALPHAVALUE = 0.1;
     
     UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     label3.text = precipString;
-    [label3 setTextColor:[UIColor whiteColor]];
-    [label3 setFont:[UIFont systemFontOfSize:18 weight:UIFontWeightThin]];
+    [label3 setTextColor:[UIColor colorWithRed:0.444 green:0.698 blue:1 alpha:1]];
+    [label3 setFont:[UIFont systemFontOfSize:16 weight:UIFontWeightLight]];
     label3.textAlignment = NSTextAlignmentCenter;
     [label3 sizeToFit];
     [self addSubview:label3];
