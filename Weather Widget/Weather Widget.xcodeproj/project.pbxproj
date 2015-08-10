@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2E3390921B65950900719AC5 /* UpdateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE176191B6420D20075BB17 /* UpdateInfo.m */; };
+		2E6060CF1B7910AF00277174 /* HelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F31B6423CE006DE2BB /* HelperClass.m */; };
+		2E6060D01B7910B000277174 /* HelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F31B6423CE006DE2BB /* HelperClass.m */; };
 		2EE175B21B641FE20075BB17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE175B11B641FE20075BB17 /* main.m */; };
 		2EE175B51B641FE20075BB17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE175B41B641FE20075BB17 /* AppDelegate.m */; };
 		2EE175B81B641FE20075BB17 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE175B71B641FE20075BB17 /* ViewController.m */; };
@@ -588,6 +590,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E6060D01B7910B000277174 /* HelperClass.m in Sources */,
 				2EE175CC1B641FE30075BB17 /* Weather_WidgetTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -627,6 +630,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E6060CF1B7910AF00277174 /* HelperClass.m in Sources */,
 				D8633A801B65C85900ED6052 /* Weather_Widget_Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
