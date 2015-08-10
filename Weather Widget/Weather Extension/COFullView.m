@@ -32,7 +32,7 @@
       view.clipsToBounds = YES;
       [self addSubview:view];
     }
-    [self addBottomBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.3]];
+    [self addBottomBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.1]];
   }
   return self;
 }
@@ -60,7 +60,7 @@
       view.clipsToBounds = YES;
       [self addSubview:view];
     }
-    [self addBottomBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.3]];
+    [self addBottomBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.1]];
   }
   return self;
 }

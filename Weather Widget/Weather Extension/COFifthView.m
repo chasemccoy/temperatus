@@ -8,7 +8,7 @@
 
 #import "COFifthView.h"
 
-double const ALPHAVALUE = 0.3;
+double const ALPHAVALUE = 0.1;
 
 @implementation COFifthView
 
@@ -153,6 +153,11 @@ double const ALPHAVALUE = 0.3;
   _label2.text = dayObject.highTemp;
   _label3.text = dayObject.lowTemp;
   _label4.text = dayObject.precipPercent;
+  
+  [_label1 sizeToFit];
+  [_label2 sizeToFit];
+  [_label3 sizeToFit];
+  [_label4 sizeToFit];
 }
 
 
@@ -163,6 +168,10 @@ double const ALPHAVALUE = 0.3;
   _label1.text = hourObject.stringVersion;
   _label2.text = hourObject.temperature;
   _label3.text = hourObject.precipPercent;
+  
+  [_label1 sizeToFit];
+  [_label2 sizeToFit];
+  [_label3 sizeToFit];
 }
 
 @end
