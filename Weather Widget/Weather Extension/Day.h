@@ -11,12 +11,16 @@
 
 @interface Day : NSObject
 
+#pragma mark - init
+
 - (id)initWithDate:(NSString *)dateInSecondsString
    HighTemperature:(NSString *)highTempString
     LowTemperature:(NSString *)lowTempString
      Precipitation:(NSString *)precipitationString
          GMTOffset:(NSString *)GMTOffset
   farenheitSetting:(BOOL)farenheitSetting;
+
+# pragma mark - Properties
 
 @property (strong, nonatomic) NSDate *date;
 @property (strong, nonatomic) NSString *highTemp;

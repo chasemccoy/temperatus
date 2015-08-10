@@ -16,7 +16,6 @@
      Precipitation:(NSString *)precipitationString
          GMTOffset:(NSString *)GMTOffset
   farenheitSetting:(BOOL)farenheitSetting {
-  
   if (self) {
     _date = [HelperClass dateFromSecondsString:dateInSecondsString
                                       andGMTOffset:GMTOffset];

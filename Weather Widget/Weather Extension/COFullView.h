@@ -11,26 +11,29 @@
 
 @interface COFullView : UIView
 
+# pragma mark - Daily Module
+
+- (instancetype)initDailyModuleWithFrame:(CGRect)aRect
+                           andDailyArray:(NSArray *)dailyArray;
 - (instancetype)initDailyModuleWithFrame:(CGRect)aRect
                           dayStringArray:(NSArray *)dayStringArray
                          highStringArray:(NSArray *)highStringArray
                           lowStringArray:(NSArray *)lowStringArray
                        precipStringArray:(NSArray *)precipStringArray;
+- (void)editInfoWithDayArray:(NSArray *)dayArray;
 
+#pragma mark - Hourly Module
+
+- (instancetype)initHourlyModuleWithFrame:(CGRect)aRect
+                             andHourArray:(NSArray *)hourArray;
 - (instancetype)initHourlyModuleWithFrame:(CGRect)aRect
                           hourStringArray:(NSArray *)hourStringArray
                           tempStringArray:(NSArray *)tempStringArray
                         precipStringArray:(NSArray *)precipStringArray;
-
-- (instancetype)initDailyModuleWithFrame:(CGRect)aRect
-                           andDaylyArray:(NSArray *)daylyArray;
-
-- (instancetype)initHourlyModuleWithFrame:(CGRect)aRect
-                             andHourArray:(NSArray *)hourArray;
-
-- (void)editInfoWithDayArray:(NSArray *)dayArray;
 - (void)editInfoWithHourArray:(NSArray *)hourArray;
 
-@property (nonatomic, strong) NSMutableArray *views;
+#pragma mark - Properties
+
+@property (strong, nonatomic) NSMutableArray *views;
 
 @end

@@ -35,7 +35,7 @@
   
   CGRect viewFrame = CGRectMake(0, 0, self.view.frame.size.width, 80);
   self.dayView = [[COFullView alloc] initDailyModuleWithFrame:viewFrame
-                                            andDaylyArray:_myWrapper.weekForecast];
+                                            andDailyArray:_myWrapper.weekForecast];
   [self.view addSubview:self.dayView];
   
   viewFrame = CGRectMake(0, 80, self.view.frame.size.width, 80);
