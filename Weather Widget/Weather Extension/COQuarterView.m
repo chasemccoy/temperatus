@@ -27,7 +27,7 @@
 //    tempLabel.frame = myFrame;
     
     [self addSubview:tempLabel];
-    [tempLabel setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)]; 
+    [tempLabel setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
   }
   return  self;
 }
