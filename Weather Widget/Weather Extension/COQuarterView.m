@@ -10,128 +10,245 @@
 
 @implementation COQuarterView
 
+#pragma mark - Current Temperature Module
+
+/**
+ * Initializes a current temperature module.
+ * @author Chase
+ *
+ * @param aRect A CGRect of the frame used to initialize the view.
+ * @param temp An NSString of the current temperature.
+ *
+ * @return An instance of the COQuarterView type.
+ */
 - (instancetype)initCurrentTempModuleWithFrame:(CGRect)aRect
                                 andTemperature:(NSString*)temp {
+  // label1 = The current temperature.
   self = [super initWithFrame:aRect];
   if (self) {
-    UILabel *tempLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    tempLabel.text = temp;
-    tempLabel.textAlignment = NSTextAlignmentCenter;
-    [tempLabel setTextColor:[UIColor whiteColor]];
-    tempLabel.adjustsFontSizeToFitWidth = YES;
-    [tempLabel setFont:[UIFont systemFontOfSize:40 weight:UIFontWeightThin]];
-    [tempLabel sizeToFit];
+    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    label1.text = temp;
+    label1.textAlignment = NSTextAlignmentCenter;
+    [label1 setTextColor:[UIColor whiteColor]];
+    label1.adjustsFontSizeToFitWidth = YES;
+    [label1 setFont:[UIFont systemFontOfSize:40 weight:UIFontWeightThin]];
+    [label1 sizeToFit];
     
-//    CGRect myFrame = tempLabel.frame;
+//    CGRect myFrame = label1.frame;
 //    myFrame = CGRectMake(myFrame.origin.x, myFrame.origin.y, aRect.size.width, myFrame.size.height);
-//    tempLabel.frame = myFrame;
+//    label1.frame = myFrame;
     
-    [self addSubview:tempLabel];
-    [tempLabel setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
+    [self addSubview:label1];
+    [label1 setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
   }
   return  self;
 }
 
+
+
+/**
+ * Changes the data displayed in the current temperature module.
+ * @author Chase
+ *
+ * @param temp An NSString of the new temperature.
+ */
+- (void)editInfoWithTemperature:(NSString *)temp {
+  self.label1.text = temp;
+  [self.label1 sizeToFit];
+}
+
+
+
+
+#pragma mark - High/Low Temperature Module
+
+/**
+ * Initializes a high/low temperature module.
+ * @author Chase
+ *
+ * @param aRect A CGRect of the frame used to initialize the view.
+ * @param highTemp An NSString of the high temperature.
+ * @param lowTemp An NSString of the low temperature.
+ *
+ * @return An instance of the COQuarterView type.
+ */
 - (instancetype)initHighLowTempModuleWithFrame:(CGRect)aRect
                                       highTemp:(NSString *)highTemp
                                        lowTemp:(NSString *)lowTemp {
+  // label1 = The high temperature.
+  // label2 = The low temperature.
   self = [super initWithFrame:aRect];
   if (self) {
-    UILabel *highTempLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    UILabel *lowTempLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     
-    highTempLabel.text = [NSString stringWithFormat:@"H: %@", highTemp];
-    lowTempLabel.text = [NSString stringWithFormat:@"L: %@", lowTemp];
+    label1.text = [NSString stringWithFormat:@"H: %@", highTemp];
+    label2.text = [NSString stringWithFormat:@"L: %@", lowTemp];
     
-    highTempLabel.textAlignment = NSTextAlignmentCenter;
-    lowTempLabel.textAlignment = NSTextAlignmentCenter;
+    label1.textAlignment = NSTextAlignmentCenter;
+    label2.textAlignment = NSTextAlignmentCenter;
         
-    [highTempLabel setTextColor:[UIColor whiteColor]];
-    [lowTempLabel setTextColor:[UIColor colorWithWhite:1.0 alpha:0.5]];
+    [label1 setTextColor:[UIColor whiteColor]];
+    [label2 setTextColor:[UIColor colorWithWhite:1.0 alpha:0.5]];
     
-    highTempLabel.adjustsFontSizeToFitWidth = YES;
-    lowTempLabel.adjustsFontSizeToFitWidth = YES;
+    label1.adjustsFontSizeToFitWidth = YES;
+    label2.adjustsFontSizeToFitWidth = YES;
     
-    [highTempLabel setFont:[UIFont systemFontOfSize:24 weight:UIFontWeightThin]];
-    [lowTempLabel setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightThin]];
+    [label1 setFont:[UIFont systemFontOfSize:24 weight:UIFontWeightThin]];
+    [label2 setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightThin]];
     
-    [highTempLabel sizeToFit];
-    [lowTempLabel sizeToFit];
+    [label1 sizeToFit];
+    [label2 sizeToFit];
     
-//    CGRect highTempFrame = highTempLabel.frame;
+//    CGRect highTempFrame = label1.frame;
 //    highTempFrame = CGRectMake(highTempFrame.origin.x, highTempFrame.origin.y, aRect.size.width, highTempFrame.size.height);
-//    highTempLabel.frame = highTempFrame;
-//    CGRect lowTempFrame = lowTempLabel.frame;
+//    label1.frame = highTempFrame;
+//    CGRect lowTempFrame = label2.frame;
 //    lowTempFrame = CGRectMake(lowTempFrame.origin.x, lowTempFrame.origin.y, aRect.size.width, lowTempFrame.size.height);
-//    lowTempLabel.frame = lowTempFrame;
+//    label2.frame = lowTempFrame;
     
-    highTempLabel.center = CGPointMake(self.frame.size.width / 2, 30);
-    lowTempLabel.center = CGPointMake(self.frame.size.width / 2, highTempLabel.frame.size.height + 35);
+    label1.center = CGPointMake(self.frame.size.width / 2, 30);
+    label2.center = CGPointMake(self.frame.size.width / 2, label1.frame.size.height + 35);
     
-    [self addSubview:highTempLabel];
-    [self addSubview:lowTempLabel];
+    [self addSubview:label1];
+    [self addSubview:label2];
   }
   return self;
 }
 
+
+
+/**
+ * Changes the data displayed in the high/low temperature module.
+ * @author Chase
+ *
+ * @param highTemp An NSString of the new high temperature.
+ * @param lowTemp An NSString of the new low temperature.
+ */
+- (void)editInfoWithHighTemp:(NSString *)highTemp
+                  andLowTemp:(NSString *)lowTemp {
+  self.label1.text = highTemp;
+  self.label2.text = lowTemp;
+  [self.label1 sizeToFit];
+  [self.label2 sizeToFit];
+}
+
+
+
+
+#pragma mark - Humidity Module
+
+/**
+ * Initializes a humidity module.
+ * @author Chase
+ *
+ * @param aRect A CGRect of the frame used to initialize the view.
+ * @param humidity An NSString of the current humidity.
+ *
+ * @return An instance of the COQuarterView type.
+ */
 - (instancetype)initHumidityModuleWithFrame:(CGRect)aRect
                                 andHumidity:(NSString *)humidity {
+  // label1 = The title.
+  // label2 = The humidity.
   self = [super initWithFrame:aRect];
   if (self) {
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    UILabel *humidityLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     
-    titleLabel.text = @"Humidity";
-    humidityLabel.text = humidity;
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    humidityLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.adjustsFontSizeToFitWidth = YES;
-    humidityLabel.adjustsFontSizeToFitWidth = YES;
+    label1.text = @"Humidity";
+    label2.text = humidity;
+    label1.textAlignment = NSTextAlignmentCenter;
+    label2.textAlignment = NSTextAlignmentCenter;
+    label1.adjustsFontSizeToFitWidth = YES;
+    label2.adjustsFontSizeToFitWidth = YES;
     
-    [titleLabel setTextColor:[UIColor whiteColor]];
-    [humidityLabel setTextColor:[UIColor whiteColor]];
-    [titleLabel setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightThin]];
-    [humidityLabel setFont:[UIFont systemFontOfSize:24 weight:UIFontWeightLight]];
-    [titleLabel sizeToFit];
-    [humidityLabel sizeToFit];
+    [label1 setTextColor:[UIColor whiteColor]];
+    [label2 setTextColor:[UIColor whiteColor]];
+    [label1 setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightThin]];
+    [label2 setFont:[UIFont systemFontOfSize:24 weight:UIFontWeightLight]];
+    [label1 sizeToFit];
+    [label2 sizeToFit];
     
-    [self addSubview:titleLabel];
-    [self addSubview:humidityLabel];
+    [self addSubview:label1];
+    [self addSubview:label2];
     
-    [titleLabel setCenter:CGPointMake(self.frame.size.width / 2, 20)];
-    [humidityLabel setCenter:CGPointMake(self.frame.size.width / 2, titleLabel.frame.size.height + 35)];
+    [label1 setCenter:CGPointMake(self.frame.size.width / 2, 20)];
+    [label2 setCenter:CGPointMake(self.frame.size.width / 2, label1.frame.size.height + 35)];
   }
   return  self;
 }
 
+
+
+/**
+ * Changes the data displayed in the humidity module.
+ * @author Chase
+ *
+ * @param temp An NSString of the new humidity.
+ */
+- (void)editInfoWithHumidity:(NSString *)humidity {
+  self.label2.text = humidity;
+  [self.label2 sizeToFit];
+}
+
+
+
+
+#pragma mark - Dew Point Module
+
+/**
+ * Initializes a dew point module.
+ * @author Chase
+ *
+ * @param aRect A CGRect of the frame used to initialize the view.
+ * @param dewPoint An NSString of the current dew point.
+ *
+ * @return An instance of the COQuarterView type.
+ */
 - (instancetype)initDewPointModuleWithFrame:(CGRect)aRect
                                 andDewPoint:(NSString *)dewPoint {
+  // label1 = The title.
+  // label2 = The dew point.
   self = [super initWithFrame:aRect];
   if (self) {
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    UILabel *dewPointLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     
-    titleLabel.text = @"Dew Point";
-    dewPointLabel.text = dewPoint;
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    dewPointLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.adjustsFontSizeToFitWidth = YES;
-    dewPointLabel.adjustsFontSizeToFitWidth = YES;
+    label1.text = @"Dew Point";
+    label2.text = dewPoint;
+    label1.textAlignment = NSTextAlignmentCenter;
+    label2.textAlignment = NSTextAlignmentCenter;
+    label1.adjustsFontSizeToFitWidth = YES;
+    label2.adjustsFontSizeToFitWidth = YES;
     
-    [titleLabel setTextColor:[UIColor whiteColor]];
-    [dewPointLabel setTextColor:[UIColor whiteColor]];
-    [titleLabel setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightThin]];
-    [dewPointLabel setFont:[UIFont systemFontOfSize:24 weight:UIFontWeightLight]];
-    [titleLabel sizeToFit];
-    [dewPointLabel sizeToFit];
+    [label1 setTextColor:[UIColor whiteColor]];
+    [label2 setTextColor:[UIColor whiteColor]];
+    [label1 setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightThin]];
+    [label2 setFont:[UIFont systemFontOfSize:24 weight:UIFontWeightLight]];
+    [label1 sizeToFit];
+    [label2 sizeToFit];
     
-    [self addSubview:titleLabel];
-    [self addSubview:dewPointLabel];
+    [self addSubview:label1];
+    [self addSubview:label2];
     
-    [titleLabel setCenter:CGPointMake(self.frame.size.width / 2, 20)];
-    [dewPointLabel setCenter:CGPointMake(self.frame.size.width / 2, titleLabel.frame.size.height + 35)];
+    [label1 setCenter:CGPointMake(self.frame.size.width / 2, 20)];
+    [label2 setCenter:CGPointMake(self.frame.size.width / 2, label1.frame.size.height + 35)];
   }
   return  self;
+}
+
+
+
+/**
+ * Changes the data displayed in the dew point module.
+ * @author Chase
+ *
+ * @param temp An NSString of the new dew point.
+ */
+- (void)editInfoWithDewPoint:(NSString *)dewPoint {
+  self.label2.text = dewPoint;
+  [self.label2 sizeToFit];
 }
 
 @end
