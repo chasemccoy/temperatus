@@ -15,5 +15,9 @@
 - (instancetype)initHighLowTempModuleWithFrame:(CGRect)aRect
                                       highTemp:(NSString *)highTemp
                                        lowTemp:(NSString *)lowTemp;
+- (instancetype)initHumidityModuleWithFrame:(CGRect)aRect
+                                andHumidity:(NSString *)humidity;
+- (instancetype)initDewPointModuleWithFrame:(CGRect)aRect
+                                andDewPoint:(NSString *)dewPoint;
 
 @end
