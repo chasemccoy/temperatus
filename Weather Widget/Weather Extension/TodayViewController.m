@@ -19,7 +19,7 @@
     [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
   
-  self.preferredContentSize = CGSizeMake(0, 160);
+  self.preferredContentSize = CGSizeMake(0, 240);
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateView) name:@"newData" object:nil];
   
@@ -33,12 +33,21 @@
 - (void)createView {
   _myWrapper = _updateInfo.dataWrapper;
   
-  CGRect viewFrame = CGRectMake(0, 0, self.view.frame.size.width, 80);
+  CGRect viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, 80);
+  self.currentTempView = [[COQuarterView alloc] initCurrentTempModuleWithFrame:viewFrame
+                                                                andTemperature:self.myWrapper.currentTemp];
+  [self.view addSubview:self.currentTempView];
+  
+  viewFrame = CGRectMake(self.view.frame.size.width / 4, 0, self.view.frame.size.width / 4, 80);
+  self.humidityView = [[COQuarterView alloc] initHumidityModuleWithFrame:viewFrame andHumidity:@"43%"];
+  [self.view addSubview:self.humidityView];
+  
+  viewFrame = CGRectMake(0, 80, self.view.frame.size.width, 80);
   self.dayView = [[COFullView alloc] initDailyModuleWithFrame:viewFrame
                                             andDailyArray:_myWrapper.weekForecast];
   [self.view addSubview:self.dayView];
   
-  viewFrame = CGRectMake(0, 80, self.view.frame.size.width, 80);
+  viewFrame = CGRectMake(0, 160, self.view.frame.size.width, 80);
   self.hourView = [[COFullView alloc] initHourlyModuleWithFrame:viewFrame
                                                    andHourArray:_myWrapper.hourlyForecast];
   [self.view addSubview:self.hourView];
@@ -56,6 +65,8 @@
     
     [self.dayView editInfoWithDayArray:_myWrapper.weekForecast];
     [self.hourView editInfoWithHourArray:_myWrapper.hourlyForecast];
+    [self.currentTempView editInfoWithTemperature:self.myWrapper.currentTemp];
+    [self.humidityView editInfoWithHumidity:@"43%"];
   }
 }
 
@@ -85,6 +96,10 @@
     // If there's an update, use NCUpdateResultNewData
 
     completionHandler(NCUpdateResultNewData);
+}
+
+- (void)dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

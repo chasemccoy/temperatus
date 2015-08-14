@@ -10,6 +10,12 @@
 
 @interface COQuarterView : UIView
 
+#pragma mark - Properties
+
+@property (strong, nonatomic) UILabel *label1;
+@property (strong, nonatomic) UILabel *label2;
+
+
 #pragma mark - Current Temperature Module
 
 - (instancetype)initCurrentTempModuleWithFrame:(CGRect)aRect
@@ -37,12 +43,5 @@
 - (instancetype)initDewPointModuleWithFrame:(CGRect)aRect
                                 andDewPoint:(NSString *)dewPoint;
 - (void)editInfoWithDewPoint:(NSString *)dewPoint;
-
-
-#pragma mark - Properties
-
-@property (strong, nonatomic) UILabel *label1;
-@property (strong, nonatomic) UILabel *label2;
-
 
 @end
