@@ -224,16 +224,16 @@
     
     [self.label1 setTextColor:[UIColor whiteColor]];
     [self.label2 setTextColor:[UIColor whiteColor]];
-    [self.label1 setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightThin]];
-    [self.label2 setFont:[UIFont systemFontOfSize:24 weight:UIFontWeightLight]];
+    [self.label1 setFont:[UIFont systemFontOfSize:16 weight:UIFontWeightThin]];
+    [self.label2 setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightLight]];
     [self.label1 sizeToFit];
     [self.label2 sizeToFit];
     
     [self addSubview:self.label1];
     [self addSubview:self.label2];
     
-    [self.label1 setCenter:CGPointMake(self.frame.size.width / 2, 20)];
-    [self.label2 setCenter:CGPointMake(self.frame.size.width / 2, self.label1.frame.size.height + 35)];
+    [self.label1 setCenter:CGPointMake(self.frame.size.width / 2, 25)];
+    [self.label2 setCenter:CGPointMake(self.frame.size.width / 2, self.label1.frame.size.height + 30)];
   }
   return  self;
 }

@@ -30,6 +30,8 @@
 @property (strong, nonatomic) NSString *todayPrecipProbability;
 @property (strong, nonatomic) NSString *todayDescriptionForPrecipIntensity;
 @property (strong, nonatomic) NSString *todayPrecipType;
+@property (strong, nonatomic) NSString *currentDewPoint;
+@property (strong, nonatomic) NSString *currentHumidity;
 
 // Hourly
 # pragma mark Hourly

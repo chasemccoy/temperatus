@@ -39,7 +39,8 @@
   [self.view addSubview:self.currentTempView];
   
   viewFrame = CGRectMake(self.view.frame.size.width / 4, 0, self.view.frame.size.width / 4, 80);
-  self.humidityView = [[COQuarterView alloc] initHumidityModuleWithFrame:viewFrame andHumidity:@"43%"];
+  self.humidityView = [[COQuarterView alloc] initHumidityModuleWithFrame:viewFrame
+                                                             andHumidity:self.myWrapper.currentHumidity];
   [self.view addSubview:self.humidityView];
   
   viewFrame = CGRectMake(0, 80, self.view.frame.size.width, 80);
@@ -66,7 +67,7 @@
     [self.dayView editInfoWithDayArray:_myWrapper.weekForecast];
     [self.hourView editInfoWithHourArray:_myWrapper.hourlyForecast];
     [self.currentTempView editInfoWithTemperature:self.myWrapper.currentTemp];
-    [self.humidityView editInfoWithHumidity:@"43%"];
+    [self.humidityView editInfoWithHumidity:self.myWrapper.currentHumidity];
   }
 }
 

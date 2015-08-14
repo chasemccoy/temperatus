@@ -54,6 +54,8 @@ NSString *const notAvailableText = @"N/A";
   NSString *precipProbability = [HelperClass percentageStringFromDoubleString:currently[kFCPrecipProbability]];
   NSString *precipIntensity = [HelperClass descriptionForPrecipIntensity:currently[kFCPrecipIntensity]];
   NSString *precipType = currently[kFCPrecipType];
+  NSString *humidity = currently[kFCHumidity];
+  NSString *dewPoint = currently[kFCDewPoint];
   
   _currentSummary = summary ? summary : notAvailableText;
   _currentTemp = temp ? temp : notAvailableText;
@@ -63,6 +65,8 @@ NSString *const notAvailableText = @"N/A";
   _todayPrecipProbability = precipProbability ? precipProbability : notAvailableText;
   _todayDescriptionForPrecipIntensity = precipIntensity ? precipIntensity : notAvailableText;
   _todayPrecipType = precipType ? precipType : notAvailableText;
+  self.currentHumidity = humidity ? humidity : notAvailableText;
+  self.currentDewPoint = dewPoint ? dewPoint : notAvailableText;
 }
 
 #pragma mark - Wrap Hourly Data
