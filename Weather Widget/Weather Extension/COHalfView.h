@@ -10,4 +10,15 @@
 
 @interface COHalfView : UIView
 
+#pragma mark - Properties
+
+@property (strong, nonatomic) UILabel *label1;
+
+
+#pragma mark - Day Summary Module
+
+- (instancetype)initDaySummaryModuleWithFrame:(CGRect)aRect
+                                andDaySummary:(NSString*)summary;
+- (void)editInfoWithDaySummary:(NSString*)summary;
+
 @end

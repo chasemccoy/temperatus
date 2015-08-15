@@ -19,7 +19,7 @@
     [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
   
-  self.preferredContentSize = CGSizeMake(0, 320);
+  self.preferredContentSize = CGSizeMake(0, 400);
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateView) name:@"newData" object:nil];
   
@@ -62,6 +62,10 @@
   self.weeklySummaryView = [[COFullView alloc] initWeeklySummaryModuleWithFrame:viewFrame
                                                                andWeeklySummary:self.myWrapper.weekSummary];
   [self.view addSubview:self.weeklySummaryView];
+  
+  viewFrame = CGRectMake(0, 320, self.view.frame.size.width / 2, 80);
+  self.daySummaryView = [[COHalfView alloc] initDaySummaryModuleWithFrame:viewFrame andDaySummary:self.myWrapper.currentSummary];
+  [self.view addSubview:self.daySummaryView];
 }
 
 
@@ -80,6 +84,7 @@
     [self.humidityView editInfoWithHumidity:self.myWrapper.currentHumidity];
     [self.dewPointView editInfoWithDewPoint:self.myWrapper.currentDewPoint];
     [self.weeklySummaryView editInfoWithWeeklySummary:self.myWrapper.weekSummary];
+    [self.daySummaryView editInfoWithDaySummary:self.myWrapper.currentSummary];
   }
 }
 
