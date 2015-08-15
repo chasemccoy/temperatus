@@ -90,8 +90,8 @@
     //NSLog(@"\n***%f***\n", self.currentLocation.coordinate.latitude);
     //NSLog(@"\n***%f***\n", self.currentLocation.coordinate.longitude);
     [self updateForecastData];
+    //[self.locationManager stopUpdatingLocation];
   }
-  [self.locationManager stopUpdatingLocation];
 }
 
 - (void)locationManager:(CLLocationManager*)manager

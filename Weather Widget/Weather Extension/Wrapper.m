@@ -51,7 +51,11 @@ NSString *const notAvailableText = @"N/A";
   NSString *feelsLike = [HelperClass temperatureStringFromDoubleString:currently[kFCApparentTemperature] andFarenheitSetting:YES];
   NSString *highTemp = [HelperClass temperatureStringFromDoubleString:today[kFCTemperatureMax] andFarenheitSetting:YES];
   NSString *lowTemp = [HelperClass temperatureStringFromDoubleString:today[kFCTemperatureMin] andFarenheitSetting:YES];
-  NSString *precipProbability = [HelperClass percentageStringFromDoubleString:currently[kFCPrecipProbability]];
+  
+  NSNumber *precipProbabilityNumeric = currently[kFCPrecipProbability];
+  double precipProbablilityVal = [precipProbabilityNumeric doubleValue] * 100;
+  NSString *precipProbability = [HelperClass percentageStringFromDoubleString:[NSString stringWithFormat:@"%f", precipProbablilityVal]];
+  
   NSString *precipIntensity = [HelperClass descriptionForPrecipIntensity:currently[kFCPrecipIntensity]];
   NSString *precipType = currently[kFCPrecipType];
   
@@ -94,7 +98,11 @@ NSString *const notAvailableText = @"N/A";
     NSString *date = hour[kFCTime] ? hour[kFCTime] : notAvailableText;
     NSString *temp = hour[kFCTemperature] ? hour[kFCTemperature] : notAvailableText;
     NSString *feelsLikeTemp = hour[kFCApparentTemperature] ? hour[kFCApparentTemperature] : notAvailableText;
-    NSString *precipProbability = hour[kFCPrecipProbability] ? hour[kFCPrecipProbability] : notAvailableText;
+    
+    NSNumber *precipProbabilityNumeric = hour[kFCPrecipProbability];
+    double precipProbablilityVal = [precipProbabilityNumeric doubleValue] * 100;
+    NSString *precipProbability = [HelperClass percentageStringFromDoubleString:[NSString stringWithFormat:@"%f", precipProbablilityVal]];
+    
     NSString *precipIntensity = hour[kFCPrecipIntensity] ? hour[kFCPrecipIntensity] : notAvailableText;
     NSString *precipType = hour[kFCPrecipType] ? hour[kFCPrecipType] : notAvailableText;
     NSString *dewPoint = hour[kFCDewPoint] ? hour[kFCDewPoint] : notAvailableText;
@@ -106,6 +114,7 @@ NSString *const notAvailableText = @"N/A";
     
     if (self.hourlyForecast == nil) {
       self.hourlyForecast = [[NSMutableArray alloc] init];
+      
     }
     
     Hour *hourObject = [[Hour alloc] init];
@@ -148,7 +157,11 @@ NSString *const notAvailableText = @"N/A";
   NSString *summary = tomorrow[kFCSummary];
   NSString *highTemp = [HelperClass temperatureStringFromDoubleString:tomorrow[kFCTemperatureMax] andFarenheitSetting:YES];
   NSString *lowTemp = [HelperClass temperatureStringFromDoubleString:tomorrow[kFCTemperatureMin] andFarenheitSetting:YES];
-  NSString *precipProbability = [HelperClass percentageStringFromDoubleString:tomorrow[kFCPrecipProbability]];
+  
+  NSNumber *precipProbabilityNumeric = tomorrow[kFCPrecipProbability];
+  double precipProbablilityVal = [precipProbabilityNumeric doubleValue] * 100;
+  NSString *precipProbability = [HelperClass percentageStringFromDoubleString:[NSString stringWithFormat:@"%f", precipProbablilityVal]];
+  
   NSString *precipIntensity = [HelperClass descriptionForPrecipIntensity:tomorrow[kFCPrecipIntensity]];
   NSString *precipType = tomorrow[kFCPrecipType];
   
@@ -180,7 +193,11 @@ NSString *const notAvailableText = @"N/A";
     
     NSString *highTemp = day[kFCTemperatureMax];
     NSString *lowTemp = day[kFCTemperatureMin];
-    NSString *precipProbability = day[kFCPrecipProbability];
+    
+    NSNumber *precipProbabilityNumeric = day[kFCPrecipProbability];
+    double precipProbablilityVal = [precipProbabilityNumeric doubleValue] * 100;
+    NSString *precipProbability = [HelperClass percentageStringFromDoubleString:[NSString stringWithFormat:@"%f", precipProbablilityVal]];
+    
     NSString *date = day[kFCTime];
     
     if (self.weekForecast == nil) {
