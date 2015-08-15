@@ -19,7 +19,7 @@
     [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
   
-  self.preferredContentSize = CGSizeMake(0, 240);
+  self.preferredContentSize = CGSizeMake(0, 320);
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateView) name:@"newData" object:nil];
   
@@ -57,6 +57,11 @@
   self.hourView = [[COFullView alloc] initHourlyModuleWithFrame:viewFrame
                                                    andHourArray:_myWrapper.hourlyForecast];
   [self.view addSubview:self.hourView];
+  
+  viewFrame = CGRectMake(0, 240, self.view.frame.size.width, 80);
+  self.weeklySummaryView = [[COFullView alloc] initWeeklySummaryModuleWithFrame:viewFrame
+                                                               andWeeklySummary:self.myWrapper.weekSummary];
+  [self.view addSubview:self.weeklySummaryView];
 }
 
 
@@ -74,6 +79,7 @@
     [self.currentTempView editInfoWithTemperature:self.myWrapper.currentTemp];
     [self.humidityView editInfoWithHumidity:self.myWrapper.currentHumidity];
     [self.dewPointView editInfoWithDewPoint:self.myWrapper.currentDewPoint];
+    [self.weeklySummaryView editInfoWithWeeklySummary:self.myWrapper.weekSummary];
   }
 }
 
@@ -101,8 +107,10 @@
     // If an error is encountered, use NCUpdateResultFailed
     // If there's no update required, use NCUpdateResultNoData
     // If there's an update, use NCUpdateResultNewData
+  
+  [self updateView];
 
-    completionHandler(NCUpdateResultNewData);
+  completionHandler(NCUpdateResultNewData);
 }
 
 - (void)dealloc {

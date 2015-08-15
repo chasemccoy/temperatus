@@ -32,8 +32,15 @@
                         precipStringArray:(NSArray *)precipStringArray;
 - (void)editInfoWithHourArray:(NSArray *)hourArray;
 
+#pragma mark - Weekly Summary Module
+
+- (instancetype)initWeeklySummaryModuleWithFrame:(CGRect)aRect
+                                andWeeklySummary:(NSString*)summary;
+- (void)editInfoWithWeeklySummary:(NSString*)summary;
+
 #pragma mark - Properties
 
 @property (strong, nonatomic) NSMutableArray *views;
+@property (strong, nonatomic) UILabel *label1;
 
 @end
