@@ -73,6 +73,7 @@
     [self.hourView editInfoWithHourArray:_myWrapper.hourlyForecast];
     [self.currentTempView editInfoWithTemperature:self.myWrapper.currentTemp];
     [self.humidityView editInfoWithHumidity:self.myWrapper.currentHumidity];
+    [self.dewPointView editInfoWithDewPoint:self.myWrapper.currentDewPoint];
   }
 }
 

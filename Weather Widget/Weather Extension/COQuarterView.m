@@ -35,7 +35,7 @@
     [self.label1 sizeToFit];
     
 //    CGRect myFrame = self.label1.frame;
-//    myFrame = CGRectMake(myFrame.origin.x, myFrame.origin.y, aRect.size.width, myFrame.size.height);
+//    myFrame = CGRectMake(myFrame.origin.x, (self.frame.size.height / 2) - (myFrame.size.height / 2), aRect.size.width, myFrame.size.height);
 //    self.label1.frame = myFrame;
     
     [self addSubview:self.label1];
@@ -55,6 +55,7 @@
 - (void)editInfoWithTemperature:(NSString *)temp {
   self.self.label1.text = temp;
   [self.label1 sizeToFit];
+  [self.label1 setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
 }
 
 
@@ -131,6 +132,9 @@
   self.label2.text = lowTemp;
   [self.label1 sizeToFit];
   [self.label2 sizeToFit];
+  
+  [self.label1 setCenter:CGPointMake(self.frame.size.width / 2, 30)];
+  [self.label2 setCenter:CGPointMake(self.frame.size.width / 2, self.label1.frame.size.height + 35)];
 }
 
 
@@ -190,6 +194,8 @@
 - (void)editInfoWithHumidity:(NSString *)humidity {
   self.label2.text = humidity;
   [self.label2 sizeToFit];
+  
+  [self.label2 setCenter:CGPointMake(self.frame.size.width / 2, self.label1.frame.size.height + 30)];
 }
 
 
@@ -249,6 +255,8 @@
 - (void)editInfoWithDewPoint:(NSString *)dewPoint {
   self.label2.text = dewPoint;
   [self.label2 sizeToFit];
+  
+  [self.label2 setCenter:CGPointMake(self.frame.size.width / 2, self.label1.frame.size.height + 30)];
 }
 
 @end

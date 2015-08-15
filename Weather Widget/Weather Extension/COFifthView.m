@@ -132,6 +132,11 @@ double const ALPHAVALUE = 0.1;
   [self.label2 sizeToFit];
   [self.label3 sizeToFit];
   [self.label4 sizeToFit];
+  
+  [self.label1 setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 6)];
+  [self.label2 setCenter:CGPointMake(self.frame.size.width / 4, (self.frame.size.height / 6) * 3)];
+  [self.label3 setCenter:CGPointMake((self.frame.size.width / 4) * 3, (self.frame.size.height / 6) * 3)];
+  [self.label4 setCenter:CGPointMake(self.frame.size.width / 2, (self.frame.size.height / 6) * 5)];
 }
 
 
@@ -239,6 +244,10 @@ double const ALPHAVALUE = 0.1;
   [self.label1 sizeToFit];
   [self.label2 sizeToFit];
   [self.label3 sizeToFit];
+  
+  [self.label1 setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 6)];
+  [self.label2 setCenter:CGPointMake(self.frame.size.width / 2, (self.frame.size.height / 6) * 3)];
+  [self.label3 setCenter:CGPointMake(self.frame.size.width / 2, (self.frame.size.height / 6) * 5)];
 }
 
 @end

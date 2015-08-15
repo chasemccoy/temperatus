@@ -25,7 +25,6 @@
 
 - (void)update {
   [self getLocation];
-  [self updateForecastData];
 }
 
 - (void)getLocation {
@@ -62,8 +61,21 @@
   _dataWrapper = [_dataWrapper wrapData:JSON];
 }
 
+- (BOOL)isValidLocation:(CLLocation *)location {
+  if ([location.timestamp timeIntervalSinceNow] < 15
+      && (location.coordinate.latitude > 0.00001
+          || location.coordinate.latitude < -0.00001)
+      && (location.coordinate.longitude > 0.00001
+          || location.coordinate.longitude < -0.00001)) {
+        return YES;
+      }
+  else {
+    return NO;
+  }
+}
 
 
+# pragma mark - Core Location Delegate Methods
 
 // **************************************************
 // ------------------------------
@@ -73,12 +85,13 @@
 
 - (void)locationManager:(CLLocationManager *) manager
      didUpdateLocations:(NSArray *)locations{
-  _currentLocation = [locations lastObject];
-  NSLog(@"\n***%@***\n", _dataWrapper);
-  
-  NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-  [notificationCenter postNotificationName:@"locationFound" object:nil];
-
+  self.currentLocation = [locations lastObject];
+  if ([self isValidLocation:self.currentLocation]) {
+    //NSLog(@"\n***%f***\n", self.currentLocation.coordinate.latitude);
+    //NSLog(@"\n***%f***\n", self.currentLocation.coordinate.longitude);
+    [self updateForecastData];
+  }
+  [self.locationManager stopUpdatingLocation];
 }
 
 - (void)locationManager:(CLLocationManager*)manager
@@ -103,11 +116,6 @@
     [self.locationManager startUpdatingLocation];
   }
 }
-
-
-
-
-
 
 
 @end

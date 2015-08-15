@@ -39,7 +39,7 @@
       [_views addObject:view];
       [self addSubview:view];
     }
-    [self addBottomBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.3]];
+    [self addTopBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.1]];
   }
   return self;
 }
@@ -80,7 +80,7 @@
       view.clipsToBounds = YES;
       [self addSubview:view];
     }
-    [self addBottomBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.1]];
+    [self addTopBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.1]];
   }
   return self;
 }
@@ -132,7 +132,7 @@
       [_views addObject:view];
       [self addSubview:view];
     }
-    [self addBottomBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.1]];
+    [self addTopBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.1]];
   }
   return self;
 }
@@ -170,7 +170,7 @@
       view.clipsToBounds = YES;
       [self addSubview:view];
     }
-    [self addBottomBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.1]];
+    [self addTopBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.1]];
   }
   return self;
 }

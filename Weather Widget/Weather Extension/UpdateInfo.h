@@ -12,7 +12,9 @@
 #import "Wrapper.h"
 @import CoreLocation;
 
-@interface UpdateInfo : NSObject <CLLocationManagerDelegate> 
+@interface UpdateInfo : NSObject <CLLocationManagerDelegate>
+
+#pragma mark - Properties
 
 @property (strong, nonatomic) Forecastr *forecastr;
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -20,10 +22,13 @@
 @property (weak, nonatomic) NSDictionary *JSON;
 @property (strong, nonatomic) Wrapper *dataWrapper;
 
+# pragma mark - Methods
+
 - (id)init;
 - (void)update;
 - (void)getLocation;
 - (void)updateForecastData;
 - (void)createWrapper:(NSDictionary*)JSON;
+- (BOOL)isValidLocation:(CLLocation *)location;
 
 @end
