@@ -30,7 +30,7 @@
     self.label1.textAlignment = NSTextAlignmentCenter;
     [self.label1 setTextColor:[UIColor colorWithWhite:1.0 alpha:0.5]];
     self.label1.adjustsFontSizeToFitWidth = YES;
-    [self.label1 setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightThin]];
+    [self.label1 setFont:[UIFont systemFontOfSize:16 weight:UIFontWeightThin]];
     self.label1.lineBreakMode = NSLineBreakByWordWrapping;
     self.label1.numberOfLines = 0;
     

@@ -64,7 +64,7 @@
   [self.view addSubview:self.weeklySummaryView];
   
   viewFrame = CGRectMake(0, 320, self.view.frame.size.width / 2, 80);
-  self.daySummaryView = [[COHalfView alloc] initDaySummaryModuleWithFrame:viewFrame andDaySummary:self.myWrapper.currentSummary];
+  self.daySummaryView = [[COHalfView alloc] initDaySummaryModuleWithFrame:viewFrame andDaySummary:self.myWrapper.hourlySummary];
   [self.view addSubview:self.daySummaryView];
 }
 
@@ -84,7 +84,7 @@
     [self.humidityView editInfoWithHumidity:self.myWrapper.currentHumidity];
     [self.dewPointView editInfoWithDewPoint:self.myWrapper.currentDewPoint];
     [self.weeklySummaryView editInfoWithWeeklySummary:self.myWrapper.weekSummary];
-    [self.daySummaryView editInfoWithDaySummary:self.myWrapper.currentSummary];
+    [self.daySummaryView editInfoWithDaySummary:self.myWrapper.hourlySummary];
   }
 }
 
