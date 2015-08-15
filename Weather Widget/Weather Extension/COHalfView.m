@@ -12,6 +12,15 @@
 
 #pragma mark - Day Summary Module
 
+/**
+ * Initializes a say summary module.
+ * @author Chase
+ *
+ * @param aRect The CGRect used to initialize the frame.
+ * @param summary An NSString of the day summary.
+ *
+ * @return An instance of the COHalfView class.
+ */
 - (instancetype)initDaySummaryModuleWithFrame:(CGRect)aRect
                                 andDaySummary:(NSString*)summary {
   self = [super initWithFrame:aRect];
@@ -39,6 +48,12 @@
 
 
 
+/**
+ * Edits the label of the day summary module.
+ * @author Chase
+ *
+ * @param summary An NSString of the day summary.
+ */
 - (void)editInfoWithDaySummary:(NSString*)summary {
   self.label1.text = summary;
 }
