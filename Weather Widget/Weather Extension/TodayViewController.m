@@ -43,6 +43,11 @@
                                                              andHumidity:self.myWrapper.currentHumidity];
   [self.view addSubview:self.humidityView];
   
+  viewFrame = CGRectMake(self.view.frame.size.width / 2, 0, self.view.frame.size.width / 4, 80);
+  self.dewPointView = [[COQuarterView alloc] initDewPointModuleWithFrame:viewFrame
+                                                             andDewPoint:self.myWrapper.currentDewPoint];
+  [self.view addSubview:self.dewPointView];
+  
   viewFrame = CGRectMake(0, 80, self.view.frame.size.width, 80);
   self.dayView = [[COFullView alloc] initDailyModuleWithFrame:viewFrame
                                             andDailyArray:_myWrapper.weekForecast];

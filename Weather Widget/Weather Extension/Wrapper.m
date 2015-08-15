@@ -42,8 +42,8 @@ NSString *const notAvailableText = @"N/A";
 - (void)wrapTodayData {
   NSLog(@"\n******WRAPPING TODAY'S DATA******\n");
   
-  NSDictionary *currently = _JSON[kFCCurrentlyForecast];
-  NSArray *daily = _JSON[kFCDailyForecast][@"data"];
+  NSDictionary *currently = self.JSON[kFCCurrentlyForecast];
+  NSArray *daily = self.JSON[kFCDailyForecast][@"data"];
   NSDictionary *today = daily[0];
   
   NSString *summary = currently[kFCSummary];
@@ -54,17 +54,21 @@ NSString *const notAvailableText = @"N/A";
   NSString *precipProbability = [HelperClass percentageStringFromDoubleString:currently[kFCPrecipProbability]];
   NSString *precipIntensity = [HelperClass descriptionForPrecipIntensity:currently[kFCPrecipIntensity]];
   NSString *precipType = currently[kFCPrecipType];
-  NSString *humidity = currently[kFCHumidity];
-  NSString *dewPoint = currently[kFCDewPoint];
   
-  _currentSummary = summary ? summary : notAvailableText;
-  _currentTemp = temp ? temp : notAvailableText;
-  _currentFeelsLikeTemp = feelsLike ? feelsLike : notAvailableText;
-  _todayHighTemp = highTemp ? highTemp : notAvailableText;
-  _todayLowTemp = lowTemp ? lowTemp : notAvailableText;
-  _todayPrecipProbability = precipProbability ? precipProbability : notAvailableText;
-  _todayDescriptionForPrecipIntensity = precipIntensity ? precipIntensity : notAvailableText;
-  _todayPrecipType = precipType ? precipType : notAvailableText;
+  NSNumber *humidityNumeric = currently[kFCHumidity];
+  NSNumber *dewPointNumeric = currently[kFCDewPoint];
+  double humidityVal = [humidityNumeric doubleValue] * 100;
+  NSString *humidity = [HelperClass percentageStringFromDoubleString:[NSString stringWithFormat:@"%f", humidityVal]];
+  NSString *dewPoint = [HelperClass temperatureStringFromDoubleString:[dewPointNumeric stringValue] andFarenheitSetting:YES];
+  
+  self.currentSummary = summary ? summary : notAvailableText;
+  self.currentTemp = temp ? temp : notAvailableText;
+  self.currentFeelsLikeTemp = feelsLike ? feelsLike : notAvailableText;
+  self.todayHighTemp = highTemp ? highTemp : notAvailableText;
+  self.todayLowTemp = lowTemp ? lowTemp : notAvailableText;
+  self.todayPrecipProbability = precipProbability ? precipProbability : notAvailableText;
+  self.todayDescriptionForPrecipIntensity = precipIntensity ? precipIntensity : notAvailableText;
+  self.todayPrecipType = precipType ? precipType : notAvailableText;
   self.currentHumidity = humidity ? humidity : notAvailableText;
   self.currentDewPoint = dewPoint ? dewPoint : notAvailableText;
 }
@@ -79,10 +83,10 @@ NSString *const notAvailableText = @"N/A";
 - (void)wrapHourlyData {
   NSLog(@"\n******WRAPPING HOURLY DATA******\n");
   
-  NSArray *hourly = _JSON[kFCHourlyForecast][@"data"];
+  NSArray *hourly = self.JSON[kFCHourlyForecast][@"data"];
   
-  NSString *summary = _JSON[kFCHourlyForecast][kFCSummary];
-  _hourlySummary = summary ? summary : notAvailableText;
+  NSString *summary = self.JSON[kFCHourlyForecast][kFCSummary];
+  self.hourlySummary = summary ? summary : notAvailableText;
   
   for (int x = 6; x < 11; x++) {
     NSDictionary *hour = hourly[x];
@@ -100,8 +104,8 @@ NSString *const notAvailableText = @"N/A";
     NSString *visibility = hour[kFCVisibility] ? hour[kFCVisibility] : notAvailableText;
     NSString *iconName = hour[kFCIcon] ? [HelperClass imageNameForWeatherIconType:hour[kFCIcon]] : notAvailableText;
     
-    if (_hourlyForecast == nil) {
-      _hourlyForecast = [[NSMutableArray alloc] init];
+    if (self.hourlyForecast == nil) {
+      self.hourlyForecast = [[NSMutableArray alloc] init];
     }
     
     Hour *hourObject = [[Hour alloc] init];
@@ -117,12 +121,12 @@ NSString *const notAvailableText = @"N/A";
                               windBearing:windBearing
                                visibility:visibility
                                  iconName:iconName
-                                GMTOffset:_GMTOffset
+                                GMTOffset:self.GMTOffset
                          farenheitSetting:YES
                              milesSetting:YES];
     
     if (hourObject) {
-      [_hourlyForecast addObject:hourObject];
+      [self.hourlyForecast addObject:hourObject];
     }
   }
 }
@@ -137,7 +141,7 @@ NSString *const notAvailableText = @"N/A";
 - (void)wrapTomorrowData {
   NSLog(@"\n******WRAPPING TOMORROW'S DATA******\n");
   
-  NSArray *daily = _JSON[kFCDailyForecast][@"data"];
+  NSArray *daily = self.JSON[kFCDailyForecast][@"data"];
   
   NSDictionary *tomorrow = daily[1];
   
@@ -148,12 +152,12 @@ NSString *const notAvailableText = @"N/A";
   NSString *precipIntensity = [HelperClass descriptionForPrecipIntensity:tomorrow[kFCPrecipIntensity]];
   NSString *precipType = tomorrow[kFCPrecipType];
   
-  _tomorrowSummary = summary ? summary : notAvailableText;
-  _tomorrowHighTemp = highTemp ? highTemp : notAvailableText;
-  _tomorrowLowTemp = lowTemp ? lowTemp : notAvailableText;
-  _tomorrowPrecipProbability = precipProbability ? precipProbability : notAvailableText;
-  _tomorrowDescriptionForPrecipIntensity = precipIntensity ? precipIntensity : notAvailableText;
-  _tomorrowPrecipType = precipType ? precipType : notAvailableText;
+  self.tomorrowSummary = summary ? summary : notAvailableText;
+  self.tomorrowHighTemp = highTemp ? highTemp : notAvailableText;
+  self.tomorrowLowTemp = lowTemp ? lowTemp : notAvailableText;
+  self.tomorrowPrecipProbability = precipProbability ? precipProbability : notAvailableText;
+  self.tomorrowDescriptionForPrecipIntensity = precipIntensity ? precipIntensity : notAvailableText;
+  self.tomorrowPrecipType = precipType ? precipType : notAvailableText;
 }
 
 #pragma mark - Wrap Weekly Data
@@ -166,10 +170,10 @@ NSString *const notAvailableText = @"N/A";
 - (void)wrapWeekData {
   NSLog(@"\n******WRAPPING WEEKLY DATA******\n");
   
-  NSArray *daily = _JSON[kFCDailyForecast][@"data"];
+  NSArray *daily = self.JSON[kFCDailyForecast][@"data"];
   
-  NSString *summary = _JSON[kFCDailyForecast][kFCSummary];
-  _weekSummary = summary ? summary : notAvailableText;
+  NSString *summary = self.JSON[kFCDailyForecast][kFCSummary];
+  self.weekSummary = summary ? summary : notAvailableText;
   
   for (int x = 1; x < 6; x++) {
     NSDictionary *day = daily[x];
@@ -179,8 +183,8 @@ NSString *const notAvailableText = @"N/A";
     NSString *precipProbability = day[kFCPrecipProbability];
     NSString *date = day[kFCTime];
     
-    if (_weekForecast == nil) {
-      _weekForecast = [[NSMutableArray alloc] init];
+    if (self.weekForecast == nil) {
+      self.weekForecast = [[NSMutableArray alloc] init];
     }
     
     Day *dayObject = [[Day alloc] init];
@@ -188,11 +192,11 @@ NSString *const notAvailableText = @"N/A";
                         HighTemperature:highTemp
                          LowTemperature:lowTemp
                           Precipitation:precipProbability
-                              GMTOffset:_GMTOffset
+                              GMTOffset:self.GMTOffset
                        farenheitSetting:TRUE];
     
     if (dayObject) {
-      [_weekForecast addObject:dayObject];
+      [self.weekForecast addObject:dayObject];
     }
   }
 }
