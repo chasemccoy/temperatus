@@ -22,7 +22,8 @@
 
 // Today
 # pragma mark Today
-@property (strong, nonatomic) NSString *currentSummary;
+@property (strong, nonatomic) NSString *nextHourSummary;
+@property (strong, nonatomic) NSString *todaySummary;
 @property (strong, nonatomic) NSString *currentTemp;
 @property (strong, nonatomic) NSString *currentFeelsLikeTemp;
 @property (strong, nonatomic) NSString *todayHighTemp;
@@ -35,7 +36,6 @@
 
 // Hourly
 # pragma mark Hourly
-@property (strong, nonatomic) NSString *hourlySummary;
 @property (strong, nonatomic) NSMutableArray *hourlyForecast;
 
 // Tomorrow

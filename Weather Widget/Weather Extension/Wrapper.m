@@ -46,7 +46,7 @@ NSString *const notAvailableText = @"N/A";
   NSArray *daily = self.JSON[kFCDailyForecast][@"data"];
   NSDictionary *today = daily[0];
   
-  NSString *summary = currently[kFCSummary];
+  NSString *summary = self.JSON[kFCMinutelyForecast][kFCSummary];
   NSString *temp = [HelperClass temperatureStringFromDoubleString:currently[kFCTemperature] andFarenheitSetting:YES];
   NSString *feelsLike = [HelperClass temperatureStringFromDoubleString:currently[kFCApparentTemperature] andFarenheitSetting:YES];
   NSString *highTemp = [HelperClass temperatureStringFromDoubleString:today[kFCTemperatureMax] andFarenheitSetting:YES];
@@ -65,7 +65,7 @@ NSString *const notAvailableText = @"N/A";
   NSString *humidity = [HelperClass percentageStringFromDoubleString:[NSString stringWithFormat:@"%f", humidityVal]];
   NSString *dewPoint = [HelperClass temperatureStringFromDoubleString:[dewPointNumeric stringValue] andFarenheitSetting:YES];
   
-  self.currentSummary = summary ? summary : notAvailableText;
+  self.nextHourSummary = summary ? summary : notAvailableText;
   self.currentTemp = temp ? temp : notAvailableText;
   self.currentFeelsLikeTemp = feelsLike ? feelsLike : notAvailableText;
   self.todayHighTemp = highTemp ? highTemp : notAvailableText;
@@ -90,7 +90,7 @@ NSString *const notAvailableText = @"N/A";
   NSArray *hourly = self.JSON[kFCHourlyForecast][@"data"];
   
   NSString *summary = self.JSON[kFCHourlyForecast][kFCSummary];
-  self.hourlySummary = summary ? summary : notAvailableText;
+  self.todaySummary = summary ? summary : notAvailableText;
   
   for (int x = 6; x < 11; x++) {
     NSDictionary *hour = hourly[x];
