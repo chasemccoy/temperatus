@@ -38,6 +38,7 @@
                                 andWeeklySummary:(NSString*)summary;
 - (void)editInfoWithWeeklySummary:(NSString*)summary;
 
+
 #pragma mark - Properties
 
 @property (strong, nonatomic) NSMutableArray *views;

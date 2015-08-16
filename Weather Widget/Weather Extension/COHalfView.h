@@ -21,4 +21,12 @@
                                 andDaySummary:(NSString*)summary;
 - (void)editInfoWithDaySummary:(NSString*)summary;
 
+
+#pragma mark - Hour Summary Module
+
+- (instancetype)initHourSummaryModuleWithFrame:(CGRect)aRect
+                                andHourSummary:(NSString*)summary;
+- (void)editInfoWithHourSummary:(NSString*)summary;
+
+
 @end

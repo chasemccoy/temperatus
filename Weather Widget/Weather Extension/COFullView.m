@@ -225,6 +225,7 @@
     [self.label1 setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
     
     [self addTopBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.1]];
+    [self addBottomBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.1]];
   }
   return self;
 }
@@ -241,5 +242,6 @@
 - (void)editInfoWithWeeklySummary:(NSString*)summary {
   self.label1.text = summary;
 }
+
 
 @end

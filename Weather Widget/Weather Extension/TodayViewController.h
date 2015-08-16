@@ -21,6 +21,7 @@
 @property (strong, nonatomic) COFullView *dayView;
 @property (strong, nonatomic) COFullView *weeklySummaryView;
 @property (strong, nonatomic) COHalfView *daySummaryView;
+@property (strong, nonatomic) COHalfView *hourSummaryView;
 @property (strong, nonatomic) COQuarterView *currentTempView;
 @property (strong, nonatomic) COQuarterView *humidityView;
 @property (strong, nonatomic) COQuarterView *dewPointView;
