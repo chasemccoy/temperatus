@@ -244,4 +244,38 @@
 }
 
 
+
+
+#pragma mark - Full Module
+
+/**
+ * Initializes a full module with an array of views.
+ * @author Nate
+ *
+ * @param aRect A CGRect of the frame used to initialoze the view.
+ * @param viewArray An NSArray of views (quarter and/or halves) to place in the module.
+ * @return An instance of the COFullView class.
+ */
+- (instancetype)initFullModuleWithFrame:(CGRect)aRect
+                        andArrayOfViews:(NSArray *)viewArray {
+  self = [super initWithFrame:aRect];
+  if (self) {
+    UIView *view1;
+    CGRect bRect;
+    NSInteger yValue = 0;
+    
+    for (int i = 0; i < viewArray.count; i++) {
+      view1 = [viewArray objectAtIndex:i];
+      bRect = CGRectMake(0, yValue, view1.frame.size.width, view1.frame.size.height);
+      view1.frame = bRect;
+      [self addSubview:view1];
+      
+      yValue += view1.frame.size.width;
+    }
+  }
+  [self addTopBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.1]];
+  return self;
+}
+
+
 @end

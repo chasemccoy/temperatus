@@ -182,8 +182,8 @@ double const ALPHAVALUE = 0.1;
                            precipString:(NSString *)precipString
                       withBorderOnRight:(BOOL)borderOnRight {
   /* label1 = the day of the week string
-   label2 = the temperature
-   label3 = the precipitation percentage
+     label2 = the temperature
+     label3 = the precipitation percentage
    */
   self = [super initWithFrame:aRect];
   if (self) {

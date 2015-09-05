@@ -11,7 +11,7 @@
 
 @interface COFullView : UIView
 
-# pragma mark - Daily Module
+#pragma mark - Daily Module
 
 - (instancetype)initDailyModuleWithFrame:(CGRect)aRect
                            andDailyArray:(NSArray *)dailyArray;
@@ -38,6 +38,10 @@
                                 andWeeklySummary:(NSString*)summary;
 - (void)editInfoWithWeeklySummary:(NSString*)summary;
 
+#pragma mark - Full Module
+
+- (instancetype)initFullModuleWithFrame:(CGRect)aRect
+                        andArrayOfViews:(NSArray *)viewArray;
 
 #pragma mark - Properties
 
