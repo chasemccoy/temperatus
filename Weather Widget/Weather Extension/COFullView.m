@@ -208,21 +208,22 @@
                                 andWeeklySummary:(NSString*)summary {
   self = [super initWithFrame:aRect];
   if (self) {
-    self.label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, aRect.size.width - 10, aRect.size.height - 15)];
-    self.label1.text = summary;
-    self.label1.textAlignment = NSTextAlignmentCenter;
-    [self.label1 setTextColor:[UIColor colorWithWhite:1.0 alpha:0.5]];
-    self.label1.adjustsFontSizeToFitWidth = YES;
-    [self.label1 setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightThin]];
-    self.label1.lineBreakMode = NSLineBreakByWordWrapping;
-    self.label1.numberOfLines = 0;
+    self.textView1 = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, aRect.size.width - 10, aRect.size.height - 15)];
+    self.textView1.textContainerInset = UIEdgeInsetsZero;
+    [self.textView1 setBackgroundColor:[UIColor clearColor]];
+    self.textView1.editable = NO;
+    self.textView1.selectable = NO;
+    self.textView1.scrollEnabled = NO;
+    self.textView1.text = summary;
+    self.textView1.textAlignment = NSTextAlignmentCenter;
+    [self.textView1 setTextColor:[UIColor colorWithWhite:1.0 alpha:0.5]];
+    [self.textView1 setFont:[UIFont systemFontOfSize:20 weight:UIFontWeightUltraLight]];
+    self.textView1.textContainer.lineBreakMode = NSLineBreakByWordWrapping;
     
-    CGSize maxSize = CGSizeMake(self.label1.frame.size.width, aRect.size.height - 15);
-    CGSize expectedSize = [self.label1 sizeThatFits:maxSize];
-    self.label1.frame = CGRectMake(self.label1.frame.origin.x, self.label1.frame.origin.y, expectedSize.width, expectedSize.height);
+    [self addSubview:self.textView1];
+    [self.textView1 setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
     
-    [self addSubview:self.label1];
-    [self.label1 setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
+    [self adjustFontSizeOfTextViewToFitData];
     
     [self addTopBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.1]];
     [self addBottomBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.1]];
@@ -241,6 +242,7 @@
  */
 - (void)editInfoWithWeeklySummary:(NSString*)summary {
   self.label1.text = summary;
+  [self adjustFontSizeOfTextViewToFitData];
 }
 
 
@@ -276,6 +278,33 @@
   [self addTopBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.1]];
   return self;
 }
+
+
+
+
+#pragma mark - Helper Methods
+
+- (void)adjustFontSizeOfTextViewToFitData {
+  CGSize myTextViewSize = [self.textView1 sizeThatFits:CGSizeMake(self.textView1.frame.size.width, FLT_MAX)];
+  if (myTextViewSize.height > self.textView1.frame.size.height) {
+    while (myTextViewSize.height > self.textView1.frame.size.height)
+    {
+      self.textView1.font = [self.textView1.font fontWithSize:self.textView1.font.pointSize - 1];
+      [self.textView1 setFont:[UIFont systemFontOfSize:self.textView1.font.pointSize weight:UIFontWeightThin]];
+      myTextViewSize = [self.textView1 sizeThatFits:CGSizeMake(self.textView1.frame.size.width, FLT_MAX)];
+    }
+  }
+  else {
+    while (myTextViewSize.height < (self.textView1.frame.size.height - 10) && self.textView1.font.pointSize < 85)
+    {
+      self.textView1.font = [self.textView1.font fontWithSize:self.textView1.font.pointSize + 1];
+      [self.textView1 setFont:[UIFont systemFontOfSize:self.textView1.font.pointSize weight:UIFontWeightThin]];
+      myTextViewSize = [self.textView1 sizeThatFits:CGSizeMake(self.textView1.frame.size.width, FLT_MAX)];
+    }
+    
+  }
+}
+
 
 
 @end

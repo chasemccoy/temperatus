@@ -47,5 +47,6 @@
 
 @property (strong, nonatomic) NSMutableArray *views;
 @property (strong, nonatomic) UILabel *label1;
+@property (strong, nonatomic) UITextView *textView1;
 
 @end
