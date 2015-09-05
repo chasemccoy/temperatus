@@ -31,8 +31,6 @@
 
 
 - (void)createView {
-  _myWrapper = _updateInfo.dataWrapper;
-  
   CGRect viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, 80);
   self.currentTempView = [[COQuarterView alloc] initCurrentTempModuleWithFrame:viewFrame
                                                                 andTemperature:self.myWrapper.currentTemp];
@@ -64,11 +62,11 @@
   [self.view addSubview:self.weeklySummaryView];
   
   viewFrame = CGRectMake(0, 320, self.view.frame.size.width / 2, 80);
-  self.daySummaryView = [[COHalfView alloc] initDaySummaryModuleWithFrame:viewFrame andDaySummary:self.myWrapper.todaySummary];
+  self.daySummaryView = [[COHalfView alloc] initHalfSummaryModuleWithFrame:viewFrame andSummary:self.myWrapper.todaySummary];
   [self.view addSubview:self.daySummaryView];
   
   viewFrame = CGRectMake(self.view.frame.size.width / 2, 320, self.view.frame.size.width / 2, 80);
-  self.hourSummaryView = [[COHalfView alloc] initHourSummaryModuleWithFrame:viewFrame andHourSummary:self.myWrapper.nextHourSummary];
+  self.hourSummaryView = [[COHalfView alloc] initHalfSummaryModuleWithFrame:viewFrame andSummary:self.myWrapper.nextHourSummary];
   [self.view addSubview:self.hourSummaryView];
 }
 
@@ -76,20 +74,21 @@
 
 
 - (void)updateView {
-  if (_myWrapper == nil) {
+  if (self.myWrapper == nil) {
+    self.myWrapper = self.updateInfo.dataWrapper;
     [self createView];
   }
   else {
-    _myWrapper = _updateInfo.dataWrapper;
+    self.myWrapper = self.updateInfo.dataWrapper;
     
-    [self.dayView editInfoWithDayArray:_myWrapper.weekForecast];
-    [self.hourView editInfoWithHourArray:_myWrapper.hourlyForecast];
+    [self.dayView editInfoWithDayArray:self.myWrapper.weekForecast];
+    [self.hourView editInfoWithHourArray:self.myWrapper.hourlyForecast];
     [self.currentTempView editInfoWithTemperature:self.myWrapper.currentTemp];
     [self.humidityView editInfoWithHumidity:self.myWrapper.currentHumidity];
     [self.dewPointView editInfoWithDewPoint:self.myWrapper.currentDewPoint];
     [self.weeklySummaryView editInfoWithWeeklySummary:self.myWrapper.weekSummary];
-    [self.daySummaryView editInfoWithDaySummary:self.myWrapper.todaySummary];
-    [self.hourSummaryView editInfoWithHourSummary:self.myWrapper.nextHourSummary];
+    [self.daySummaryView editInfoWithSummary:self.myWrapper.todaySummary];
+    [self.hourSummaryView editInfoWithSummary:self.myWrapper.nextHourSummary];
   }
 }
 

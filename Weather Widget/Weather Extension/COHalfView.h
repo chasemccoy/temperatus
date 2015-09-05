@@ -13,20 +13,19 @@
 #pragma mark - Properties
 
 @property (strong, nonatomic) UILabel *label1;
+@property (strong, nonatomic) UITextView *textView1;
 
 
-#pragma mark - Day Summary Module
+#pragma mark - Half View Summary Module
 
-- (instancetype)initDaySummaryModuleWithFrame:(CGRect)aRect
-                                andDaySummary:(NSString*)summary;
-- (void)editInfoWithDaySummary:(NSString*)summary;
+- (instancetype)initHalfSummaryModuleWithFrame:(CGRect)aRect
+                                andSummary:(NSString*)summary;
+- (void)editInfoWithSummary:(NSString*)summary;
 
 
-#pragma mark - Hour Summary Module
+#pragma mark - Helper Methods
 
-- (instancetype)initHourSummaryModuleWithFrame:(CGRect)aRect
-                                andHourSummary:(NSString*)summary;
-- (void)editInfoWithHourSummary:(NSString*)summary;
+- (void)adjustFontSizeOfTextViewToFitData;
 
 
 @end
