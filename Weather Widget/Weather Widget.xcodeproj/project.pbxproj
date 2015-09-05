@@ -103,6 +103,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E0755BE1B9B814F0045914B /* Weather Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Weather Widget.entitlements"; sourceTree = "<group>"; };
+		2E0755BF1B9B81820045914B /* Weather Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Weather Extension.entitlements"; sourceTree = "<group>"; };
 		2EE175AC1B641FE20075BB17 /* Weather Widget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Widget.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE175B01B641FE20075BB17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EE175B11B641FE20075BB17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 		2EE175AE1B641FE20075BB17 /* Weather Widget */ = {
 			isa = PBXGroup;
 			children = (
+				2E0755BE1B9B814F0045914B /* Weather Widget.entitlements */,
 				2EE175B31B641FE20075BB17 /* AppDelegate.h */,
 				2EE175B41B641FE20075BB17 /* AppDelegate.m */,
 				2EE175B61B641FE20075BB17 /* ViewController.h */,
@@ -301,6 +304,7 @@
 		2EE175DD1B6420020075BB17 /* Weather Extension */ = {
 			isa = PBXGroup;
 			children = (
+				2E0755BF1B9B81820045914B /* Weather Extension.entitlements */,
 				2EE176021B6420360075BB17 /* Forecastr */,
 				2EE175EC1B6420360075BB17 /* AFNetworking */,
 				2EE175E01B6420020075BB17 /* TodayViewController.h */,
@@ -488,6 +492,12 @@
 				TargetAttributes = {
 					2EE175AB1B641FE20075BB17 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = UCUX5A4U9R;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					2EE175C41B641FE30075BB17 = {
 						CreatedOnToolsVersion = 6.4;
@@ -496,6 +506,11 @@
 					2EE175D81B6420020075BB17 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = UCUX5A4U9R;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					D8633A7A1B65C85900ED6052 = {
 						CreatedOnToolsVersion = 6.4;
@@ -760,9 +775,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Weather Widget/Weather Widget.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Weather Widget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -770,9 +789,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Weather Widget/Weather Widget.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Weather Widget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -813,6 +836,7 @@
 		2EE175E91B6420020075BB17 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Weather Extension/Weather Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -830,6 +854,7 @@
 		2EE175EA1B6420020075BB17 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Weather Extension/Weather Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Weather Extension/Info.plist";

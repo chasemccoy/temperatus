@@ -14,6 +14,8 @@
 
 @interface TodayViewController : UIViewController
 
+@property (strong, nonatomic) NSUserDefaults *sharedDefaults;
+
 @property (strong, nonatomic) UpdateInfo *updateInfo;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 

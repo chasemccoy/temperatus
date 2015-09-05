@@ -19,6 +19,8 @@
     [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
   
+  self.sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.cosmicowl.weather"];
+  
   self.preferredContentSize = CGSizeMake(0, 400);
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateView) name:@"newData" object:nil];
