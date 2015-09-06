@@ -9,6 +9,8 @@
 #import "TodayViewController.h"
 #import <NotificationCenter/NotificationCenter.h>
 
+#define HEIGHT (70)
+
 @interface TodayViewController () <NCWidgetProviding>
 
 @end
@@ -33,26 +35,26 @@
 
 
 - (void)createView {
-  CGRect viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, 80);
+  CGRect viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
   self.currentTempView = [[COQuarterView alloc] initCurrentTempModuleWithFrame:viewFrame
                                                                 andTemperature:self.myWrapper.currentTemp];
 //  [self.view addSubview:self.currentTempView];
   
-  viewFrame = CGRectMake(self.view.frame.size.width / 4, 0, self.view.frame.size.width / 4, 80);
+  viewFrame = CGRectMake(self.view.frame.size.width / 4, 0, self.view.frame.size.width / 4, HEIGHT);
   self.humidityView = [[COQuarterView alloc] initHumidityModuleWithFrame:viewFrame
                                                              andHumidity:self.myWrapper.currentHumidity];
 //  [self.view addSubview:self.humidityView];
   
-  viewFrame = CGRectMake(self.view.frame.size.width / 2, 0, self.view.frame.size.width / 4, 80);
+  viewFrame = CGRectMake(self.view.frame.size.width / 2, 0, self.view.frame.size.width / 4, HEIGHT);
   self.dewPointView = [[COQuarterView alloc] initDewPointModuleWithFrame:viewFrame
                                                              andDewPoint:self.myWrapper.currentDewPoint];
 //  [self.view addSubview:self.dewPointView];
   
-  viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 2, 80);
+  viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 2, HEIGHT);
   self.daySummaryView = [[COHalfView alloc] initHalfSummaryModuleWithFrame:viewFrame
                                                                 andSummary:self.myWrapper.todaySummary];
   
-//  viewFrame = CGRectMake(0, 0, self.view.frame.size.width, 80);
+//  viewFrame = CGRectMake(0, 0, self.view.frame.size.width, HEIGHT);
 //  self.SOFULLMODULE = [[COFullView alloc] initFullModuleWithFrame:viewFrame
 //                                                  andArrayOfViews:@[ self.currentTempView,
 //                                                                     self.daySummaryView,
@@ -60,39 +62,45 @@
 //                                                                     self.dewPointView]];
 //  [self.view addSubview:self.SOFULLMODULE];
   
-  viewFrame = CGRectMake(0, 80, self.view.frame.size.width, 80);
+  viewFrame = CGRectMake(0, 80, self.view.frame.size.width, HEIGHT);
   self.dayView = [[COFullView alloc] initDailyModuleWithFrame:viewFrame
                                             andDailyArray:_myWrapper.weekForecast];
 //  [self.view addSubview:self.dayView];
   
-  viewFrame = CGRectMake(0, 160, self.view.frame.size.width, 80);
+  viewFrame = CGRectMake(0, 160, self.view.frame.size.width, HEIGHT);
   self.hourView = [[COFullView alloc] initHourlyModuleWithFrame:viewFrame
                                                    andHourArray:_myWrapper.hourlyForecast];
 //  [self.view addSubview:self.hourView];
   
-  viewFrame = CGRectMake(0, 240, self.view.frame.size.width, 80);
+  viewFrame = CGRectMake(0, 240, self.view.frame.size.width, HEIGHT);
   self.weeklySummaryView = [[COFullView alloc] initWeeklySummaryModuleWithFrame:viewFrame
                                                                andWeeklySummary:self.myWrapper.weekSummary];
 //  [self.view addSubview:self.weeklySummaryView];
   
-//  viewFrame = CGRectMake(0, 320, self.view.frame.size.width / 2, 80);
+//  viewFrame = CGRectMake(0, 320, self.view.frame.size.width / 2, HEIGHT);
 //  self.daySummaryView = [[COHalfView alloc] initHalfSummaryModuleWithFrame:viewFrame andSummary:self.myWrapper.todaySummary];
 //  [self.view addSubview:self.daySummaryView];
   
-  viewFrame = CGRectMake(self.view.frame.size.width / 2, 320, self.view.frame.size.width / 2, 80);
+  viewFrame = CGRectMake(self.view.frame.size.width / 2, 320, self.view.frame.size.width / 2, HEIGHT);
   self.hourSummaryView = [[COHalfView alloc] initHalfSummaryModuleWithFrame:viewFrame andSummary:self.myWrapper.nextHourSummary];
 //  [self.view addSubview:self.hourSummaryView];
   
-  NSArray *viewArray = @[ self.dayView,             //full
-                          self.weeklySummaryView,   //full
-                          self.daySummaryView,      //half     /
-                          self.currentTempView,     //quarter  /
-                          self.hourSummaryView,     //half     //
-                          self.humidityView,        //quarter  //
-                          self.hourView,            //full
-                          self.dewPointView];       //quarter  ///
+//  NSArray *viewArray = @[ self.dayView,             //full
+//                          self.weeklySummaryView,   //full
+//                          self.daySummaryView,      //half     /
+//                          self.currentTempView,     //quarter  /
+//                          self.hourSummaryView,     //half     //
+//                          self.humidityView,        //quarter  //
+//                          self.hourView,            //full
+//                          self.dewPointView];       //quarter  ///
+
+  NSArray *viewArray = @[ @[self.dayView],
+                          @[self.daySummaryView, self.currentTempView],
+                          @[self.humidityView, self.dewPointView, self.hourSummaryView],
+                          @[self.weeklySummaryView],
+                          @[self.hourView]];
   
-  [self placeViewsFromArray:viewArray];
+  [self placeViewsFrom2DArray:viewArray];
 }
 
 
@@ -168,7 +176,7 @@
     //   array to a full module and flush the array, then add current module to
     //   the array.
     if (i == viewArray.count || !doesFit) {
-      aRect = CGRectMake(0, yValue, self.view.frame.size.width, 80);
+      aRect = CGRectMake(0, yValue, self.view.frame.size.width, HEIGHT);
       
       if ([currentViewArray[0] isKindOfClass:[COFullView class]]) {
         if (currentViewArray.count > 1) {
@@ -190,11 +198,51 @@
       [currentViewArray removeAllObjects];
       [currentViewArray addObject:currentView];
       currentModuleWidth = currentViewWidth;
-      yValue += 80;
+      yValue += HEIGHT;
     }
   }
   
   // Use yValue to set the height of the widget (the number of FullModules * 80)
+  self.preferredContentSize = CGSizeMake(0, yValue);
+}
+
+
+
+
+
+/**
+ * Takes a 2D array of views and places them in the widget in the correct placement
+ *   based on size. Might not be how we use this in the future, but useful for now!
+ * @author Nate
+ *
+ * @param viewArray An array of UIViews to place in the widget.
+ */
+- (void)placeViewsFrom2DArray:(NSArray *)viewArray {
+  UIView *fullView;
+  NSInteger yValue = 0;
+  CGRect aRect;
+  NSArray *currentViewArray;
+  
+  for (int i = 0; i < viewArray.count; i++) {
+    aRect = CGRectMake(0, yValue, self.view.frame.size.width, HEIGHT);
+    currentViewArray = viewArray[i];
+    // If the view is a FullModule (such as the hourly and daily modules) don't
+    //   place it inside another FullModule, because that's a bit redundant
+    if (currentViewArray.count == 1 && [currentViewArray[0] isKindOfClass:[COFullView class]]) {
+      fullView = currentViewArray[0];
+      fullView.frame = aRect;
+    }
+    // Otherwise throw them into a FullModule!
+    else {
+      fullView = [[COFullView alloc] initFullModuleWithFrame:aRect andArrayOfViews:currentViewArray];
+    }
+    
+    // Add the view and increase the value of y
+    [self.view addSubview:fullView];
+    yValue += HEIGHT;
+  }
+  
+  // Set the size of the widget
   self.preferredContentSize = CGSizeMake(0, yValue);
 }
 

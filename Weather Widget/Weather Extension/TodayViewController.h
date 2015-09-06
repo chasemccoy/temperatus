@@ -33,5 +33,6 @@
 - (void)createView;
 - (void)updateView;
 - (void)placeViewsFromArray:(NSArray *)viewArray;
+- (void)placeViewsFrom2DArray:(NSArray *)viewArray;
 
 @end
