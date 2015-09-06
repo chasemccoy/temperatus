@@ -27,9 +27,11 @@
 @property (strong, nonatomic) COQuarterView *currentTempView;
 @property (strong, nonatomic) COQuarterView *humidityView;
 @property (strong, nonatomic) COQuarterView *dewPointView;
+@property (strong, nonatomic) COFullView *SOFULLMODULE;
 @property (strong, nonatomic) Wrapper *myWrapper;
 
-- (void)updateView;
 - (void)createView;
+- (void)updateView;
+- (void)placeViewsFromArray:(NSArray *)viewArray;
 
 @end

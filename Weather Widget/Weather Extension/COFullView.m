@@ -264,15 +264,25 @@
   if (self) {
     UIView *view1;
     CGRect bRect;
-    NSInteger yValue = 0;
+    NSInteger xValue = 0;
+    NSInteger totalWidth = 0;
+    
+    // Perform an error check to see if there are too many modules
+    for (int i = 0; i < viewArray.count; i++) {
+      view1 = [viewArray objectAtIndex:i];
+      totalWidth += view1.frame.size.width;
+    }
+    if (totalWidth > aRect.size.width) {
+      NSLog(@"Too many modules in this Full Module.");
+    }
     
     for (int i = 0; i < viewArray.count; i++) {
       view1 = [viewArray objectAtIndex:i];
-      bRect = CGRectMake(0, yValue, view1.frame.size.width, view1.frame.size.height);
+      bRect = CGRectMake(xValue, 0, view1.frame.size.width, view1.frame.size.height);
       view1.frame = bRect;
       [self addSubview:view1];
       
-      yValue += view1.frame.size.width;
+      xValue += view1.frame.size.width;
     }
   }
   [self addTopBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.1]];
