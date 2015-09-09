@@ -23,6 +23,18 @@
   
   self.sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.cosmicowl.weather"];
   
+  //////////////////////
+  // FOR TESTING PURPOSES ONLY
+  //
+  [self.sharedDefaults setObject:@[ @[@"dayView"],
+                                    @[@"daySummaryView", @"currentTempView"],
+                                    @[@"humidityView", @"dewPointView", @"hourSummaryView"],
+                                    @[@"weeklySummaryView"],
+                                    @[@"hourView"] ]
+                          forKey:@"viewArray"];
+  //
+  /////////////////////
+  
   self.preferredContentSize = CGSizeMake(0, 400);
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateView) name:@"newData" object:nil];
@@ -106,10 +118,12 @@
 
 
 
+
 - (void)updateView {
   if (self.myWrapper == nil) {
     self.myWrapper = self.updateInfo.dataWrapper;
-    [self createView];
+    [self placeViewsFrom2DArray:[self arrayOfViewsFromSettings]];
+//    [self createView];
   }
   else {
     self.myWrapper = self.updateInfo.dataWrapper;
@@ -245,6 +259,120 @@
   // Set the size of the widget
   self.preferredContentSize = CGSizeMake(0, yValue);
 }
+
+
+
+
+
+/**
+ * Creates a 2D array of views held in NSUserDefaults
+ * @author Nate
+ *
+ * @return NSArray of NSArrays of UIViews.
+ */
+- (NSArray *)arrayOfViewsFromSettings {
+  NSArray *toBeConvertedArray = [self.sharedDefaults objectForKey:@"viewArray"];
+  NSArray *tempArray;
+  NSMutableArray *tempViewArray = [[NSMutableArray alloc] init];
+  NSMutableArray *viewArray = [[NSMutableArray alloc] init];
+  
+  for (int i = 0; i < toBeConvertedArray.count; i++) {
+    tempArray = toBeConvertedArray[i];
+    tempViewArray = [[NSMutableArray alloc] init];  // reallocate rather than remove the objects in the current array so as not
+                                                    // to delete everything held in viewArray's arrays (2D remember?)
+                                                    // Hasn't been tested yet so please don't nag me too hard if it explodes and burns (I'm talking to future me b.t.dubs)
+    
+    for (int j = 0; j < tempArray.count; j++) {
+      // Pretty much: https://www.dropbox.com/s/u95dihq6qqgo49s/jake%20do%20this%20thing%20with%20magic.gif?dl=0
+      [tempViewArray addObject:[self createViewFromString:tempArray[j]]];
+    }
+    [viewArray addObject:tempViewArray];
+  }
+  
+  return viewArray;
+}
+
+
+
+
+
+/**
+ * Creates a UIView from a string delimiter.
+ * @author Nate
+ *
+ * @param string An NSString.             I'm tired okay? I'll finish these later.
+ * @return A UIView.
+ */
+- (UIView *)createViewFromString:(NSString *)string {
+  CGRect viewFrame;
+  if ([string isEqualToString:@"hourView"]) {
+    viewFrame = CGRectMake(0, 0, self.view.frame.size.width, HEIGHT);
+    return [[COFullView alloc] initHourlyModuleWithFrame:viewFrame
+                                            andHourArray:_myWrapper.hourlyForecast];
+  }
+  else if ([string isEqualToString:@"dayView"]) {
+    viewFrame = CGRectMake(0, 0, self.view.frame.size.width, HEIGHT);
+    return [[COFullView alloc] initDailyModuleWithFrame:viewFrame
+                                          andDailyArray:_myWrapper.weekForecast];
+  }
+  else if ([string isEqualToString:@"weeklySummaryView"]) {
+    viewFrame = CGRectMake(0, 0, self.view.frame.size.width, HEIGHT);
+    return [[COFullView alloc] initWeeklySummaryModuleWithFrame:viewFrame
+                                               andWeeklySummary:self.myWrapper.weekSummary];
+  }
+  else if ([string isEqualToString:@"daySummaryView"]) {
+    viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 2, HEIGHT);
+    return [[COHalfView alloc] initHalfSummaryModuleWithFrame:viewFrame
+                                                   andSummary:self.myWrapper.todaySummary];
+  }
+  else if ([string isEqualToString:@"hourSummaryView"]) {
+    viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 2, HEIGHT);
+    return [[COHalfView alloc] initHalfSummaryModuleWithFrame:viewFrame
+                                                   andSummary:self.myWrapper.nextHourSummary];
+  }
+  else if ([string isEqualToString:@"currentTempView"]) {
+    viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
+    return [[COQuarterView alloc] initCurrentTempModuleWithFrame:viewFrame
+                                                  andTemperature:self.myWrapper.currentTemp];
+  }
+  else if ([string isEqualToString:@"humidityView"]) {
+    viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
+    return [[COQuarterView alloc] initHumidityModuleWithFrame:viewFrame
+                                                  andHumidity:self.myWrapper.currentHumidity];
+  }
+  else if ([string isEqualToString:@"dewPointView"]) {
+    viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
+    return [[COQuarterView alloc] initDewPointModuleWithFrame:viewFrame
+                                                  andDewPoint:self.myWrapper.currentDewPoint];
+  }
+  
+  // if you get here then you're pretty much screwed
+  // FLAWED LOGIC BRO
+  return [[UIView alloc] init];
+  
+  /*            Pikachu wants you to enjoy your day!
+  
+   
+         ix.                            _.;
+          xxx.                       ,,xx"
+           "xxxb,                  .;xxxx'
+            "xxxxx,              ,;xxxxx'
+             "x    ',--""""""-_,;    xx'
+               :   '          ."             _-----------------------_
+                i'                ,^'      ,'       PIKA!!!           ',
+               :                   ;       |      PICKACHU!!!          |
+               |                   |        '-._____________________.-'
+               |  .-.       .--,   |        /
+               | '  '      '    '  |      /
+                --      -      --  {
+               |  |   (_^__J  |  | ;
+               '--'    '--'   '--',,
+                '-..___________..-'
+   
+   
+   */
+}
+
 
 
 

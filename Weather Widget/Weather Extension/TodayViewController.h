@@ -34,5 +34,7 @@
 - (void)updateView;
 - (void)placeViewsFromArray:(NSArray *)viewArray;
 - (void)placeViewsFrom2DArray:(NSArray *)viewArray;
+- (NSArray *)arrayOfViewsFromSettings;
+- (UIView *)createViewFromString:(NSString *)string;
 
 @end
