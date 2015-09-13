@@ -307,43 +307,51 @@
   CGRect viewFrame;
   if ([string isEqualToString:@"hourView"]) {
     viewFrame = CGRectMake(0, 0, self.view.frame.size.width, HEIGHT);
-    return [[COFullView alloc] initHourlyModuleWithFrame:viewFrame
-                                            andHourArray:_myWrapper.hourlyForecast];
+    self.hourView = [[COFullView alloc] initHourlyModuleWithFrame:viewFrame
+                                                     andHourArray:_myWrapper.hourlyForecast];
+    return self.hourView;
   }
   else if ([string isEqualToString:@"dayView"]) {
     viewFrame = CGRectMake(0, 0, self.view.frame.size.width, HEIGHT);
-    return [[COFullView alloc] initDailyModuleWithFrame:viewFrame
-                                          andDailyArray:_myWrapper.weekForecast];
+    self.dayView = [[COFullView alloc] initDailyModuleWithFrame:viewFrame
+                                                  andDailyArray:_myWrapper.weekForecast];
+    return self.dayView;
   }
   else if ([string isEqualToString:@"weeklySummaryView"]) {
     viewFrame = CGRectMake(0, 0, self.view.frame.size.width, HEIGHT);
-    return [[COFullView alloc] initWeeklySummaryModuleWithFrame:viewFrame
-                                               andWeeklySummary:self.myWrapper.weekSummary];
+    self.weeklySummaryView = [[COFullView alloc] initWeeklySummaryModuleWithFrame:viewFrame
+                                                                 andWeeklySummary:self.myWrapper.weekSummary];
+    return self.weeklySummaryView;
   }
   else if ([string isEqualToString:@"daySummaryView"]) {
     viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 2, HEIGHT);
-    return [[COHalfView alloc] initHalfSummaryModuleWithFrame:viewFrame
+    self.daySummaryView = [[COHalfView alloc] initHalfSummaryModuleWithFrame:viewFrame
                                                    andSummary:self.myWrapper.todaySummary];
+    return self.daySummaryView;
   }
   else if ([string isEqualToString:@"hourSummaryView"]) {
     viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 2, HEIGHT);
-    return [[COHalfView alloc] initHalfSummaryModuleWithFrame:viewFrame
-                                                   andSummary:self.myWrapper.nextHourSummary];
+    self.hourSummaryView = [[COHalfView alloc] initHalfSummaryModuleWithFrame:viewFrame
+                                                                   andSummary:self.myWrapper.nextHourSummary];
+    return self.hourSummaryView;
   }
   else if ([string isEqualToString:@"currentTempView"]) {
     viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
-    return [[COQuarterView alloc] initCurrentTempModuleWithFrame:viewFrame
-                                                  andTemperature:self.myWrapper.currentTemp];
+    self.currentTempView = [[COQuarterView alloc] initCurrentTempModuleWithFrame:viewFrame
+                                                                  andTemperature:self.myWrapper.currentTemp];
+    return self.currentTempView;
   }
   else if ([string isEqualToString:@"humidityView"]) {
     viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
-    return [[COQuarterView alloc] initHumidityModuleWithFrame:viewFrame
-                                                  andHumidity:self.myWrapper.currentHumidity];
+    self.humidityView = [[COQuarterView alloc] initHumidityModuleWithFrame:viewFrame
+                                                               andHumidity:self.myWrapper.currentHumidity];
+    return self.humidityView;
   }
   else if ([string isEqualToString:@"dewPointView"]) {
     viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
-    return [[COQuarterView alloc] initDewPointModuleWithFrame:viewFrame
-                                                  andDewPoint:self.myWrapper.currentDewPoint];
+    self.dewPointView = [[COQuarterView alloc] initDewPointModuleWithFrame:viewFrame
+                                                               andDewPoint:self.myWrapper.currentDewPoint];
+    return self.dewPointView;
   }
   
   // if you get here then you're pretty much screwed
