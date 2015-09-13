@@ -142,88 +142,6 @@
 
 
 
-
-/**
- * Takes an array of views and places them in the widget in the correct placement
- *   based on size. Might not be how we use this in the future, but useful for now!
- * @author Nate
- *
- * @param viewArray An array of UIViews to place in the widget.
- */
-- (void)placeViewsFromArray:(NSArray *)viewArray {
-  NSInteger currentModuleWidth = 0;
-  NSInteger currentViewWidth = 0;
-  NSInteger yValue = 0;
-  UIView *currentView;
-  UIView *fullView;
-  NSMutableArray *currentViewArray = [[NSMutableArray alloc] init];
-  CGRect aRect;
-  BOOL doesFit = YES;
-  
-  // Loop through all the views + 1 more time (in order to not repeat code)
-  for (int i = 0; i <= viewArray.count; i++) {
-    if (i < viewArray.count) {
-      currentView = viewArray[i];  // Set the current view
-      
-      // Determine the width in terms of 4ths of the screen
-      if ([currentView isKindOfClass:[COQuarterView class]]) {
-        currentViewWidth = 1;
-      }
-      else if ([currentView isKindOfClass:[COHalfView class]]) {
-        currentViewWidth = 2;
-      }
-      else if ([currentView isKindOfClass:[COFullView class]]) {
-        currentViewWidth = 4;
-      }
-      doesFit = ((currentModuleWidth + currentViewWidth) <= 4);
-      
-      // If the current view will fit inside a module with the others, stick it in!
-      if (doesFit) {
-        // Haha I said stick it in
-        [currentViewArray addObject:currentView];
-        currentModuleWidth += currentViewWidth;
-        // But really stick that view in the module
-      }
-    }
-    
-    // If the current module does not fit on the screen add the modules in the
-    //   array to a full module and flush the array, then add current module to
-    //   the array.
-    if (i == viewArray.count || !doesFit) {
-      aRect = CGRectMake(0, yValue, self.view.frame.size.width, HEIGHT);
-      
-      if ([currentViewArray[0] isKindOfClass:[COFullView class]]) {
-        if (currentViewArray.count > 1) {
-          NSLog(@"Something messed the fuck up");
-          //descriptive error message is descriptive: http://static.giantbomb.com/uploads/original/17/179016/2570640-5353427362-thumb.gif
-        }
-        fullView = currentViewArray[0];
-        fullView.frame = aRect;
-      }
-      else {
-        fullView = [[COFullView alloc] initFullModuleWithFrame:aRect
-                                               andArrayOfViews:currentViewArray];
-      }
-      
-      // Add the new (or old?) FullModule to the widget, clear the current array,
-      //   increase the y value, and change the current width of the module to
-      //   the value of the current view's width.
-      [self.view addSubview:fullView];
-      [currentViewArray removeAllObjects];
-      [currentViewArray addObject:currentView];
-      currentModuleWidth = currentViewWidth;
-      yValue += HEIGHT;
-    }
-  }
-  
-  // Use yValue to set the height of the widget (the number of FullModules * 80)
-  self.preferredContentSize = CGSizeMake(0, yValue);
-}
-
-
-
-
-
 /**
  * Takes a 2D array of views and places them in the widget in the correct placement
  *   based on size. Might not be how we use this in the future, but useful for now!
@@ -259,6 +177,7 @@
   // Set the size of the widget
   self.preferredContentSize = CGSizeMake(0, yValue);
 }
+
 
 
 
@@ -356,6 +275,8 @@
   
   // if you get here then you're pretty much screwed
   // FLAWED LOGIC BRO
+  NSLog(@"Something messed the fuck up");
+  //descriptive error message is descriptive: http://static.giantbomb.com/uploads/original/17/179016/2570640-5353427362-thumb.gif
   return [[UIView alloc] init];
   
   /*            Pikachu wants you to enjoy your day!
