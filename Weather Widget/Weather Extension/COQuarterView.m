@@ -12,6 +12,14 @@
 
 #pragma mark - Blank Module
 
+/**
+ * Initializes a blank module.
+ * @author Chase
+ *
+ * @param aRect A CGRect of the frame used to initialize the view.
+ *
+ * @return An instance of the COQuarterView type.
+ */
 - (instancetype)initBlankModuleWithFrame:(CGRect)aRect {
   self = [super initWithFrame:aRect];
   return self;
