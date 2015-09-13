@@ -10,6 +10,16 @@
 
 @implementation COQuarterView
 
+#pragma mark - Blank Module
+
+- (instancetype)initBlankModuleWithFrame:(CGRect)aRect {
+  self = [super initWithFrame:aRect];
+  return self;
+}
+
+
+
+
 #pragma mark - Current Temperature Module
 
 /**

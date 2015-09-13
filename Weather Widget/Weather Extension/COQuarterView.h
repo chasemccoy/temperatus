@@ -16,6 +16,11 @@
 @property (strong, nonatomic) UILabel *label2;
 
 
+#pragma mark - Blank Module
+
+- (instancetype)initBlankModuleWithFrame:(CGRect)aRect;
+
+
 #pragma mark - Current Temperature Module
 
 - (instancetype)initCurrentTempModuleWithFrame:(CGRect)aRect
