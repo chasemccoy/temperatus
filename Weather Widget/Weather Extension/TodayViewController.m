@@ -35,8 +35,6 @@
   //
   /////////////////////
   
-  self.preferredContentSize = CGSizeMake(0, 400);
-  
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateView) name:@"newData" object:nil];
   
   _updateInfo = [[UpdateInfo alloc] init];
@@ -46,84 +44,12 @@
 
 
 
-- (void)createView {
-  CGRect viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
-  self.currentTempView = [[COQuarterView alloc] initCurrentTempModuleWithFrame:viewFrame
-                                                                andTemperature:self.myWrapper.currentTemp];
-//  [self.view addSubview:self.currentTempView];
-  
-  viewFrame = CGRectMake(self.view.frame.size.width / 4, 0, self.view.frame.size.width / 4, HEIGHT);
-  self.humidityView = [[COQuarterView alloc] initHumidityModuleWithFrame:viewFrame
-                                                             andHumidity:self.myWrapper.currentHumidity];
-//  [self.view addSubview:self.humidityView];
-  
-  viewFrame = CGRectMake(self.view.frame.size.width / 2, 0, self.view.frame.size.width / 4, HEIGHT);
-  self.dewPointView = [[COQuarterView alloc] initDewPointModuleWithFrame:viewFrame
-                                                             andDewPoint:self.myWrapper.currentDewPoint];
-//  [self.view addSubview:self.dewPointView];
-  
-  viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 2, HEIGHT);
-  self.daySummaryView = [[COHalfView alloc] initHalfSummaryModuleWithFrame:viewFrame
-                                                                andSummary:self.myWrapper.todaySummary];
-  
-//  viewFrame = CGRectMake(0, 0, self.view.frame.size.width, HEIGHT);
-//  self.SOFULLMODULE = [[COFullView alloc] initFullModuleWithFrame:viewFrame
-//                                                  andArrayOfViews:@[ self.currentTempView,
-//                                                                     self.daySummaryView,
-//                                                                     self.humidityView,
-//                                                                     self.dewPointView]];
-//  [self.view addSubview:self.SOFULLMODULE];
-  
-  viewFrame = CGRectMake(0, 80, self.view.frame.size.width, HEIGHT);
-  self.dayView = [[COFullView alloc] initDailyModuleWithFrame:viewFrame
-                                            andDailyArray:_myWrapper.weekForecast];
-//  [self.view addSubview:self.dayView];
-  
-  viewFrame = CGRectMake(0, 160, self.view.frame.size.width, HEIGHT);
-  self.hourView = [[COFullView alloc] initHourlyModuleWithFrame:viewFrame
-                                                   andHourArray:_myWrapper.hourlyForecast];
-//  [self.view addSubview:self.hourView];
-  
-  viewFrame = CGRectMake(0, 240, self.view.frame.size.width, HEIGHT);
-  self.weeklySummaryView = [[COFullView alloc] initWeeklySummaryModuleWithFrame:viewFrame
-                                                               andWeeklySummary:self.myWrapper.weekSummary];
-//  [self.view addSubview:self.weeklySummaryView];
-  
-//  viewFrame = CGRectMake(0, 320, self.view.frame.size.width / 2, HEIGHT);
-//  self.daySummaryView = [[COHalfView alloc] initHalfSummaryModuleWithFrame:viewFrame andSummary:self.myWrapper.todaySummary];
-//  [self.view addSubview:self.daySummaryView];
-  
-  viewFrame = CGRectMake(self.view.frame.size.width / 2, 320, self.view.frame.size.width / 2, HEIGHT);
-  self.hourSummaryView = [[COHalfView alloc] initHalfSummaryModuleWithFrame:viewFrame andSummary:self.myWrapper.nextHourSummary];
-//  [self.view addSubview:self.hourSummaryView];
-  
-//  NSArray *viewArray = @[ self.dayView,             //full
-//                          self.weeklySummaryView,   //full
-//                          self.daySummaryView,      //half     /
-//                          self.currentTempView,     //quarter  /
-//                          self.hourSummaryView,     //half     //
-//                          self.humidityView,        //quarter  //
-//                          self.hourView,            //full
-//                          self.dewPointView];       //quarter  ///
-
-  NSArray *viewArray = @[ @[self.dayView],
-                          @[self.daySummaryView, self.currentTempView],
-                          @[self.humidityView, self.dewPointView, self.hourSummaryView],
-                          @[self.weeklySummaryView],
-                          @[self.hourView]];
-  
-  [self placeViewsFrom2DArray:viewArray];
-}
-
-
-
 
 
 - (void)updateView {
   if (self.myWrapper == nil) {
     self.myWrapper = self.updateInfo.dataWrapper;
     [self placeViewsFrom2DArray:[self arrayOfViewsFromSettings]];
-//    [self createView];
   }
   else {
     self.myWrapper = self.updateInfo.dataWrapper;
@@ -184,7 +110,7 @@
 
 
 /**
- * Creates a 2D array of views held in NSUserDefaults
+ * Creates a 2D array of views from an array of strings in NSUserDefaults.
  * @author Nate
  *
  * @return NSArray of NSArrays of UIViews.
@@ -200,6 +126,7 @@
     tempViewArray = [[NSMutableArray alloc] init];  // reallocate rather than remove the objects in the current array so as not
                                                     // to delete everything held in viewArray's arrays (2D remember?)
                                                     // Hasn't been tested yet so please don't nag me too hard if it explodes and burns (I'm talking to future me b.t.dubs)
+                                                    // NOTE: I have tested it. It totally works. And yes it is magic. Love me! I am a magician!!!
     
     for (int j = 0; j < tempArray.count; j++) {
       // Pretty much: https://www.dropbox.com/s/u95dihq6qqgo49s/jake%20do%20this%20thing%20with%20magic.gif?dl=0
