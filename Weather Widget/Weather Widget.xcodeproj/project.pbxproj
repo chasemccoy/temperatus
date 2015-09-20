@@ -52,7 +52,7 @@
 		2EE1762C1B642B1E0075BB17 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE176011B6420360075BB17 /* AFURLSessionManager.m */; };
 		2EFCC56F1B7690A7000F5398 /* COFullView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFCC56E1B7690A7000F5398 /* COFullView.m */; };
 		2EFCC5721B77C684000F5398 /* UIView+Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFCC5711B77C684000F5398 /* UIView+Borders.m */; };
-		D84B15211B9FC95D003832FE /* COTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D84B15201B9FC95D003832FE /* COTableViewController.m */; };
+		D84B15211B9FC95D003832FE /* COTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D84B15201B9FC95D003832FE /* COTableView.m */; };
 		D8633A801B65C85900ED6052 /* Weather_Widget_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8633A7F1B65C85900ED6052 /* Weather_Widget_Tests.m */; };
 		D8A8C2F11B6421EB006DE2BB /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F01B6421EB006DE2BB /* Day.m */; };
 		D8A8C2F41B6423CE006DE2BB /* HelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F31B6423CE006DE2BB /* HelperClass.m */; };
@@ -162,8 +162,8 @@
 		2EFCC56E1B7690A7000F5398 /* COFullView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COFullView.m; path = "Weather Extension/COFullView.m"; sourceTree = "<group>"; };
 		2EFCC5701B77C684000F5398 /* UIView+Borders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Borders.h"; sourceTree = "<group>"; };
 		2EFCC5711B77C684000F5398 /* UIView+Borders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Borders.m"; sourceTree = "<group>"; };
-		D84B151F1B9FC95D003832FE /* COTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COTableViewController.h; sourceTree = "<group>"; };
-		D84B15201B9FC95D003832FE /* COTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COTableViewController.m; sourceTree = "<group>"; };
+		D84B151F1B9FC95D003832FE /* COTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COTableView.h; sourceTree = "<group>"; };
+		D84B15201B9FC95D003832FE /* COTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COTableView.m; sourceTree = "<group>"; };
 		D8633A7B1B65C85900ED6052 /* Weather Widget Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weather Widget Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8633A7E1B65C85900ED6052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8633A7F1B65C85900ED6052 /* Weather_Widget_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Weather_Widget_Tests.m; sourceTree = "<group>"; };
@@ -261,8 +261,8 @@
 				2EE175B41B641FE20075BB17 /* AppDelegate.m */,
 				2EE175B61B641FE20075BB17 /* ViewController.h */,
 				2EE175B71B641FE20075BB17 /* ViewController.m */,
-				D84B151F1B9FC95D003832FE /* COTableViewController.h */,
-				D84B15201B9FC95D003832FE /* COTableViewController.m */,
+				D84B151F1B9FC95D003832FE /* COTableView.h */,
+				D84B15201B9FC95D003832FE /* COTableView.m */,
 				2EE175B91B641FE20075BB17 /* Main.storyboard */,
 				2EE175BC1B641FE20075BB17 /* Images.xcassets */,
 				2EE175BE1B641FE20075BB17 /* LaunchScreen.xib */,
@@ -596,7 +596,7 @@
 				2EE175B51B641FE20075BB17 /* AppDelegate.m in Sources */,
 				2EE176111B6420360075BB17 /* AFURLRequestSerialization.m in Sources */,
 				2EE1760D1B6420360075BB17 /* AFNetworkActivityIndicatorManager.m in Sources */,
-				D84B15211B9FC95D003832FE /* COTableViewController.m in Sources */,
+				D84B15211B9FC95D003832FE /* COTableView.m in Sources */,
 				2EE1760E1B6420360075BB17 /* AFNetworkReachabilityManager.m in Sources */,
 				2EE176121B6420360075BB17 /* AFURLResponseSerialization.m in Sources */,
 				D8B3E3E81B768DEE003E97E7 /* COHalfView.m in Sources */,

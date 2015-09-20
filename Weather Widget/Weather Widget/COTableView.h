@@ -1,5 +1,5 @@
 //
-//  COTableViewController.h
+//  COTableView.h
 //  Weather Widget
 //
 //  Created by Nathan Ansel on 9/8/15.
@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface COTableViewController : UITableViewController
+@interface COTableView : UITableView <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) NSUserDefaults *sharedDefaults;
+@property (strong, nonatomic) NSMutableArray *data;
 
 @end

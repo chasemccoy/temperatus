@@ -27,7 +27,7 @@
   // FOR TESTING PURPOSES ONLY
   //
   [self.sharedDefaults setObject:@[ @[@"dayView"],
-                                    @[@"daySummaryView", @"currentTempView"],
+                                    @[@"daySummaryView", @"blank", @"currentTempView"],
                                     @[@"humidityView", @"dewPointView", @"hourSummaryView"],
                                     @[@"weeklySummaryView"],
                                     @[@"hourView"] ]
@@ -45,7 +45,11 @@
 
 
 
-
+/**
+ * Updates the view, if instantiated, creates the view otherwise.
+ *
+ * @author Nate
+ */
 - (void)updateView {
   if (self.myWrapper == nil) {
     self.myWrapper = self.updateInfo.dataWrapper;
@@ -54,14 +58,30 @@
   else {
     self.myWrapper = self.updateInfo.dataWrapper;
     
-    [self.dayView editInfoWithDayArray:self.myWrapper.weekForecast];
-    [self.hourView editInfoWithHourArray:self.myWrapper.hourlyForecast];
-    [self.currentTempView editInfoWithTemperature:self.myWrapper.currentTemp];
-    [self.humidityView editInfoWithHumidity:self.myWrapper.currentHumidity];
-    [self.dewPointView editInfoWithDewPoint:self.myWrapper.currentDewPoint];
-    [self.weeklySummaryView editInfoWithWeeklySummary:self.myWrapper.weekSummary];
-    [self.daySummaryView editInfoWithSummary:self.myWrapper.todaySummary];
-    [self.hourSummaryView editInfoWithSummary:self.myWrapper.nextHourSummary];
+    if (self.dayView) {
+      [self.dayView editInfoWithDayArray:self.myWrapper.weekForecast];
+    }
+    if (self.hourView) {
+      [self.hourView editInfoWithHourArray:self.myWrapper.hourlyForecast];
+    }
+    if (self.currentTempView) {
+      [self.currentTempView editInfoWithTemperature:self.myWrapper.currentTemp];
+    }
+    if (self.humidityView) {
+      [self.humidityView editInfoWithHumidity:self.myWrapper.currentHumidity];
+    }
+    if (self.dewPointView) {
+      [self.dewPointView editInfoWithDewPoint:self.myWrapper.currentDewPoint];
+    }
+    if (self.weeklySummaryView) {
+      [self.weeklySummaryView editInfoWithWeeklySummary:self.myWrapper.weekSummary];
+    }
+    if (self.daySummaryView) {
+      [self.daySummaryView editInfoWithSummary:self.myWrapper.todaySummary];
+    }
+    if (self.hourSummaryView) {
+      [self.hourSummaryView editInfoWithSummary:self.myWrapper.nextHourSummary];
+    }
   }
 }
 
@@ -71,6 +91,7 @@
 /**
  * Takes a 2D array of views and places them in the widget in the correct placement
  *   based on size. Might not be how we use this in the future, but useful for now!
+ *
  * @author Nate
  *
  * @param viewArray An array of UIViews to place in the widget.
@@ -111,6 +132,7 @@
 
 /**
  * Creates a 2D array of views from an array of strings in NSUserDefaults.
+ *
  * @author Nate
  *
  * @return NSArray of NSArrays of UIViews.
@@ -143,15 +165,20 @@
 
 
 /**
- * Creates a UIView from a string delimiter.
+ * Creates a UIView from a string description of the view.
+ *
  * @author Nate
  *
- * @param string An NSString.             I'm tired okay? I'll finish these later.
- * @return A UIView.
+ * @param string An NSString description of the view to be created.
+ * @return A UIView that was created from the string.
  */
 - (UIView *)createViewFromString:(NSString *)string {
   CGRect viewFrame;
-  if ([string isEqualToString:@"hourView"]) {
+  if ([string isEqualToString:@"blank"]) {
+    viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
+    return [[COQuarterView alloc] initBlankModuleWithFrame:viewFrame];
+  }
+  else if ([string isEqualToString:@"hourView"]) {
     viewFrame = CGRectMake(0, 0, self.view.frame.size.width, HEIGHT);
     self.hourView = [[COFullView alloc] initHourlyModuleWithFrame:viewFrame
                                                      andHourArray:_myWrapper.hourlyForecast];
