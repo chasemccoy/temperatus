@@ -27,7 +27,7 @@
   // FOR TESTING PURPOSES ONLY
   //
   [self.sharedDefaults setObject:@[ @[@"dayView"],
-                                    @[@"daySummaryView", @"blank", @"currentTempView"],
+                                    @[@"daySummaryView", @"currentCondition", @"currentTempView"],
                                     @[@"humidityView", @"dewPointView", @"hourSummaryView"],
                                     @[@"weeklySummaryView"],
                                     @[@"hourView"] ]
@@ -81,6 +81,9 @@
     }
     if (self.hourSummaryView) {
       [self.hourSummaryView editInfoWithSummary:self.myWrapper.nextHourSummary];
+    }
+    if (self.currentConditionView) {
+      [self.currentConditionView editInfoWithIcon:self.myWrapper.currentIcon];
     }
   }
 }
@@ -225,6 +228,11 @@
     self.dewPointView = [[COQuarterView alloc] initDewPointModuleWithFrame:viewFrame
                                                                andDewPoint:self.myWrapper.currentDewPoint];
     return self.dewPointView;
+  }
+  else if ([string isEqualToString:@"currentCondition"]) {
+    viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
+    self.currentConditionView = [[COQuarterView alloc] initCurrentConditionModuleWithFrame:viewFrame andIcon:self.myWrapper.currentIcon];
+    return self.currentConditionView;
   }
   
   // if you get here then you're pretty much screwed

@@ -33,6 +33,7 @@
 @property (strong, nonatomic) NSString *todayPrecipType;
 @property (strong, nonatomic) NSString *currentDewPoint;
 @property (strong, nonatomic) NSString *currentHumidity;
+@property (strong, nonatomic) NSString *currentIcon;
 
 // Hourly
 # pragma mark Hourly

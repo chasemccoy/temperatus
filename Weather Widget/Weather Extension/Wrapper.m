@@ -65,6 +65,8 @@ NSString *const notAvailableText = @"N/A";
   NSString *humidity = [HelperClass percentageStringFromDoubleString:[NSString stringWithFormat:@"%f", humidityVal]];
   NSString *dewPoint = [HelperClass temperatureStringFromDoubleString:[dewPointNumeric stringValue] andFarenheitSetting:YES];
   
+  NSString *icon = [HelperClass imageNameForWeatherIconType:currently[kFCIcon]];
+  
   self.nextHourSummary = summary ? summary : notAvailableText;
   self.currentTemp = temp ? temp : notAvailableText;
   self.currentFeelsLikeTemp = feelsLike ? feelsLike : notAvailableText;
@@ -75,6 +77,7 @@ NSString *const notAvailableText = @"N/A";
   self.todayPrecipType = precipType ? precipType : notAvailableText;
   self.currentHumidity = humidity ? humidity : notAvailableText;
   self.currentDewPoint = dewPoint ? dewPoint : notAvailableText;
+  self.currentIcon = icon ? icon : notAvailableText;
 }
 
 #pragma mark - Wrap Hourly Data

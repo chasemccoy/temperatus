@@ -10,7 +10,7 @@
 		2E3390921B65950900719AC5 /* UpdateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE176191B6420D20075BB17 /* UpdateInfo.m */; };
 		2E6060CF1B7910AF00277174 /* HelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F31B6423CE006DE2BB /* HelperClass.m */; };
 		2E6060D01B7910B000277174 /* HelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F31B6423CE006DE2BB /* HelperClass.m */; };
-		2EB367161BC464CB00BC877C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EB367151BC464CB00BC877C /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
+		2EB031E01BC9B5F1000428CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EB031DF1BC9B5F1000428CD /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
 		2EE175B21B641FE20075BB17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE175B11B641FE20075BB17 /* main.m */; };
 		2EE175B51B641FE20075BB17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE175B41B641FE20075BB17 /* AppDelegate.m */; };
 		2EE175B81B641FE20075BB17 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE175B71B641FE20075BB17 /* ViewController.m */; };
@@ -107,7 +107,7 @@
 /* Begin PBXFileReference section */
 		2E0755BE1B9B814F0045914B /* Weather Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Weather Widget.entitlements"; sourceTree = "<group>"; };
 		2E0755BF1B9B81820045914B /* Weather Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Weather Extension.entitlements"; sourceTree = "<group>"; };
-		2EB367151BC464CB00BC877C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2EB031DF1BC9B5F1000428CD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2EE175AC1B641FE20075BB17 /* Weather Widget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Widget.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE175B01B641FE20075BB17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EE175B11B641FE20075BB17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -324,7 +324,7 @@
 				2E6BB89D1B65885D00B97D04 /* Helpers */,
 				2EE175E31B6420020075BB17 /* MainInterface.storyboard */,
 				2EE175DE1B6420020075BB17 /* Supporting Files */,
-				2EB367151BC464CB00BC877C /* Images.xcassets */,
+				2EB031DF1BC9B5F1000428CD /* Images.xcassets */,
 			);
 			path = "Weather Extension";
 			sourceTree = "<group>";
@@ -571,7 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EE175E41B6420020075BB17 /* MainInterface.storyboard in Resources */,
-				2EB367161BC464CB00BC877C /* Images.xcassets in Resources */,
+				2EB031E01BC9B5F1000428CD /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

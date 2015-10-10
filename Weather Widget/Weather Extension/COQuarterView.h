@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) UILabel *label1;
 @property (strong, nonatomic) UILabel *label2;
+@property (strong, nonatomic) UIImageView *imageView;
 
 
 #pragma mark - Blank Module
@@ -26,6 +27,13 @@
 - (instancetype)initCurrentTempModuleWithFrame:(CGRect)aRect
                                 andTemperature:(NSString *)temp;
 - (void)editInfoWithTemperature:(NSString *)temp;
+
+
+#pragma mark - Current Condition Module
+
+- (instancetype)initCurrentConditionModuleWithFrame:(CGRect)aRect
+                                andIcon:(NSString *)iconName;
+- (void)editInfoWithIcon:(NSString *)iconName;
 
 
 #pragma mark - High/Low Temperature Module

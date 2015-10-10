@@ -71,9 +71,37 @@
  * @param temp An NSString of the new temperature.
  */
 - (void)editInfoWithTemperature:(NSString *)temp {
-  self.self.label1.text = temp;
+  self.label1.text = temp;
   [self.label1 sizeToFit];
   [self.label1 setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
+}
+
+
+
+
+#pragma mark - Current Condition Module
+
+- (instancetype)initCurrentConditionModuleWithFrame:(CGRect)aRect
+                                            andIcon:(NSString *)iconName {
+  self = [super initWithFrame:aRect];
+  if (self) {
+    CGFloat minValue;
+    CGFloat width = aRect.size.width;
+    CGFloat height = aRect.size.height;
+    
+    minValue = (width > height) ? height : width;
+    
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, minValue - 25, minValue - 25)];
+    self.imageView.image = [UIImage imageNamed:iconName];
+    [self addSubview:self.imageView];
+    [self.imageView setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
+  }
+  return  self;
+}
+
+- (void)editInfoWithIcon:(NSString *)iconName {
+  self.imageView.image = [UIImage imageNamed:iconName];
+  [self.imageView setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
 }
 
 
