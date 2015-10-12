@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) UILabel *label1;
 @property (strong, nonatomic) UITextView *textView1;
+@property CGRect originalFrame;
 
 
 #pragma mark - Half View Summary Module

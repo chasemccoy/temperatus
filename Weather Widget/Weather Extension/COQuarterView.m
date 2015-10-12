@@ -223,8 +223,8 @@
     [self addSubview:self.label1];
     [self addSubview:self.label2];
     
-    [self.label1 setCenter:CGPointMake(self.frame.size.width / 2, 25)];
-    [self.label2 setCenter:CGPointMake(self.frame.size.width / 2, self.label1.frame.size.height + 30)];
+    [self.label1 setCenter:CGPointMake(self.frame.size.width / 2, 20)];
+    [self.label2 setCenter:CGPointMake(self.frame.size.width / 2, self.label1.frame.size.height + 25)];
   }
   return  self;
 }
@@ -241,7 +241,7 @@
   self.label2.text = humidity;
   [self.label2 sizeToFit];
   
-  [self.label2 setCenter:CGPointMake(self.frame.size.width / 2, self.label1.frame.size.height + 30)];
+  [self.label2 setCenter:CGPointMake(self.frame.size.width / 2, self.label1.frame.size.height + 25)];
 }
 
 
@@ -284,8 +284,8 @@
     [self addSubview:self.label1];
     [self addSubview:self.label2];
     
-    [self.label1 setCenter:CGPointMake(self.frame.size.width / 2, 25)];
-    [self.label2 setCenter:CGPointMake(self.frame.size.width / 2, self.label1.frame.size.height + 30)];
+    [self.label1 setCenter:CGPointMake(self.frame.size.width / 2, 20)];
+    [self.label2 setCenter:CGPointMake(self.frame.size.width / 2, self.label1.frame.size.height + 25)];
   }
   return  self;
 }
@@ -302,7 +302,7 @@
   self.label2.text = dewPoint;
   [self.label2 sizeToFit];
   
-  [self.label2 setCenter:CGPointMake(self.frame.size.width / 2, self.label1.frame.size.height + 30)];
+  [self.label2 setCenter:CGPointMake(self.frame.size.width / 2, self.label1.frame.size.height + 25)];
 }
 
 @end
