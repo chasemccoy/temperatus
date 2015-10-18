@@ -242,7 +242,7 @@
   }
   else if ([string isEqualToString:@"windDirectionView"]) {
     viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
-    self.windDirectionView = [[COQuarterView alloc] initCurrentConditionModuleWithFrame:viewFrame
+    self.windDirectionView = [[COQuarterView alloc] initWindDirectionModuleWithFrame:viewFrame
                                                                                    andIcon:self.myWrapper.currentIcon];
     return self.windDirectionView;
   }

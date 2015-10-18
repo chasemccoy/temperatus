@@ -39,8 +39,6 @@
     [self.textView1 setFont:[UIFont systemFontOfSize:14 weight:UIFontWeightUltraLight]];
     self.textView1.textContainer.lineBreakMode = NSLineBreakByWordWrapping;
     
-    self.textView1.backgroundColor = [UIColor redColor];
-    
     [self adjustFontSizeOfTextViewToFitData];
     
     // This sort of works maybe kinda not really stop asking me http://stackoverflow.com/questions/18859637/setting-uitextview-frame-to-content-size-no-longer-works-in-xcode-5
@@ -88,7 +86,7 @@
   if (myTextViewSize.height > self.originalFrame.size.height) {
     while (myTextViewSize.height > self.originalFrame.size.height)
     {
-      self.textView1.font = [self.textView1.font fontWithSize:self.textView1.font.pointSize - 1];
+      self.textView1.font = [self.textView1.font fontWithSize:self.textView1.font.pointSize - 0.5];
       [self.textView1 setFont:[UIFont systemFontOfSize:self.textView1.font.pointSize weight:UIFontWeightThin]];
       myTextViewSize = [self.textView1 sizeThatFits:CGSizeMake(self.originalFrame.size.width, FLT_MAX)];
     }
@@ -96,11 +94,12 @@
   else {
     while (myTextViewSize.height < (self.originalFrame.size.height - 5) && self.textView1.font.pointSize < 85)
     {
-      self.textView1.font = [self.textView1.font fontWithSize:self.textView1.font.pointSize + 1];
+      self.textView1.font = [self.textView1.font fontWithSize:self.textView1.font.pointSize + 0.5];
       [self.textView1 setFont:[UIFont systemFontOfSize:self.textView1.font.pointSize weight:UIFontWeightThin]];
       myTextViewSize = [self.textView1 sizeThatFits:CGSizeMake(self.originalFrame.size.width, FLT_MAX)];
     }
-    
+    self.textView1.font = [self.textView1.font fontWithSize:self.textView1.font.pointSize - 0.5];
+    [self.textView1 setFont:[UIFont systemFontOfSize:self.textView1.font.pointSize weight:UIFontWeightThin]];
   }
 }
 
