@@ -28,7 +28,7 @@
   //
   [self.sharedDefaults setObject:@[ @[@"dayView"],
                                     @[@"daySummaryView", @"currentCondition", @"currentTempView"],
-                                    @[@"humidityView", @"dewPointView", @"hourSummaryView"],
+                                    @[@"humidityView", @"windDirectionView", @"hourSummaryView"],
                                     @[@"weeklySummaryView"],
                                     @[@"hourView"] ]
                           forKey:@"viewArray"];
@@ -83,7 +83,11 @@
       [self.hourSummaryView editInfoWithSummary:self.myWrapper.nextHourSummary];
     }
     if (self.currentConditionView) {
-      [self.currentConditionView editInfoWithIcon:self.myWrapper.currentIcon];
+      [self.currentConditionView editInfoWithCurrentConditionIcon:self.myWrapper.currentIcon];
+    }
+    if (self.windDirectionView) {
+      Hour *nextHour = self.myWrapper.hourlyForecast[0];
+      [self.windDirectionView editInfoWithWindDirectionIcon:[HelperClass cardinalDirectionFromBearingString:nextHour.windBearing]];
     }
   }
 }
@@ -231,8 +235,16 @@
   }
   else if ([string isEqualToString:@"currentCondition"]) {
     viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
-    self.currentConditionView = [[COQuarterView alloc] initCurrentConditionModuleWithFrame:viewFrame andIcon:self.myWrapper.currentIcon];
+    Hour *nextHour = self.myWrapper.hourlyForecast[0];
+    self.currentConditionView = [[COQuarterView alloc] initCurrentConditionModuleWithFrame:viewFrame
+                                                                                   andIcon:[HelperClass cardinalDirectionFromBearingString:nextHour.windBearing]];
     return self.currentConditionView;
+  }
+  else if ([string isEqualToString:@"windDirectionView"]) {
+    viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
+    self.windDirectionView = [[COQuarterView alloc] initCurrentConditionModuleWithFrame:viewFrame
+                                                                                   andIcon:self.myWrapper.currentIcon];
+    return self.windDirectionView;
   }
   
   // if you get here then you're pretty much screwed

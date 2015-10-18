@@ -32,6 +32,7 @@
 @property (strong, nonatomic) COQuarterView *humidityView;
 @property (strong, nonatomic) COQuarterView *dewPointView;
 @property (strong, nonatomic) COQuarterView *currentConditionView;
+@property (strong, nonatomic) COQuarterView *windDirectionView;
 
 #pragma mark - Methods
 

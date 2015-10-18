@@ -135,24 +135,34 @@
  * @return An NSString object of the general cardinal direction.
  */
 + (NSString *)cardinalDirectionFromBearingString:(NSString *)bearingString {
+//  if (bearingString) {
+//    double bearing = [bearingString doubleValue];
+//    if (bearing < 11.25)  { return @"N"; }
+//    if (bearing < 33.75)  { return @"NNE"; }
+//    if (bearing < 56.25)  { return @"NE"; }
+//    if (bearing < 78.75)  { return @"NEE"; }
+//    if (bearing < 101.25) { return @"E"; }
+//    if (bearing < 123.75) { return @"SEE"; }
+//    if (bearing < 146.25) { return @"SE"; }
+//    if (bearing < 168.75) { return @"SSE"; }
+//    if (bearing < 191.25) { return @"S"; }
+//    if (bearing < 213.75) { return @"SSW"; }
+//    if (bearing < 236.25) { return @"SW"; }
+//    if (bearing < 258.75) { return @"SWW"; }
+//    if (bearing < 281.25) { return @"W"; }
+//    if (bearing < 303.75) { return @"NWW"; }
+//    if (bearing < 326.25) { return @"NW"; }
+//    if (bearing < 348.75) { return @"NNW"; }
+//    return @"N";
+//  }
+//  return nil;
+  
   if (bearingString) {
     double bearing = [bearingString doubleValue];
-    if (bearing < 11.25)  { return @"N"; }
-    if (bearing < 33.75)  { return @"NNE"; }
-    if (bearing < 56.25)  { return @"NE"; }
-    if (bearing < 78.75)  { return @"NEE"; }
-    if (bearing < 101.25) { return @"E"; }
-    if (bearing < 123.75) { return @"SEE"; }
-    if (bearing < 146.25) { return @"SE"; }
-    if (bearing < 168.75) { return @"SSE"; }
-    if (bearing < 191.25) { return @"S"; }
-    if (bearing < 213.75) { return @"SSW"; }
-    if (bearing < 236.25) { return @"SW"; }
-    if (bearing < 258.75) { return @"SWW"; }
-    if (bearing < 281.25) { return @"W"; }
-    if (bearing < 303.75) { return @"NWW"; }
-    if (bearing < 326.25) { return @"NW"; }
-    if (bearing < 348.75) { return @"NNW"; }
+    if (bearing < 78.75)  { return @"N.png"; }
+    if (bearing < 168.75) { return @"E.png"; }
+    if (bearing < 258.75) { return @"S.png"; }
+    if (bearing < 348.75) { return @"W.png"; }
     return @"N";
   }
   return nil;

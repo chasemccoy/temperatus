@@ -33,7 +33,7 @@
 
 - (instancetype)initCurrentConditionModuleWithFrame:(CGRect)aRect
                                 andIcon:(NSString *)iconName;
-- (void)editInfoWithIcon:(NSString *)iconName;
+- (void)editInfoWithCurrentConditionIcon:(NSString *)iconName;
 
 
 #pragma mark - High/Low Temperature Module
@@ -56,5 +56,11 @@
 - (instancetype)initDewPointModuleWithFrame:(CGRect)aRect
                                 andDewPoint:(NSString *)dewPoint;
 - (void)editInfoWithDewPoint:(NSString *)dewPoint;
+
+
+#pragma mark - Wind Direction Module
+- (instancetype)initWindDirectionModuleWithFrame:(CGRect)aRect
+                                            andIcon:(NSString *)iconName;
+- (void)editInfoWithWindDirectionIcon:(NSString *)iconName;
 
 @end
