@@ -30,7 +30,8 @@
                                     @[@"daySummaryView", @"currentCondition", @"currentTempView"],
                                     @[@"humidityView", @"windDirectionView", @"hourSummaryView"],
                                     @[@"weeklySummaryView"],
-                                    @[@"hourView"] ]
+                                    @[@"hourView"],
+                                    @[@"currentConditionWithTemp"]]
                           forKey:@"viewArray"];
   //
   /////////////////////
@@ -88,6 +89,12 @@
     if (self.windDirectionView) {
       Hour *nextHour = self.myWrapper.hourlyForecast[0];
       [self.windDirectionView editInfoWithWindDirectionIcon:[HelperClass cardinalDirectionFromBearingString:nextHour.windBearing]];
+    }
+    if (self.currentConditionWithTempView) {
+      [self.currentConditionWithTempView editInfoWithImageName:self.myWrapper.currentIcon
+                                                   currentTemp:self.myWrapper.currentTemp
+                                                      highTemp:self.myWrapper.todayHighTemp
+                                                       lowTemp:self.myWrapper.todayLowTemp];
     }
   }
 }
@@ -245,6 +252,15 @@
     self.windDirectionView = [[COQuarterView alloc] initWindDirectionModuleWithFrame:viewFrame
                                                                                    andIcon:self.myWrapper.currentIcon];
     return self.windDirectionView;
+  }
+  else if ([string isEqualToString:@"currentConditionWithTemp"]) {
+    viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 2, HEIGHT);
+    self.currentConditionWithTempView = [[COHalfView alloc] initCurrentConditionImageWithTemperaturesModuleWithFrame:viewFrame
+                                                                                                           imageName:self.myWrapper.currentIcon
+                                                                                                         currentTemp:self.myWrapper.currentTemp
+                                                                                                            highTemp:self.myWrapper.todayHighTemp
+                                                                                                             lowTemp:self.myWrapper.todayLowTemp];
+    return self.currentConditionWithTempView;
   }
   
   // if you get here then you're pretty much screwed

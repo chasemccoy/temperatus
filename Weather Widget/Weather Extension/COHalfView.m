@@ -79,6 +79,84 @@
 
 
 
+# pragma mark - Half View Current Condition Image With Temps Module
+
+/**
+ * Initializes a half view with the current condition icon and current, high, and low temperatures.
+ * @author Nate
+ *
+ * @param aRect a CGRect to build the view with
+ * @param imageName NSString of the icon name
+ * @param currentTemp NSString of the current temperature
+ * @param highTemp NSString of the high temperature
+ * @param lowTemp NSString of the low temperature
+ * @return An instance of the COHalfView class
+ */
+- (instancetype)initCurrentConditionImageWithTemperaturesModuleWithFrame:(CGRect)aRect
+                                                               imageName:(NSString *)imageName
+                                                             currentTemp:(NSString *)currentTemp
+                                                                highTemp:(NSString *)highTemp
+                                                                 lowTemp:(NSString *)lowTemp {
+  self = [super initWithFrame:aRect];
+  if (self) {
+    CGRect bRect = CGRectMake(0, 0, aRect.size.width / 2, aRect.size.height);
+    self.imageView1 = [[COQuarterView alloc] initCurrentConditionModuleWithFrame:bRect
+                                                                         andIcon:imageName];
+    [self addSubview:self.imageView1];
+    
+    self.label1 = [[UILabel alloc] initWithFrame:CGRectMake(aRect.size.width * 0.5, 0, aRect.size.width * 0.5, aRect.size.height * 0.7)];
+    self.label2 = [[UILabel alloc] initWithFrame:CGRectMake(aRect.size.width * 0.5, aRect.size.height * 0.7, aRect.size.width * 0.25, aRect.size.height * 0.3)];
+    self.label3 = [[UILabel alloc] initWithFrame:CGRectMake(aRect.size.width * 0.75, aRect.size.height * 0.7, aRect.size.width * 0.25, aRect.size.height * 0.3)];
+    
+    self.label1.text = currentTemp;
+    self.label2.text = highTemp;
+    self.label3.text = lowTemp;
+    
+    [self.label1 setTextColor:[UIColor whiteColor]];
+    [self.label2 setTextColor:[UIColor whiteColor]];
+    [self.label3 setTextColor:[UIColor colorWithWhite:1.0 alpha:0.5]];
+    
+    [self.label1 setBackgroundColor:[UIColor purpleColor]];
+    [self.label2 setBackgroundColor:[UIColor blueColor]];
+    [self.label3 setBackgroundColor:[UIColor redColor]];
+    
+    self.label2.textAlignment = NSTextAlignmentCenter;
+    self.label3.textAlignment = NSTextAlignmentCenter;
+    
+    [self addSubview:self.label1];
+    [self addSubview:self.label2];
+    [self addSubview:self.label3];
+  }
+  return self;
+}
+
+
+
+
+
+/**
+ * Edits the half view with a new icon, current, high, and low temperatures.
+ * @author Nate
+ *
+ * @param imageName NSString of the icon name
+ * @param currentTemp NSString of the current temperature
+ * @param highTemp NSString of the high temperature
+ * @param lowTemp NSString of the low temperature
+ */
+- (void)editInfoWithImageName:(NSString *)imageName
+                  currentTemp:(NSString *)currentTemp
+                     highTemp:(NSString *)highTemp
+                      lowTemp:(NSString *)lowTemp {
+  [self.imageView1 editInfoWithCurrentConditionIcon:imageName];
+  self.label1.text = currentTemp;
+  NSString *labelText = lowTemp;//[NSString stringWithFormat:@"%@/%@", highTemp, lowTemp];
+  self.label2.text = labelText;
+  NSLog(self.label2.text);
+}
+
+
+
+
 #pragma mark - Helper Methods
 
 - (void)adjustFontSizeOfTextViewToFitData {
