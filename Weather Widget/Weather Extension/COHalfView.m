@@ -116,13 +116,11 @@
     [self.label2 setTextColor:[UIColor whiteColor]];
     [self.label3 setTextColor:[UIColor colorWithWhite:1.0 alpha:0.5]];
     
-    [self.label1 setBackgroundColor:[UIColor purpleColor]];
-    [self.label2 setBackgroundColor:[UIColor blueColor]];
-    [self.label3 setBackgroundColor:[UIColor redColor]];
-    
     [self.label1 setTextAlignment:NSTextAlignmentCenter];
     [self.label2 setTextAlignment:NSTextAlignmentCenter];
     [self.label3 setTextAlignment:NSTextAlignmentCenter];
+    
+    [self.label1 setFont:[UIFont systemFontOfSize:36 weight:UIFontWeightThin]];
     
     [self addSubview:self.label1];
     [self addSubview:self.label2];

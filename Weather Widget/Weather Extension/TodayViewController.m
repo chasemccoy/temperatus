@@ -265,8 +265,6 @@
   
   // if you get here then you're pretty much screwed
   // FLAWED LOGIC BRO
-  NSLog(@"Something messed the fuck up");
-  //descriptive error message is descriptive: http://static.giantbomb.com/uploads/original/17/179016/2570640-5353427362-thumb.gif
   return [[UIView alloc] init];
   
   /*            Pikachu wants you to enjoy your day!
