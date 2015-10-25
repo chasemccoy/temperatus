@@ -242,15 +242,15 @@
   }
   else if ([string isEqualToString:@"currentCondition"]) {
     viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
-    Hour *nextHour = self.myWrapper.hourlyForecast[0];
     self.currentConditionView = [[COQuarterView alloc] initCurrentConditionModuleWithFrame:viewFrame
-                                                                                   andIcon:[HelperClass cardinalDirectionFromBearingString:nextHour.windBearing]];
+                                                                                   andIcon:self.myWrapper.currentIcon];
     return self.currentConditionView;
   }
   else if ([string isEqualToString:@"windDirectionView"]) {
     viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
+    Hour *nextHour = self.myWrapper.hourlyForecast[0];
     self.windDirectionView = [[COQuarterView alloc] initWindDirectionModuleWithFrame:viewFrame
-                                                                                   andIcon:self.myWrapper.currentIcon];
+                                                                                   andIcon:[HelperClass cardinalDirectionFromBearingString:nextHour.windBearing]];
     return self.windDirectionView;
   }
   else if ([string isEqualToString:@"currentConditionWithTemp"]) {
