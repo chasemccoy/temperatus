@@ -11,6 +11,7 @@
 @interface ViewController : UIViewController
 
 @property (strong, nonatomic) NSUserDefaults *sharedDefaults;
+@property (strong, nonatomic) UICollectionView *collectionView;
 
 @end
 

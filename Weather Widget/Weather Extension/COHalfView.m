@@ -120,8 +120,9 @@
     [self.label2 setBackgroundColor:[UIColor blueColor]];
     [self.label3 setBackgroundColor:[UIColor redColor]];
     
-    self.label2.textAlignment = NSTextAlignmentCenter;
-    self.label3.textAlignment = NSTextAlignmentCenter;
+    [self.label1 setTextAlignment:NSTextAlignmentCenter];
+    [self.label2 setTextAlignment:NSTextAlignmentCenter];
+    [self.label3 setTextAlignment:NSTextAlignmentCenter];
     
     [self addSubview:self.label1];
     [self addSubview:self.label2];
@@ -149,9 +150,8 @@
                       lowTemp:(NSString *)lowTemp {
   [self.imageView1 editInfoWithCurrentConditionIcon:imageName];
   self.label1.text = currentTemp;
-  NSString *labelText = lowTemp;//[NSString stringWithFormat:@"%@/%@", highTemp, lowTemp];
-  self.label2.text = labelText;
-  NSLog(self.label2.text);
+  self.label2.text = highTemp;
+  self.label3.text = lowTemp;
 }
 
 
@@ -162,20 +162,19 @@
 - (void)adjustFontSizeOfTextViewToFitData {
   CGSize myTextViewSize = [self.textView1 sizeThatFits:CGSizeMake(self.originalFrame.size.width, FLT_MAX)];
   if (myTextViewSize.height > self.originalFrame.size.height) {
-    while (myTextViewSize.height > self.originalFrame.size.height)
-    {
+    while (myTextViewSize.height > self.originalFrame.size.height) {
       self.textView1.font = [self.textView1.font fontWithSize:self.textView1.font.pointSize - 0.5];
       [self.textView1 setFont:[UIFont systemFontOfSize:self.textView1.font.pointSize weight:UIFontWeightThin]];
       myTextViewSize = [self.textView1 sizeThatFits:CGSizeMake(self.originalFrame.size.width, FLT_MAX)];
     }
   }
   else {
-    while (myTextViewSize.height < (self.originalFrame.size.height - 5) && self.textView1.font.pointSize < 85)
-    {
+    while (myTextViewSize.height < (self.originalFrame.size.height - 5) && self.textView1.font.pointSize < 85){
       self.textView1.font = [self.textView1.font fontWithSize:self.textView1.font.pointSize + 0.5];
       [self.textView1 setFont:[UIFont systemFontOfSize:self.textView1.font.pointSize weight:UIFontWeightThin]];
       myTextViewSize = [self.textView1 sizeThatFits:CGSizeMake(self.originalFrame.size.width, FLT_MAX)];
     }
+    // A fix for the while loop above, which sets things to be too big and then exits the loop
     self.textView1.font = [self.textView1.font fontWithSize:self.textView1.font.pointSize - 0.5];
     [self.textView1 setFont:[UIFont systemFontOfSize:self.textView1.font.pointSize weight:UIFontWeightThin]];
   }
