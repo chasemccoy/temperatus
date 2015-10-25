@@ -7,11 +7,29 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UICollectionViewLeftAlignedLayout.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) NSUserDefaults *sharedDefaults;
+
 @property (strong, nonatomic) UICollectionView *collectionView;
+@property (strong, nonatomic) UILongPressGestureRecognizer *longPressGR;
+@property (strong, nonatomic) NSIndexPath *movingIndexPath;
+@property (strong, nonatomic) NSMutableArray *activeModules;
 
 @end
 
+
+@interface CollectionViewCell : UICollectionViewCell
+
+@property (strong, nonatomic) UIImageView* imageView;
+@property (strong, nonatomic) NSString* name;
+
+- (void)configureForItem:(NSString*)imageName andIndex:(NSInteger)index;
+- (NSTimeInterval)randomInterval:(NSTimeInterval)interval andVariance:(double)variance;
+- (void)startWiggling;
+- (void)stopWiggling;
+- (void)prepareForReuse;
+
+@end

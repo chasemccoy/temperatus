@@ -1,12 +1,13 @@
 //
 //  AppDelegate.m
-//  Weather Widget
+//  UICollectionViewTest
 //
-//  Created by Chase McCoy on 7/25/15.
-//  Copyright (c) 2015 Chase McCoy. All rights reserved.
+//  Created by Chase McCoy on 10/18/15.
+//  Copyright © 2015 Chase McCoy. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +20,7 @@
   // Override point for customization after application launch.
   
   [UINavigationBar appearance].opaque = YES;
-  [UINavigationBar appearance].tintColor = [UIColor blueColor];
+  [UINavigationBar appearance].tintColor = [UIColor whiteColor];
   
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   self.window.backgroundColor = [UIColor whiteColor];
@@ -29,6 +30,7 @@
   UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
   
   self.window.rootViewController =  nc;
+
   
   return YES;
 }
