@@ -231,7 +231,6 @@
     [self adjustFontSizeOfTextViewToFitData];
     
     [self addTopBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.1]];
-    [self addBottomBorderWithHeight:1 andColor:[UIColor colorWithWhite:1 alpha:0.1]];
   }
   return self;
 }
