@@ -152,6 +152,7 @@
  * @return NSArray of NSArrays of UIViews.
  */
 - (NSArray *)arrayOfViewsFromSettings {
+  [self.sharedDefaults synchronize];
   NSArray *toBeConvertedArray = [self.sharedDefaults objectForKey:@"viewArray"];
   NSArray *tempArray;
   NSMutableArray *tempViewArray = [[NSMutableArray alloc] init];

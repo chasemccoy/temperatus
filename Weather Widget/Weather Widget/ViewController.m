@@ -54,6 +54,8 @@
   [self.collectionView registerClass:CollectionViewCell.classForCoder forCellWithReuseIdentifier:@"CollectionViewCell"];
   
   [self.view addSubview:self.collectionView];
+  
+  [CollectionViewModel viewArrayFromActiveModules:self.activeModules];
 }
 
 
