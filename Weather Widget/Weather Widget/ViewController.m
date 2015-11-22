@@ -25,6 +25,9 @@
   return self;
 }
 
+
+
+
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view, typically from a nib.
@@ -55,10 +58,16 @@
   [self.view addSubview:self.collectionView];
 }
 
+
+
+
 - (CollectionViewCell*)pickedUpCell {
   NSIndexPath *indexPath = self.movingIndexPath;
   return (CollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath];
 }
+
+
+
 
 - (void)longPressed:(UILongPressGestureRecognizer*)gesture {
   CGPoint location = [gesture locationInView:self.collectionView];
@@ -87,6 +96,9 @@
   }
 }
 
+
+
+
 - (void)startWigglingAllVisibleCells {
   NSArray *cells = [self.collectionView visibleCells];
   
@@ -100,19 +112,30 @@
   }
 }
 
+
+
+
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
   [super setEditing:editing animated:YES];
   [self startWigglingAllVisibleCells];
 }
 
 
+
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
   return 1;
 }
 
+
+
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
   return self.activeModules.count;
 }
+
+
+
 
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
   CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewCell" forIndexPath:indexPath];
@@ -139,11 +162,17 @@
   return cell;
 }
 
+
+
+
 - (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
   NSString *item = [[NSString alloc] initWithString:[self.activeModules objectAtIndex:sourceIndexPath.item]];
   [self.activeModules removeObjectAtIndex:sourceIndexPath.item];
   [self.activeModules insertObject:item atIndex:destinationIndexPath.item];
 }
+
+
+
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
   CollectionViewCell *cell = (CollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath];
@@ -171,9 +200,6 @@
     }
   }
 }
-
-
-
 
 
 
