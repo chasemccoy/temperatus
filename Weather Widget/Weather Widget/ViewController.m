@@ -52,7 +52,7 @@
   self.longPressGR.minimumPressDuration = 0.3;
   
   self.collectionView.alwaysBounceVertical = YES;
-  self.collectionView.backgroundColor = [UIColor blueColor];
+  self.collectionView.backgroundColor = [UIColor blackColor];
   [self.collectionView registerClass:CollectionViewCell.classForCoder forCellWithReuseIdentifier:@"CollectionViewCell"];
   
   [self.view addSubview:self.collectionView];
@@ -225,32 +225,49 @@
 - (instancetype)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
   if (self) {
-    self.backgroundColor = [UIColor whiteColor];
     self.cellType = [[NSNumber alloc] init];
   }
   return self;
 }
 
+
+
+
 - (void)configureForItem:(NSNumber*)cellType andIndex:(NSInteger)index {
   self.cellType = cellType;
+  long type = [self.cellType integerValue];
   
-  if ([self.cellType integerValue] == QUARTER_CURRENT_TEMP) {
-    COQuarterView *currentTemp = [[COQuarterView alloc] initCurrentTempModuleWithFrame:self.frame andTemperature:@"70°"];
-    [self addSubview:currentTemp];
-    [currentTemp setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
-    self.backgroundColor = [UIColor clearColor];
-  }
-  else if ([self.cellType integerValue] == HALF_DAY_SUMMARY) {
-    COHalfView *daySummary = [[COHalfView alloc] initHalfSummaryModuleWithFrame:self.frame andSummary:@"Clear throughout the day"];
-    [self addSubview:daySummary];
-    [daySummary setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
-    self.backgroundColor = [UIColor clearColor];
+  switch (type) {
+    case QUARTER_CURRENT_TEMP: {
+      COQuarterView *currentTemp = [[COQuarterView alloc] initCurrentTempModuleWithFrame:self.frame andTemperature:@"70°"];
+      [self addSubview:currentTemp];
+      [currentTemp setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
+      break;
+    }
+    case HALF_DAY_SUMMARY: {
+      COHalfView *daySummary = [[COHalfView alloc] initHalfSummaryModuleWithFrame:self.frame andSummary:@"Clear throughout the day"];
+      [self addSubview:daySummary];
+      [daySummary setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
+      break;
+    }
+    case FULL_WEEKLY_SUMMARY: {
+      COFullView *weekSumamry = [[COFullView alloc] initWeeklySummaryModuleWithFrame:self.frame andWeeklySummary:@"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."];
+      [self addSubview:weekSumamry];
+      [weekSumamry setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
+      break;
+    }
   }
 }
+
+
+
 
 - (NSTimeInterval)randomInterval:(NSTimeInterval)interval andVariance:(double)variance {
   return interval + variance * (arc4random_uniform(1000) - 500.0) / 500.0;
 }
+
+
+
 
 - (void)startWiggling {
   NSNumber* angle = [NSNumber numberWithFloat:0.02];
@@ -274,9 +291,15 @@
   [self.contentView.layer addAnimation:bounce forKey:@"bounce"];
 }
 
+
+
+
 - (void)stopWiggling {
   [self.contentView.layer removeAllAnimations];
 }
+
+
+
 
 - (void)prepareForReuse {
   [super prepareForReuse];

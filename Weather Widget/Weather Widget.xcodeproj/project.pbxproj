@@ -10,6 +10,7 @@
 		2E3390921B65950900719AC5 /* UpdateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE176191B6420D20075BB17 /* UpdateInfo.m */; };
 		2E6060CF1B7910AF00277174 /* HelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F31B6423CE006DE2BB /* HelperClass.m */; };
 		2E6060D01B7910B000277174 /* HelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F31B6423CE006DE2BB /* HelperClass.m */; };
+		2E8B19431C02689E0057432B /* UIView+Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFCC5711B77C684000F5398 /* UIView+Borders.m */; };
 		2EB031E01BC9B5F1000428CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EB031DF1BC9B5F1000428CD /* Images.xcassets */; };
 		2EBFC33A1BDD54B100E1CE97 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBFC3381BDD54B100E1CE97 /* UICollectionViewLeftAlignedLayout.m */; };
 		2EE175B21B641FE20075BB17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE175B11B641FE20075BB17 /* main.m */; };
@@ -612,6 +613,7 @@
 				2EE1760E1B6420360075BB17 /* AFNetworkReachabilityManager.m in Sources */,
 				2EE176121B6420360075BB17 /* AFURLResponseSerialization.m in Sources */,
 				D8B3E3E81B768DEE003E97E7 /* COHalfView.m in Sources */,
+				2E8B19431C02689E0057432B /* UIView+Borders.m in Sources */,
 				2EE176141B6420360075BB17 /* Forecastr+CLLocation.m in Sources */,
 				2EE176131B6420360075BB17 /* AFURLSessionManager.m in Sources */,
 				D8B3E3F11B769AAA003E97E7 /* COFifthView.m in Sources */,

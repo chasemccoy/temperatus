@@ -11,6 +11,7 @@
 #import "HelperClass.h"
 #import "COQuarterView.h"
 #import "COHalfView.h"
+#import "COFullView.h"
 
 #define HEIGHT (70)
 
