@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "UICollectionViewLeftAlignedLayout.h"
+#import "HelperClass.h"
+#import "COQuarterView.h"
+#import "COHalfView.h"
+
+#define HEIGHT (70)
 
 @interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -23,10 +28,9 @@
 
 @interface CollectionViewCell : UICollectionViewCell
 
-@property (strong, nonatomic) UIImageView* imageView;
-@property (strong, nonatomic) NSString* name;
+@property (strong, nonatomic) NSNumber* cellType;
 
-- (void)configureForItem:(NSString*)imageName andIndex:(NSInteger)index;
+- (void)configureForItem:(NSNumber*)cellType andIndex:(NSInteger)index;
 - (NSTimeInterval)randomInterval:(NSTimeInterval)interval andVariance:(double)variance;
 - (void)startWiggling;
 - (void)stopWiggling;

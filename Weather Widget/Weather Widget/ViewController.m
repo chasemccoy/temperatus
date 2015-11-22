@@ -18,9 +18,9 @@
   self = [super init];
   if (self) {
     self.activeModules = [[NSMutableArray alloc] init];
-    [self.activeModules addObject:@"red"];
-    [self.activeModules addObject:@"purple"];
-    [self.activeModules addObject:@"orange"];
+    [self.activeModules addObject:[NSNumber numberWithInt:QUARTER_CURRENT_TEMP]];
+    [self.activeModules addObject:[NSNumber numberWithInt:HALF_DAY_SUMMARY]];
+    [self.activeModules addObject:[NSNumber numberWithInt:FULL_WEEKLY_SUMMARY]];
   }
   return self;
 }
@@ -140,8 +140,8 @@
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
   CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewCell" forIndexPath:indexPath];
   
-  NSString *imageName = self.activeModules[indexPath.item];
-  [cell configureForItem:imageName andIndex:indexPath.item];
+  NSNumber *cellType = self.activeModules[indexPath.item];
+  [cell configureForItem:cellType andIndex:indexPath.item];
   
   if (self.editing) {
     [cell startWiggling];
@@ -166,7 +166,8 @@
 
 
 - (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-  NSString *item = [[NSString alloc] initWithString:[self.activeModules objectAtIndex:sourceIndexPath.item]];
+  NSNumber *item = [[NSNumber alloc] init];
+  item = [self.activeModules objectAtIndex:sourceIndexPath.item];
   [self.activeModules removeObjectAtIndex:sourceIndexPath.item];
   [self.activeModules insertObject:item atIndex:destinationIndexPath.item];
 }
@@ -178,25 +179,25 @@
   CollectionViewCell *cell = (CollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath];
   
   if (!cell) {
-    if ([self.activeModules[indexPath.item] isEqualToString:@"red"]) {
-      return CGSizeMake(self.view.frame.size.width / 2, 100);
+    if ([self.activeModules[indexPath.item] integerValue] > FULL_START) {
+      return CGSizeMake(self.view.frame.size.width, HEIGHT);
     }
-    else if ([self.activeModules[indexPath.item] isEqualToString:@"orange"]) {
-      return CGSizeMake(self.view.frame.size.width, 100);
+    else if ([self.activeModules[indexPath.item] integerValue] > HALF_START) {
+      return CGSizeMake(self.view.frame.size.width / 2, HEIGHT);
     }
     else {
-      return CGSizeMake(self.view.frame.size.width / 4, 100);
+      return CGSizeMake(self.view.frame.size.width / 4, HEIGHT);
     }
   }
   else {
-    if ([cell.name isEqualToString:@"red"]) {
-      return CGSizeMake(self.view.frame.size.width / 2, 100);
+    if ([cell.cellType integerValue] > FULL_START) {
+      return CGSizeMake(self.view.frame.size.width, HEIGHT);
     }
-    else if ([cell.name isEqualToString:@"orange"]) {
-      return CGSizeMake(self.view.frame.size.width, 100);
+    else if ([cell.cellType integerValue] > HALF_START) {
+      return CGSizeMake(self.view.frame.size.width / 2, HEIGHT);
     }
     else {
-      return CGSizeMake(self.view.frame.size.width / 4, 100);
+      return CGSizeMake(self.view.frame.size.width / 4, HEIGHT);
     }
   }
 }
@@ -225,17 +226,26 @@
   self = [super initWithFrame:frame];
   if (self) {
     self.backgroundColor = [UIColor whiteColor];
-    self.name = [[NSString alloc] init];
-    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    
-    [self.contentView addSubview:self.imageView];
+    self.cellType = [[NSNumber alloc] init];
   }
   return self;
 }
 
-- (void)configureForItem:(NSString*)imageName andIndex:(NSInteger)index {
-  self.name = imageName;
-  self.imageView.image = [UIImage imageNamed:imageName];
+- (void)configureForItem:(NSNumber*)cellType andIndex:(NSInteger)index {
+  self.cellType = cellType;
+  
+  if ([self.cellType integerValue] == QUARTER_CURRENT_TEMP) {
+    COQuarterView *currentTemp = [[COQuarterView alloc] initCurrentTempModuleWithFrame:self.frame andTemperature:@"70°"];
+    [self addSubview:currentTemp];
+    [currentTemp setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
+    self.backgroundColor = [UIColor clearColor];
+  }
+  else if ([self.cellType integerValue] == HALF_DAY_SUMMARY) {
+    COHalfView *daySummary = [[COHalfView alloc] initHalfSummaryModuleWithFrame:self.frame andSummary:@"Clear throughout the day"];
+    [self addSubview:daySummary];
+    [daySummary setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
+    self.backgroundColor = [UIColor clearColor];
+  }
 }
 
 - (NSTimeInterval)randomInterval:(NSTimeInterval)interval andVariance:(double)variance {
