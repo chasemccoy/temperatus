@@ -54,6 +54,9 @@
 		2EE1762C1B642B1E0075BB17 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE176011B6420360075BB17 /* AFURLSessionManager.m */; };
 		2EFCC56F1B7690A7000F5398 /* COFullView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFCC56E1B7690A7000F5398 /* COFullView.m */; };
 		2EFCC5721B77C684000F5398 /* UIView+Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFCC5711B77C684000F5398 /* UIView+Borders.m */; };
+		D80E54571C0267B3004F9FBB /* CollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D80E54561C0267B3004F9FBB /* CollectionViewModel.m */; };
+		D80E54581C02718A004F9FBB /* CollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D80E54561C0267B3004F9FBB /* CollectionViewModel.m */; };
+		D80E54591C02718A004F9FBB /* CollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D80E54561C0267B3004F9FBB /* CollectionViewModel.m */; };
 		D8633A801B65C85900ED6052 /* Weather_Widget_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8633A7F1B65C85900ED6052 /* Weather_Widget_Tests.m */; };
 		D89B6DAB1C0223BE00B01327 /* HelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A8C2F31B6423CE006DE2BB /* HelperClass.m */; };
 		D89B6DAC1C0223C600B01327 /* COFullView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFCC56E1B7690A7000F5398 /* COFullView.m */; };
@@ -175,6 +178,8 @@
 		2EFCC56E1B7690A7000F5398 /* COFullView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COFullView.m; path = "Weather Extension/COFullView.m"; sourceTree = "<group>"; };
 		2EFCC5701B77C684000F5398 /* UIView+Borders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Borders.h"; sourceTree = "<group>"; };
 		2EFCC5711B77C684000F5398 /* UIView+Borders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Borders.m"; sourceTree = "<group>"; };
+		D80E54551C0267B3004F9FBB /* CollectionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewModel.h; sourceTree = "<group>"; };
+		D80E54561C0267B3004F9FBB /* CollectionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewModel.m; sourceTree = "<group>"; };
 		D8633A7B1B65C85900ED6052 /* Weather Widget Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weather Widget Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8633A7E1B65C85900ED6052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8633A7F1B65C85900ED6052 /* Weather_Widget_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Weather_Widget_Tests.m; sourceTree = "<group>"; };
@@ -274,6 +279,8 @@
 				2EE175B71B641FE20075BB17 /* ViewController.m */,
 				2EBFC3381BDD54B100E1CE97 /* UICollectionViewLeftAlignedLayout.m */,
 				2EBFC3391BDD54B100E1CE97 /* UICollectionViewLeftAlignedLayout.h */,
+				D80E54551C0267B3004F9FBB /* CollectionViewModel.h */,
+				D80E54561C0267B3004F9FBB /* CollectionViewModel.m */,
 				2EE175BC1B641FE20075BB17 /* Images.xcassets */,
 				2EE175BE1B641FE20075BB17 /* LaunchScreen.xib */,
 				2EE175AF1B641FE20075BB17 /* Supporting Files */,
@@ -616,6 +623,7 @@
 				2E8B19431C02689E0057432B /* UIView+Borders.m in Sources */,
 				2EE176141B6420360075BB17 /* Forecastr+CLLocation.m in Sources */,
 				2EE176131B6420360075BB17 /* AFURLSessionManager.m in Sources */,
+				D80E54571C0267B3004F9FBB /* CollectionViewModel.m in Sources */,
 				D8B3E3F11B769AAA003E97E7 /* COFifthView.m in Sources */,
 				2EE175B21B641FE20075BB17 /* main.m in Sources */,
 				D8B3E3E41B768DAC003E97E7 /* COQuarterView.m in Sources */,
@@ -629,6 +637,7 @@
 				D89B6DB61C02263600B01327 /* ViewController.m in Sources */,
 				D89B6DB11C0223D600B01327 /* COQuarterView.m in Sources */,
 				D89B6DAD1C0223C700B01327 /* COFullView.m in Sources */,
+				D80E54581C02718A004F9FBB /* CollectionViewModel.m in Sources */,
 				2E6060D01B7910B000277174 /* HelperClass.m in Sources */,
 				2EE175CC1B641FE30075BB17 /* Weather_WidgetTests.m in Sources */,
 				D89B6DAF1C0223CC00B01327 /* COHalfView.m in Sources */,
@@ -673,6 +682,7 @@
 				D89B6DB51C0223DF00B01327 /* ViewController.m in Sources */,
 				D89B6DB21C0223D700B01327 /* COQuarterView.m in Sources */,
 				D89B6DAE1C0223C800B01327 /* COFullView.m in Sources */,
+				D80E54591C02718A004F9FBB /* CollectionViewModel.m in Sources */,
 				2E6060CF1B7910AF00277174 /* HelperClass.m in Sources */,
 				D8633A801B65C85900ED6052 /* Weather_Widget_Tests.m in Sources */,
 				D89B6DB01C0223CD00B01327 /* COHalfView.m in Sources */,
