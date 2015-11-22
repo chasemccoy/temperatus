@@ -19,7 +19,6 @@
   // Override point for customization after application launch.
   
   [UINavigationBar appearance].opaque = YES;
-  [UINavigationBar appearance].tintColor = [UIColor blueColor];
   
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   self.window.backgroundColor = [UIColor whiteColor];

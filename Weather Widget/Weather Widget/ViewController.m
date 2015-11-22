@@ -38,7 +38,7 @@
   self.navigationItem.rightBarButtonItem = self.editButtonItem;
   
   UICollectionViewLeftAlignedLayout *flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
-  flowLayout.sectionInset = UIEdgeInsetsMake(10.0, 0.0, 0.0, 0.0);
+  flowLayout.sectionInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
   flowLayout.minimumInteritemSpacing = 0.0;
   flowLayout.minimumLineSpacing = 0.0;
   
@@ -240,20 +240,20 @@
   switch (type) {
     case QUARTER_CURRENT_TEMP: {
       COQuarterView *currentTemp = [[COQuarterView alloc] initCurrentTempModuleWithFrame:self.frame andTemperature:@"70°"];
-      [self addSubview:currentTemp];
+      [self.contentView addSubview:currentTemp];
       [currentTemp setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
       break;
     }
     case HALF_DAY_SUMMARY: {
       COHalfView *daySummary = [[COHalfView alloc] initHalfSummaryModuleWithFrame:self.frame andSummary:@"Clear throughout the day"];
-      [self addSubview:daySummary];
+      [self.contentView addSubview:daySummary];
       [daySummary setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
       break;
     }
     case FULL_WEEKLY_SUMMARY: {
-      COFullView *weekSumamry = [[COFullView alloc] initWeeklySummaryModuleWithFrame:self.frame andWeeklySummary:@"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."];
-      [self addSubview:weekSumamry];
-      [weekSumamry setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
+      COFullView *weekSummary = [[COFullView alloc] initWeeklySummaryModuleWithFrame:self.frame andWeeklySummary:@"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore."];
+      [self.contentView addSubview:weekSummary];
+      [weekSummary setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
       break;
     }
   }
@@ -275,7 +275,7 @@
   CAKeyframeAnimation *wiggle = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation.z"];
   wiggle.values = [NSArray arrayWithObjects:negativeAngle, angle, nil];
   wiggle.autoreverses = YES;
-  wiggle.duration = [self randomInterval:0.1 andVariance:0.025];
+  wiggle.duration = [self randomInterval:0.13 andVariance:0.020];
   wiggle.repeatCount = INFINITY;
   
   [self.contentView.layer addAnimation:wiggle forKey:@"wiggle"];
@@ -285,7 +285,7 @@
   CAKeyframeAnimation *bounce = [CAKeyframeAnimation animationWithKeyPath:@"transform.translation.y"];
   bounce.values = [NSArray arrayWithObjects:bounceHigh, bounceLow, nil];
   bounce.autoreverses = YES;
-  bounce.duration = [self randomInterval:0.12 andVariance:0.025];
+  bounce.duration = [self randomInterval:0.13 andVariance:0.020];
   bounce.repeatCount = INFINITY;
   
   [self.contentView.layer addAnimation:bounce forKey:@"bounce"];
