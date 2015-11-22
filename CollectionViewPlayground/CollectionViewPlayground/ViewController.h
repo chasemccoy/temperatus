@@ -14,7 +14,9 @@
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) UILongPressGestureRecognizer *longPressGR;
 @property (strong, nonatomic) NSIndexPath *movingIndexPath;
-@property (strong, nonatomic) NSMutableArray *items;
+@property (strong, atomic) NSMutableArray *items;
+
+@property (strong, nonatomic) NSMutableArray *oldItemSizes;
 
 @end
 

@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>UICollectionViewTest.xcscheme</key>
+		<key>CollectionViewPlayground.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2E0FBA6F1BD3EEC100A3B7CE</key>
+		<key>2E07E5011BD5796F0001F67C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

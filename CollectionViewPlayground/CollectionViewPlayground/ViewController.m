@@ -87,10 +87,12 @@
 
 - (void)longPressed:(UILongPressGestureRecognizer*)gesture {
   CGPoint location = [gesture locationInView:self.collectionView];
-  NSIndexPath *movingIndexPath = [self.collectionView indexPathForItemAtPoint:location];
+  NSIndexPath *localMovingIndexPath = [self.collectionView indexPathForItemAtPoint:location];
+  NSLog(@"longPressed");
   
   if (gesture.state == UIGestureRecognizerStateBegan) {
-    NSIndexPath *indexPath = movingIndexPath;
+    NSIndexPath *indexPath = localMovingIndexPath;
+    self.movingIndexPath = localMovingIndexPath;
     
     [self setEditing:YES animated:YES];
     [self.collectionView beginInteractiveMovementForItemAtIndexPath:indexPath];
@@ -108,7 +110,7 @@
       [self.collectionView cancelInteractiveMovement];
     }
     [self animatePuttingDownCell:[self pickedUpCell]];
-    movingIndexPath = nil;
+    self.movingIndexPath = nil;
   }
 }
 
@@ -128,6 +130,7 @@
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
   [super setEditing:editing animated:YES];
   [self startWigglingAllVisibleCells];
+  self.oldItemSizes = [self.items mutableCopy];
 }
 
 
@@ -170,7 +173,29 @@
   [self.items insertObject:item atIndex:destinationIndexPath.item];
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+
+
+
+
+
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+  
+  
+  if ([self.items[indexPath.item] isEqualToString:@"red"]) {
+    return CGSizeMake(self.view.frame.size.width / 2, 100);
+  }
+  else if ([self.items[indexPath.item] isEqualToString:@"orange"]) {
+    return CGSizeMake(self.view.frame.size.width, 100);
+  }
+  else {
+    return CGSizeMake(self.view.frame.size.width / 4, 100);
+  }
+  
+  
   CollectionViewCell *cell = (CollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath];
   
   if (!cell) {
@@ -185,17 +210,53 @@
     }
   }
   else {
-    if ([cell.name isEqualToString:@"red"]) {
-      return CGSizeMake(self.view.frame.size.width / 2, 100);
-    }
-    else if ([cell.name isEqualToString:@"orange"]) {
-      return CGSizeMake(self.view.frame.size.width, 100);
+    ////////////////////////////////////////////////////////////////////////////
+    if (self.editing) {
+//      NSLog([NSString stringWithFormat:@"%d", (int) self.movingIndexPath.item]);
+//      if (indexPath.item == self.movingIndexPath.item) {
+//        if ([self.oldItemSizes[indexPath.item] isEqualToString:@"red"]) {
+//          return CGSizeMake(self.view.frame.size.width / 2, 100);
+//        }
+//        else if ([self.oldItemSizes[indexPath.item] isEqualToString:@"orange"]) {
+//          return CGSizeMake(self.view.frame.size.width, 100);
+//        }
+//        else {
+//          return CGSizeMake(self.view.frame.size.width / 4, 100);
+//        }
+//      }
+//      else {
+        if ([cell.name isEqualToString:@"red"]) {
+          return CGSizeMake(self.view.frame.size.width / 2, 100);
+        }
+        else if ([cell.name isEqualToString:@"orange"]) {
+          return CGSizeMake(self.view.frame.size.width, 100);
+        }
+        else {
+          return CGSizeMake(self.view.frame.size.width / 4, 100);
+        }
+//      }
     }
     else {
-      return CGSizeMake(self.view.frame.size.width / 4, 100);
+    ////////////////////////////////////////////////////////////////////////////
+      if ([cell.name isEqualToString:@"red"]) {
+        return CGSizeMake(self.view.frame.size.width / 2, 100);
+      }
+      else if ([cell.name isEqualToString:@"orange"]) {
+        return CGSizeMake(self.view.frame.size.width, 100);
+      }
+      else {
+        return CGSizeMake(self.view.frame.size.width / 4, 100);
+      }
     }
   }
 }
+
+
+
+
+
+
+
 
 
 
