@@ -40,6 +40,6 @@
 - (void)updateView;
 - (void)placeViewsFrom2DArray:(NSArray *)viewArray;
 - (NSArray *)arrayOfViewsFromSettings;
-- (UIView *)createViewFromString:(NSString *)string;
+- (UIView *)createViewFromEnum:(long)number;
 
 @end

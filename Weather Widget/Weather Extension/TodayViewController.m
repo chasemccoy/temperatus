@@ -26,20 +26,13 @@
   //////////////////////
   // FOR TESTING PURPOSES ONLY
   //
-  [self.sharedDefaults setObject:@[ @[@"dayView"],
-                                    @[@"daySummaryView", @"currentCondition", @"currentTempView"],
-                                    @[@"humidityView", @"windDirectionView", @"hourSummaryView"],
-                                    @[@"weeklySummaryView"],
-                                    @[@"hourView"],
-                                    @[@"currentConditionWithTemp"]]
-                          forKey:@"viewArray"];
-  NSMutableArray *testArray = [[NSMutableArray alloc] init];
-  [testArray addObject:[NSNumber numberWithInteger:QUARTER_CURRENT_CONDITION]];
-  [self.sharedDefaults setObject:testArray forKey:@"testWithEnums"];
-  
-  NSArray *testArray2 = [self.sharedDefaults objectForKey:@"testWithEnums"];
-  BOOL ifEqual = ([testArray2[0] integerValue] == QUARTER_CURRENT_CONDITION);
-  NSLog(@"%d", ifEqual);
+//  [self.sharedDefaults setObject:@[ @[@"dayView"],
+//                                    @[@"daySummaryView", @"currentCondition", @"currentTempView"],
+//                                    @[@"humidityView", @"windDirectionView", @"hourSummaryView"],
+//                                    @[@"weeklySummaryView"],
+//                                    @[@"hourView"],
+//                                    @[@"currentConditionWithTemp"]]
+//                          forKey:@"viewArray"];
   //
   /////////////////////
   
@@ -173,7 +166,7 @@
     
     for (int j = 0; j < tempArray.count; j++) {
       // Pretty much: https://www.dropbox.com/s/u95dihq6qqgo49s/jake%20do%20this%20thing%20with%20magic.gif?dl=0
-      [tempViewArray addObject:[self createViewFromString:tempArray[j]]];
+      [tempViewArray addObject:[self createViewFromEnum:[tempArray[j] longLongValue]]];
     }
     [viewArray addObject:tempViewArray];
   }
@@ -193,81 +186,183 @@
  * @param string An NSString description of the view to be created.
  * @return A UIView that was created from the string.
  */
-- (UIView *)createViewFromString:(NSString *)string {
+- (UIView *)createViewFromEnum:(long)number {
   CGRect viewFrame;
-  if ([string isEqualToString:@"blank"]) {
-    viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
-    return [[COQuarterView alloc] initBlankModuleWithFrame:viewFrame];
-  }
-  else if ([string isEqualToString:@"hourView"]) {
-    viewFrame = CGRectMake(0, 0, self.view.frame.size.width, HEIGHT);
-    self.hourView = [[COFullView alloc] initHourlyModuleWithFrame:viewFrame
-                                                     andHourArray:_myWrapper.hourlyForecast];
-    return self.hourView;
-  }
-  else if ([string isEqualToString:@"dayView"]) {
-    viewFrame = CGRectMake(0, 0, self.view.frame.size.width, HEIGHT);
-    self.dayView = [[COFullView alloc] initDailyModuleWithFrame:viewFrame
-                                                  andDailyArray:_myWrapper.weekForecast];
-    return self.dayView;
-  }
-  else if ([string isEqualToString:@"weeklySummaryView"]) {
-    viewFrame = CGRectMake(0, 0, self.view.frame.size.width, HEIGHT);
-    self.weeklySummaryView = [[COFullView alloc] initWeeklySummaryModuleWithFrame:viewFrame
-                                                                 andWeeklySummary:self.myWrapper.weekSummary];
-    return self.weeklySummaryView;
-  }
-  else if ([string isEqualToString:@"daySummaryView"]) {
-    viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 2, HEIGHT);
-    self.daySummaryView = [[COHalfView alloc] initHalfSummaryModuleWithFrame:viewFrame
-                                                   andSummary:self.myWrapper.todaySummary];
-    return self.daySummaryView;
-  }
-  else if ([string isEqualToString:@"hourSummaryView"]) {
-    viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 2, HEIGHT);
-    self.hourSummaryView = [[COHalfView alloc] initHalfSummaryModuleWithFrame:viewFrame
-                                                                   andSummary:self.myWrapper.nextHourSummary];
-    return self.hourSummaryView;
-  }
-  else if ([string isEqualToString:@"currentTempView"]) {
-    viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
-    self.currentTempView = [[COQuarterView alloc] initCurrentTempModuleWithFrame:viewFrame
-                                                                  andTemperature:self.myWrapper.currentTemp];
-    return self.currentTempView;
-  }
-  else if ([string isEqualToString:@"humidityView"]) {
-    viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
-    self.humidityView = [[COQuarterView alloc] initHumidityModuleWithFrame:viewFrame
-                                                               andHumidity:self.myWrapper.currentHumidity];
-    return self.humidityView;
-  }
-  else if ([string isEqualToString:@"dewPointView"]) {
-    viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
-    self.dewPointView = [[COQuarterView alloc] initDewPointModuleWithFrame:viewFrame
-                                                               andDewPoint:self.myWrapper.currentDewPoint];
-    return self.dewPointView;
-  }
-  else if ([string isEqualToString:@"currentCondition"]) {
-    viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
-    self.currentConditionView = [[COQuarterView alloc] initCurrentConditionModuleWithFrame:viewFrame
-                                                                                   andIcon:self.myWrapper.currentIcon];
-    return self.currentConditionView;
-  }
-  else if ([string isEqualToString:@"windDirectionView"]) {
-    viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
-    Hour *nextHour = self.myWrapper.hourlyForecast[0];
-    self.windDirectionView = [[COQuarterView alloc] initWindDirectionModuleWithFrame:viewFrame
-                                                                                   andIcon:[HelperClass cardinalDirectionFromBearingString:nextHour.windBearing]];
-    return self.windDirectionView;
-  }
-  else if ([string isEqualToString:@"currentConditionWithTemp"]) {
-    viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 2, HEIGHT);
-    self.currentConditionWithTempView = [[COHalfView alloc] initCurrentConditionImageWithTemperaturesModuleWithFrame:viewFrame
-                                                                                                           imageName:self.myWrapper.currentIcon
-                                                                                                         currentTemp:self.myWrapper.currentTemp
-                                                                                                            highTemp:self.myWrapper.todayHighTemp
-                                                                                                             lowTemp:self.myWrapper.todayLowTemp];
-    return self.currentConditionWithTempView;
+  switch (number) {
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //      Quarter Blank
+    //        A blank quarter cell
+    //
+    ////////////////////////////////////////////////////////////////////////////
+    case QUARTER_BLANK: {
+      viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
+      return [[COQuarterView alloc] initBlankModuleWithFrame:viewFrame];
+    }
+      
+      
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //      Quarter Current Condition
+    //        The current condition in an icon
+    //
+    ////////////////////////////////////////////////////////////////////////////
+    case QUARTER_CURRENT_CONDITION: {
+      viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
+      self.currentConditionView = [[COQuarterView alloc] initCurrentConditionModuleWithFrame:viewFrame
+                                                                                     andIcon:self.myWrapper.currentIcon];
+      return self.currentConditionView;
+    }
+      
+      
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //      Quarter Current Temperature
+    //        The current temperature in ºF or ºC
+    //
+    ////////////////////////////////////////////////////////////////////////////
+    case QUARTER_CURRENT_TEMP: {
+      viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
+      self.currentTempView = [[COQuarterView alloc] initCurrentTempModuleWithFrame:viewFrame
+                                                                    andTemperature:self.myWrapper.currentTemp];
+      return self.currentTempView;
+    }
+      
+      
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //      Quarter Dew Point
+    //        The dew point in ºF or ºC
+    //
+    ////////////////////////////////////////////////////////////////////////////
+    case QUARTER_DEW_POINT: {
+      viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
+      self.dewPointView = [[COQuarterView alloc] initDewPointModuleWithFrame:viewFrame
+                                                                 andDewPoint:self.myWrapper.currentDewPoint];
+      return self.dewPointView;
+    }
+      
+      
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //      Quarter Humidity
+    //        The current humidity in percent
+    //
+    ////////////////////////////////////////////////////////////////////////////
+    case QUARTER_HUMIDITY: {
+      viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
+      self.humidityView = [[COQuarterView alloc] initHumidityModuleWithFrame:viewFrame
+                                                                 andHumidity:self.myWrapper.currentHumidity];
+      return self.humidityView;
+    }
+      
+      
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //      Quarter Wind Direction
+    //        The wind direction displayed with a compass icon
+    //
+    ////////////////////////////////////////////////////////////////////////////
+    case QUARTER_WIND_DIRECTION: {
+      viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 4, HEIGHT);
+      Hour *nextHour = self.myWrapper.hourlyForecast[0];
+      self.windDirectionView = [[COQuarterView alloc] initWindDirectionModuleWithFrame:viewFrame
+                                                                               andIcon:[HelperClass cardinalDirectionFromBearingString:nextHour.windBearing]];
+      return self.windDirectionView;
+    }
+      
+    
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //      Half Current Condition with Temperature
+    //        The current condition icon with the current, high, and low
+    //        temperatures in ºF or ºC
+    //
+    ////////////////////////////////////////////////////////////////////////////
+    case HALF_CURRENT_CONDITION_WITH_TEMP: {
+      viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 2, HEIGHT);
+      self.currentConditionWithTempView = [[COHalfView alloc] initCurrentConditionImageWithTemperaturesModuleWithFrame:viewFrame
+                                                                                                             imageName:self.myWrapper.currentIcon
+                                                                                                           currentTemp:self.myWrapper.currentTemp
+                                                                                                              highTemp:self.myWrapper.todayHighTemp
+                                                                                                               lowTemp:self.myWrapper.todayLowTemp];
+      return self.currentConditionWithTempView;
+    }
+      
+    
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //      Half Day Summary
+    //        The day's weather summary in text form
+    //
+    ////////////////////////////////////////////////////////////////////////////
+    case HALF_DAY_SUMMARY: {
+      viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 2, HEIGHT);
+      self.daySummaryView = [[COHalfView alloc] initHalfSummaryModuleWithFrame:viewFrame
+                                                                    andSummary:self.myWrapper.todaySummary];
+      return self.daySummaryView;
+    }
+      
+      
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //      Half Hour Summary
+    //        The hour's weather summary in text form
+    //
+    ////////////////////////////////////////////////////////////////////////////
+    case HALF_HOUR_SUMMARY: {
+      viewFrame = CGRectMake(0, 0, self.view.frame.size.width / 2, HEIGHT);
+      self.hourSummaryView = [[COHalfView alloc] initHalfSummaryModuleWithFrame:viewFrame
+                                                                     andSummary:self.myWrapper.nextHourSummary];
+      return self.hourSummaryView;
+    }
+      
+      
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //      Full Day
+    //        The next 5 days in an array format. Contains the high, low, and
+    //        percent chance of rain
+    //
+    ////////////////////////////////////////////////////////////////////////////
+    case FULL_DAY: {
+      viewFrame = CGRectMake(0, 0, self.view.frame.size.width, HEIGHT);
+      self.dayView = [[COFullView alloc] initDailyModuleWithFrame:viewFrame
+                                                    andDailyArray:_myWrapper.weekForecast];
+      return self.dayView;
+    }
+      
+      
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //      Full Hour
+    //        The next 5 hours in an array format. Contains the high, low, and
+    //        percent chance of rain
+    //
+    ////////////////////////////////////////////////////////////////////////////
+    case FULL_HOUR: {
+      viewFrame = CGRectMake(0, 0, self.view.frame.size.width, HEIGHT);
+      self.hourView = [[COFullView alloc] initHourlyModuleWithFrame:viewFrame
+                                                       andHourArray:_myWrapper.hourlyForecast];
+      return self.hourView;
+    }
+      
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //      Full Weekly Summary
+    //        The next 7 day's weather summary in text format
+    //
+    ////////////////////////////////////////////////////////////////////////////
+    case FULL_WEEKLY_SUMMARY: {
+      viewFrame = CGRectMake(0, 0, self.view.frame.size.width, HEIGHT);
+      self.weeklySummaryView = [[COFullView alloc] initWeeklySummaryModuleWithFrame:viewFrame
+                                                                   andWeeklySummary:self.myWrapper.weekSummary];
+      return self.weeklySummaryView;
+    }
+      
+      
+    default:
+      break;
   }
   
   // if you get here then you're pretty much screwed
@@ -282,7 +377,7 @@
            "xxxb,                  .;xxxx'
             "xxxxx,              ,;xxxxx'
              "x    ',--""""""-_,;    xx'
-               :   '          ."             _-----------------------_
+               :   '          ."     /       _-----------------------_
                 i'                ,^'      ,'       PIKA!!!           ',
                :                   ;       |      PICKACHU!!!          |
                |                   |        '-._____________________.-'
