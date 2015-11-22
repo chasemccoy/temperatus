@@ -12,12 +12,11 @@
 #import "COQuarterView.h"
 #import "COHalfView.h"
 #import "COFullView.h"
+#import "CollectionViewModel.h"
 
 #define HEIGHT (70)
 
 @interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
-
-@property (strong, nonatomic) NSUserDefaults *sharedDefaults;
 
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) UILongPressGestureRecognizer *longPressGR;

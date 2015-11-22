@@ -85,6 +85,10 @@
     }
   }
   
+  NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.cosmicowl.weather"];
+  [sharedDefaults setObject:toReturnArray forKey:@"viewArray"];
+  [sharedDefaults synchronize];
+  
   return toReturnArray;
 }
 

@@ -31,9 +31,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view, typically from a nib.
-  
-  self.sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.cosmicowl.weather"];
-  
+    
   self.title = @"Weather Widget";
   self.navigationItem.rightBarButtonItem = self.editButtonItem;
   
@@ -170,6 +168,8 @@
   item = [self.activeModules objectAtIndex:sourceIndexPath.item];
   [self.activeModules removeObjectAtIndex:sourceIndexPath.item];
   [self.activeModules insertObject:item atIndex:destinationIndexPath.item];
+  
+  [CollectionViewModel viewArrayFromActiveModules:self.activeModules];
 }
 
 
