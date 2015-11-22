@@ -280,7 +280,7 @@
   if (self) {
     self.backgroundColor = [UIColor whiteColor];
     self.name = [[NSString alloc] init];
-    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    //self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
     
     [self.contentView addSubview:self.imageView];
   }
@@ -289,7 +289,16 @@
 
 - (void)configureForItem:(NSString*)imageName andIndex:(NSInteger)index {
   self.name = imageName;
-  self.imageView.image = [UIImage imageNamed:imageName];
+  if ([self.name  isEqual:@"red"]) {
+    self.backgroundColor = [UIColor redColor];
+  }
+  else if ([self.name isEqual:@"purple"]) {
+    self.backgroundColor = [UIColor purpleColor];
+  }
+  else {
+    self.backgroundColor = [UIColor orangeColor];
+  }
+  //self.imageView.image = [UIImage imageNamed:imageName];
 }
 
 - (NSTimeInterval)randomInterval:(NSTimeInterval)interval andVariance:(double)variance {
