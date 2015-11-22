@@ -33,6 +33,13 @@
                                     @[@"hourView"],
                                     @[@"currentConditionWithTemp"]]
                           forKey:@"viewArray"];
+  NSMutableArray *testArray = [[NSMutableArray alloc] init];
+  [testArray addObject:[NSNumber numberWithInteger:QUARTER_CURRENT_CONDITION]];
+  [self.sharedDefaults setObject:testArray forKey:@"testWithEnums"];
+  
+  NSArray *testArray2 = [self.sharedDefaults objectForKey:@"testWithEnums"];
+  BOOL ifEqual = ([testArray2[0] integerValue] == QUARTER_CURRENT_CONDITION);
+  NSLog(@"%d", ifEqual);
   //
   /////////////////////
   
