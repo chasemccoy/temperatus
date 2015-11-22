@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-//#import "HelperClass.h"
+#import "HelperClass.h"
+#import "CollectionViewModel.h"
 
 @interface Weather_WidgetTests : XCTestCase
 
@@ -24,6 +25,20 @@
 - (void)tearDown {
   // Put teardown code here. This method is called after the invocation of each test method in the class.
   [super tearDown];
+}
+
+- (void)testViewArrayFromActiveModules {
+  NSArray *testArray = @[ [NSNumber numberWithInt:QUARTER_BLANK],
+                          [NSNumber numberWithInt:QUARTER_CURRENT_CONDITION],
+                          [NSNumber numberWithInt:FULL_HOUR]];
+  NSArray *testArrayCorrect = @[ @[ [NSNumber numberWithInt:QUARTER_BLANK], [NSNumber numberWithInt:QUARTER_CURRENT_CONDITION]],
+                                 @[ [NSNumber numberWithInt:FULL_HOUR]],
+                                 @[],
+                                 @[],
+                                 @[],
+                                 @[]];
+  XCTAssertEqualObjects([CollectionViewModel viewArrayFromActiveModules:testArray],
+                        testArrayCorrect);
 }
 
 
@@ -152,17 +167,17 @@
 //}
 
 
- - (void)testExample {
- // This is an example of a functional test case.
- XCTAssert(YES, @"Pass");
- }
- 
- - (void)testPerformanceExample {
- // This is an example of a performance test case.
- [self measureBlock:^{
- // Put the code you want to measure the time of here.
- }];
- }
+// - (void)testExample {
+// // This is an example of a functional test case.
+// XCTAssert(YES, @"Pass");
+// }
+// 
+// - (void)testPerformanceExample {
+// // This is an example of a performance test case.
+// [self measureBlock:^{
+// // Put the code you want to measure the time of here.
+// }];
+//}
 
 
 @end

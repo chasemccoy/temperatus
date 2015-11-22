@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "HelperClass.h"
+#import "CollectionViewModel.h"
 
 @interface Weather_WidgetTests : XCTestCase
 
@@ -28,7 +29,7 @@
 
 
 
-
+/*
 - (void)testHelperClassNil {
 //  XCTAssertNil([HelperClass dateFromSecondsString:nil],
 //               @"dateFromSecondsString nil pass");
@@ -152,6 +153,20 @@
                         [HelperClass speedStringFromDoubleString:@"8.8"
                                                  andMilesSetting:NO],
                         @"km/h pass");
+}
+*/
+
+
+
+
+- (void)testViewArrayFromActiveModules {
+  NSArray *testArray = @[ [NSNumber numberWithInt:QUARTER_BLANK],
+                          [NSNumber numberWithInt:QUARTER_CURRENT_CONDITION],
+                          [NSNumber numberWithInt:FULL_HOUR]];
+  NSArray *testArrayCorrect = @[ @[ [NSNumber numberWithInt:QUARTER_BLANK], [NSNumber numberWithInt:QUARTER_CURRENT_CONDITION]],
+                                 @[ [NSNumber numberWithInt:FULL_HOUR]]];
+  XCTAssertEqualObjects([CollectionViewModel viewArrayFromActiveModules:testArray],
+                         testArrayCorrect);
 }
 
 /*

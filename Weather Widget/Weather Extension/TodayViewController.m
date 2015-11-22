@@ -47,7 +47,7 @@
 
 
 /**
- * Updates the view, if instantiated, creates the view otherwise.
+ * Updates the view if instantiated, creates the view otherwise.
  *
  * @author Nate
  */
@@ -145,7 +145,7 @@
 
 
 /**
- * Creates a 2D array of views from an array of strings in NSUserDefaults.
+ * Creates a 2D array of views from a 2D array of View Enums in NSUserDefaults.
  *
  * @author Nate
  *
@@ -159,6 +159,9 @@
   
   for (int i = 0; i < toBeConvertedArray.count; i++) {
     tempArray = toBeConvertedArray[i];
+    if (tempArray.count == 0) {
+      break;
+    }
     tempViewArray = [[NSMutableArray alloc] init];  // reallocate rather than remove the objects in the current array so as not
                                                     // to delete everything held in viewArray's arrays (2D remember?)
                                                     // Hasn't been tested yet so please don't nag me too hard if it explodes and burns (I'm talking to future me b.t.dubs)
