@@ -18,9 +18,13 @@
   self = [super init];
   if (self) {
     self.activeModules = [[NSMutableArray alloc] init];
+    self.inactiveModules = [[NSMutableArray alloc] init];
     [self.activeModules addObject:[NSNumber numberWithInt:QUARTER_CURRENT_TEMP]];
     [self.activeModules addObject:[NSNumber numberWithInt:HALF_DAY_SUMMARY]];
     [self.activeModules addObject:[NSNumber numberWithInt:FULL_WEEKLY_SUMMARY]];
+    
+    [self.inactiveModules addObject:[NSNumber numberWithInt:QUARTER_CURRENT_TEMP]];
+    [self.inactiveModules addObject:[NSNumber numberWithInt:FULL_WEEKLY_SUMMARY]];
   }
   return self;
 }
@@ -36,7 +40,7 @@
   self.navigationItem.rightBarButtonItem = self.editButtonItem;
   
   UICollectionViewLeftAlignedLayout *flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
-  flowLayout.sectionInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
+  flowLayout.sectionInset = UIEdgeInsetsMake(0.0, 0.0, 40.0, 0.0);
   flowLayout.minimumInteritemSpacing = 0.0;
   flowLayout.minimumLineSpacing = 0.0;
   
@@ -124,14 +128,19 @@
 
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-  return 1;
+  return 2;
 }
 
 
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-  return self.activeModules.count;
+  if (section == 0) {
+    return [self.activeModules count];
+  }
+  else {
+    return [self.inactiveModules count];
+  }
 }
 
 
@@ -140,7 +149,14 @@
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
   CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewCell" forIndexPath:indexPath];
   
-  NSNumber *cellType = self.activeModules[indexPath.item];
+  NSNumber *cellType = [[NSNumber alloc] init];
+  if (indexPath.section == 0) {
+    cellType = self.activeModules[indexPath.item];
+  }
+  else if (indexPath.section == 1) {
+    cellType = self.inactiveModules[indexPath.item];
+  }
+  
   [cell configureForItem:cellType andIndex:indexPath.item];
   
   if (self.editing) {
@@ -158,7 +174,7 @@
     cell.alpha = 1.0;
     cell.transform = CGAffineTransformIdentity;
   }
-  
+    
   return cell;
 }
 
@@ -166,10 +182,38 @@
 
 
 - (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+  NSMutableArray *activeSource = self.activeModules;
+  NSMutableArray *inactiveSource = self.inactiveModules;
+  
   NSNumber *item = [[NSNumber alloc] init];
-  item = [self.activeModules objectAtIndex:sourceIndexPath.item];
-  [self.activeModules removeObjectAtIndex:sourceIndexPath.item];
-  [self.activeModules insertObject:item atIndex:destinationIndexPath.item];
+  
+  if (sourceIndexPath.section == 0) {
+    if (destinationIndexPath.section == 0) {
+      item = [activeSource objectAtIndex:sourceIndexPath.item];
+      [activeSource removeObjectAtIndex:sourceIndexPath.item];
+      [activeSource insertObject:item atIndex:destinationIndexPath.item];
+    }
+    else {
+      item = [activeSource objectAtIndex:sourceIndexPath.item];
+      [activeSource removeObjectAtIndex:sourceIndexPath.item];
+      [inactiveSource insertObject:item atIndex:destinationIndexPath.item];
+    }
+  }
+  else {
+    if (destinationIndexPath.section == 0) {
+      item = [inactiveSource objectAtIndex:sourceIndexPath.item];
+      [inactiveSource removeObjectAtIndex:sourceIndexPath.item];
+      [activeSource insertObject:item atIndex:destinationIndexPath.item];
+    }
+    else {
+      item = [inactiveSource objectAtIndex:sourceIndexPath.item];
+      [inactiveSource removeObjectAtIndex:sourceIndexPath.item];
+      [inactiveSource insertObject:item atIndex:destinationIndexPath.item];
+    }
+  }
+  
+  self.activeModules = activeSource;
+  self.inactiveModules = inactiveSource;
   
   [CollectionViewModel viewArrayFromActiveModules:self.activeModules];
 }
@@ -181,14 +225,33 @@
   CollectionViewCell *cell = (CollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath];
   
   if (!cell) {
-    if ([self.activeModules[indexPath.item] integerValue] > FULL_START) {
-      return CGSizeMake(self.view.frame.size.width, HEIGHT);
-    }
-    else if ([self.activeModules[indexPath.item] integerValue] > HALF_START) {
-      return CGSizeMake(self.view.frame.size.width / 2, HEIGHT);
+    if (indexPath.section == 0) {
+      if (indexPath.item >= [self.activeModules count]) {
+        return CGSizeMake(self.view.frame.size.width / 4, HEIGHT);
+      }
+      else if ([self.activeModules[indexPath.item] integerValue] > FULL_START) {
+        return CGSizeMake(self.view.frame.size.width, HEIGHT);
+      }
+      else if ([self.activeModules[indexPath.item] integerValue] > HALF_START) {
+        return CGSizeMake(self.view.frame.size.width / 2, HEIGHT);
+      }
+      else {
+        return CGSizeMake(self.view.frame.size.width / 4, HEIGHT);
+      }
     }
     else {
-      return CGSizeMake(self.view.frame.size.width / 4, HEIGHT);
+      if (indexPath.item >= [self.inactiveModules count]) {
+        return CGSizeMake(self.view.frame.size.width / 4, HEIGHT);
+      }
+      else if ([self.inactiveModules[indexPath.item] integerValue] > FULL_START) {
+        return CGSizeMake(self.view.frame.size.width, HEIGHT);
+      }
+      else if ([self.inactiveModules[indexPath.item] integerValue] > HALF_START) {
+        return CGSizeMake(self.view.frame.size.width / 2, HEIGHT);
+      }
+      else {
+        return CGSizeMake(self.view.frame.size.width / 4, HEIGHT);
+      }
     }
   }
   else {

@@ -17,6 +17,22 @@
 
 @implementation TodayViewController
 
+- (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
+  // Perform any setup necessary in order to update the view.
+  
+  // If an error is encountered, use NCUpdateResultFailed
+  // If there's no update required, use NCUpdateResultNoData
+  // If there's an update, use NCUpdateResultNewData
+  
+  [self.updateInfo update];
+    
+  completionHandler(NCUpdateResultNewData);
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+  [self updateView];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
@@ -58,6 +74,10 @@
   }
   else {
     self.myWrapper = self.updateInfo.dataWrapper;
+    
+    [[self.view subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+
+    [self placeViewsFrom2DArray:[self arrayOfViewsFromSettings]];
     
     if (self.dayView) {
       [self.dayView editInfoWithDayArray:self.myWrapper.weekForecast];
@@ -413,20 +433,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
-
-- (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
-    // Perform any setup necessary in order to update the view.
-    
-    // If an error is encountered, use NCUpdateResultFailed
-    // If there's no update required, use NCUpdateResultNoData
-    // If there's an update, use NCUpdateResultNewData
-  
-  [self updateView];
-
-  completionHandler(NCUpdateResultNewData);
-}
 
 - (void)dealloc {
   [[NSNotificationCenter defaultCenter] removeObserver:self];

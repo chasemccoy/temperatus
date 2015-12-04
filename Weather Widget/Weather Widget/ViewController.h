@@ -22,6 +22,7 @@
 @property (strong, nonatomic) UILongPressGestureRecognizer *longPressGR;
 @property (strong, nonatomic) NSIndexPath *movingIndexPath;
 @property (strong, nonatomic) NSMutableArray *activeModules;
+@property (strong, nonatomic) NSMutableArray *inactiveModules;
 
 @end
 
